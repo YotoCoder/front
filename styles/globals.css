@@ -1,0 +1,244 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+    background-color: #2F3136;
+}
+
+nav {
+   
+    
+}
+
+.registrarBtn {
+    background: linear-gradient(180deg, #EFE154 0%, #FFE500 20%, #FFE500 40%, rgba(255, 229, 0, 0.96) 60%, rgba(255, 229, 0, 0.82) 80%, rgba(255, 229, 0, 0.72) 100%);
+ 
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 12px;
+    letter-spacing: 0.135em;
+
+    color: #000000;
+}
+
+
+
+@keyframes navAnimation {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.lina, .heroM, .fire-right {
+    animation: navAnimation 4s ease-in-out;
+}
+
+@keyframes fireAnimationL {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0);
+    }
+}
+
+
+
+.fire-left {
+    animation: fireAnimationL 4s ease-in-out;
+}
+
+@keyframes navAnimation2 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.sponsor {
+    animation: navAnimation2 2s ease-in-out;
+}
+
+.fecha {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 77px;
+    /* identical to box height */
+    
+    letter-spacing: 0.07em;
+    
+    color: #FFFFFF;
+    
+    text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.58);
+
+    border-top: 1px solid #FEF700;
+    
+    border-bottom: 1px solid #FEF700;
+
+}
+
+
+.modalidad {
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 200;
+    line-height: 43px;
+    letter-spacing: -0.015em;
+    
+    color: #FFFFFF;
+    
+    text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.88);
+}
+
+.prize-pool {
+    font-family: 'Anaheim';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 62px;
+    /* identical to box height */
+
+    letter-spacing: -0.05em;
+
+    color: #FFFFFF;
+
+    text-shadow: 1px 1px 0px #000000;
+}
+
+.prize-pool-amount {
+    
+    font-family: 'Alumni Sans';
+    font-style: normal;
+    font-weight: 800;
+
+    /* identical to box height */
+    
+    letter-spacing: 0.07em;
+    
+    background: linear-gradient(180deg, #F8EE39 0%, #FBF044 26.56%, #D89B2C 43.23%, #FEF5A8 51.56%, #D5922B 67.19%, #D18829 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+
+
+}
+
+.divPrizePool {
+    border: #D89B2C 1px solid;
+}
+
+
+.card {
+    background: rgba(24, 25, 28, 0.59);
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.card2 {
+    box-shadow: 0px 4px 4px rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+}
+
+.nombreCard {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    
+    line-height: 35px;
+    
+    color: #FFFFFF;
+}
+
+.subTitulo {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 30px;
+    /* identical to box height */
+    
+    color: #bdc1c4;
+}
+
+.about {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 21px;
+    /* identical to box height */
+    color: #FFFFFF;
+}
+
+.descripcion {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: center;
+
+    color: #B8B8B8;
+}
+
+.circuloPerfil {
+    box-shadow: 0px 0px 8px rgba(255, 255, 255, 0.25);
+    border: 8px solid #292B2F;
+}
+
+@keyframes navAnimation3 {
+    0% {
+        transform: translateX(-10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+h1 {
+    animation: navAnimation3 1s ease-in-out;
+}
+
+.Master {
+    font-family: sans-serif;
+    text-align: center;
+}
+
+.tituloTorneo {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: -0.01em;
+
+    color: #FFFFFF;
+}
+
+.active {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    /* Color Primary */
+    color: #FFE600;
+    text-shadow: 0px 0px 5px #FFC700;
+}
+
+.inactive {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+
+    color: #6E6F73;
+}
