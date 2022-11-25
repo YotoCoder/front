@@ -81,7 +81,7 @@ const Torneo = () => {
           </div>
         ) : (
           <>
-            <div className="bg-[#121212] my-4 lg:mt-4 m-4 lg:m-0 lg:px-16">
+            <div className="bg-[#121212] my-4 lg:mt-4 lg:px-16">
               <div className="flex items-center py-4 justify-center text-xl lg:text-2xl lg:justify-start tituloTorneo">
                 {torneo.nombre}
               </div>
@@ -313,89 +313,82 @@ const Torneo = () => {
                 <div className="lg:grid lg:grid-cols-3 gap-4">
                   {torneo.equipos.map((equipo) => (
                     <>
-
                       <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4">
-                        <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] w-52 ">
-                          <img
-                            src={equipo.avatar}
-                            alt="..."
-                            className="circuloPerfil p-2 rounded-full max-w-full h-auto "
-                            style={{
-                              background: "linear-gradient( #c59b37, #f4e078 )",
-                              
-                            }}
-                          />
-                          <h2 className="nombreCard text-2xl pt-2">
-                            {equipo.nombre}
-                          </h2>
+                        <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] ">
+                          <div>
+                            <img
+                              src={equipo.avatar}
+                              alt="..."
+                              className="circuloPerfil p-2 rounded-full w-40 h-auto "
+                              style={{
+                                background:
+                                  "linear-gradient( #c59b37, #f4e078 )",
+                              }}
+                            />
+                            <h2 className="nombreCard text-2xl pt-2">
+                              {equipo.nombre}
+                            </h2>
 
-                          <p className="subTitulo text-base">{equipo.tag}</p>
+                            <p className="subTitulo text-base">{equipo.tag}</p>
+                          </div>
 
-                          <h3 className="about">
-                            {
-                              equipo.jugadores.map((jugador) => (
-                                <ul className="flex w-72 hover:bg-yellow-800 items-center justify-between ">
-                                  <li className="">
-                              
-                                    <img
-                                      src={jugador.avatar}
-                                      alt="..."
-                                      className="p-2 rounded-full "
-                                      style={{
-                                        objectFit: 'cover',
-                                        width: '50px',
-                                        height: '50px'
-                                      }}
-                                    />
-                                  </li>
+                          <div className=" w-full ">
+                            {equipo.jugadores.map((jugador) => (
+                              <div className="flex items-center hover:bg-yellow-800 justify-between gap-4 py-2">
+                                <img
+                                  src={jugador.avatar}
+                                  alt="..."
+                                  className="rounded-full object-cover w-12 h-12"
+                                />
 
-                                  <li className="text-white text-sm ">
-                                    {jugador.nick}
-                                  </li>
-                          
-                                  <li className="">
-                                    <p className="text-gray-500 text-sm ">
-                                      {jugador.roll}
-                                    </p>
-                                  </li>
+                                <div className="text-white">{jugador.nick}</div>
 
+                                <div className="text-gray-500 ">
+                                  <p>{jugador.roll}</p>
+                                </div>
 
-                                  <li className="">
-                                    <p className="text-white text-sm mx-2">
-                                      {jugador.pais}
-                                    </p>
-                                  </li>
-                                 
-                                  <img
-                                    src='../icons/steam.svg'
-                                    alt="..."
-                                    className="p-2 rounded-full w-8 h-8 cursor-pointer"
-                                    onClick={() => window.open('https://steamcommunity.com/profiles/'+jugador.steam_id)}
+                                <div className="">{jugador.pais}</div>
 
-                                  />
-
-                                 
-                                </ul>
-                                
-                                
-                              ))
-                            }
-                          </h3>
+                                <img
+                                  src="../icons/steam.svg"
+                                  alt="..."
+                                  className="rounded-full w-8 h-8"
+                                  onClick={() =>
+                                    window.open(
+                                      "https://steamcommunity.com/profiles/" +
+                                        jugador.steam_id
+                                    )
+                                  }
+                                />
+                              </div>
+                            ))}
+                          </div>
 
                           <p className="descripcion text-base w-60"></p>
 
                           <div className="flex gap-10  mt-6">
-
-                              <div className={`
+                            <div
+                              className={`
                                       flex items-center text-2xl drop-shadow-sm rounded-2xl border-4  p-4 justify-center w-60 text-white 
-                                      ${equipo.estado == 'ACTIVO' ? 'border-green-400 ' : ''}
-                                      ${equipo.estado == 'ELIMINADO' ? 'border-red-900 text-red-600' : ''}
-                                      ${equipo.estado == 'ESPERA' ? 'border-yellow-400 text-yellow-400' : ''}`}
-                              >
-                                {equipo.estado}
-                              </div>
-
-                          </div> 
+                                      ${
+                                        equipo.estado == "ACTIVO"
+                                          ? "border-green-400 "
+                                          : ""
+                                      }
+                                      ${
+                                        equipo.estado == "ELIMINADO"
+                                          ? "border-red-900 text-red-600"
+                                          : ""
+                                      }
+                                      ${
+                                        equipo.estado == "ESPERA"
+                                          ? "border-yellow-400 text-yellow-400"
+                                          : ""
+                                      }`}
+                            >
+                              {equipo.estado}
+                            </div>
+                          </div>
                         </div>
                       </div>
                     </>
