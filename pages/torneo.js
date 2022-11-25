@@ -338,7 +338,7 @@ const Torneo = () => {
                                     <img
                                       src={jugador.avatar}
                                       alt="..."
-                                      className="p-2 rounded-full w-12 h-12"
+                                      className=" p-2 rounded-full w-12 h-12"
                                       
                                     />
                                     <p className="text-white text-sm mx-2">
