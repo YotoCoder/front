@@ -322,6 +322,7 @@ const Torneo = () => {
                             className="circuloPerfil p-2 rounded-full max-w-full h-auto "
                             style={{
                               background: "linear-gradient( #c59b37, #f4e078 )",
+                              
                             }}
                           />
                           <h2 className="nombreCard text-2xl pt-2">
@@ -333,26 +334,33 @@ const Torneo = () => {
                           <h3 className="about">
                             {
                               equipo.jugadores.map((jugador) => (
-                                <ul className="flex gap-8 hover:bg-yellow-800 m-2 items-center justify-betwee">
-                                  <li className="flex flex-row items-center justify-between">
+                                <ul className="flex w-72 hover:bg-yellow-800 items-center justify-between ">
+                                  <li className="">
+                              
                                     <img
                                       src={jugador.avatar}
                                       alt="..."
-                                      className=" p-2 rounded-full w-12 h-12"
-                                      
+                                      className="p-2 rounded-full "
+                                      style={{
+                                        objectFit: 'cover',
+                                        width: '50px',
+                                        height: '50px'
+                                      }}
                                     />
-                                    <p className="text-white text-sm mx-2">
-                                      {jugador.nick}
-                                    </p>
+                                  </li>
+
+                                  <li className="text-white text-sm ">
+                                    {jugador.nick}
                                   </li>
                           
-                                  <li className="flex flex-row items-center justify-center">
-                                    <p className="text-white text-sm mx-2">
+                                  <li className="">
+                                    <p className="text-gray-500 text-sm ">
                                       {jugador.roll}
                                     </p>
                                   </li>
-                                  <div className="flex items-stretch justify-end">
-                                  <li className="flex flex-row items-center justify-center">
+
+
+                                  <li className="">
                                     <p className="text-white text-sm mx-2">
                                       {jugador.pais}
                                     </p>
@@ -366,7 +374,7 @@ const Torneo = () => {
 
                                   />
 
-                                  </div>
+                                 
                                 </ul>
                                 
                                 
