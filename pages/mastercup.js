@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 
 import Titulo from "./components/Titulo";
 
-import Copa from "./components/Copa";
+// import Copa from "./components/Copa";
 
 const MasterCUP = () => {
   return (
