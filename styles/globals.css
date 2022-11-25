@@ -242,3 +242,29 @@ h1 {
 
     color: #6E6F73;
 }
+
+.gris {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+
+    line-height: 29px;
+    /* identical to box height */
+
+    letter-spacing: -0.01em;
+
+    color: #6E6F73;
+}
+
+.blanco {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    line-height: 29px;
+
+    /* identical to box height */
+
+    letter-spacing: -0.01em;
+
+    color: #FCFCFC;
+}

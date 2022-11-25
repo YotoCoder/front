@@ -36,13 +36,13 @@ function Menudrop() {
             }}
           >
             <MyLink
-              href="/torneos"
+              href="/torneo"
               className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium w-max"
             >
               Master CUP 2022 | Fin de año
             </MyLink>
             <MyLink
-              href="#"
+              href="/torneos"
               className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium"
             >
               Master CUP 2023 | Primavera
