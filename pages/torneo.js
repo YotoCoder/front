@@ -32,8 +32,11 @@ const Torneo = () => {
     REGLAS: false,
   });
 
+  ("https://admin.vemastercup.com/api/torneo/");
+  const host = "http://localhost:8000/api/torneo/";
+
   useEffect(() => {
-    axios.get("https://admin.vemastercup.com/api/torneo/").then((res) => {
+    axios.get(host).then((res) => {
       setTorneo(res.data[0]);
       setCargando(false);
     });
@@ -71,10 +74,11 @@ const Torneo = () => {
         <div className="sticky top-0 z-50 w-full">
           <Nav />
         </div>
+
         {cargando ? (
-          <>
+          <div>
             <Cargador />
-          </>
+          </div>
         ) : (
           <>
             <div className="bg-[#121212] my-4 lg:mt-4 m-4 lg:m-0 lg:px-16">
@@ -100,40 +104,7 @@ const Torneo = () => {
                 >
                   VISION GENERAL
                 </li>
-                <li
-                  className={`relative flex cursor-pointer items-center justify-center px-1 ${
-                    posicion.TABLA
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
-                      : "inactive"
-                  }`}
-                  onClick={() => {
-                    setPosicion({
-                      VISION_GENERAL: false,
-                      TABLA: true,
-                      EQUIPOS: false,
-                      REGLAS: false,
-                    });
-                  }}
-                >
-                  <p>TABLA</p>
-                </li>
-                <li
-                  className={`relative flex cursor-pointer items-center justify-center px-1 ${
-                    posicion.EQUIPOS
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
-                      : "inactive"
-                  }`}
-                  onClick={() => {
-                    setPosicion({
-                      VISION_GENERAL: false,
-                      TABLA: false,
-                      EQUIPOS: true,
-                      REGLAS: false,
-                    });
-                  }}
-                >
-                  EQUIPOS
-                </li>
+
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.REGLAS
@@ -151,6 +122,42 @@ const Torneo = () => {
                 >
                   REGLAS
                 </li>
+
+                <li
+                  className={`relative flex cursor-pointer items-center justify-center px-1 ${
+                    posicion.EQUIPOS
+                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      : "inactive"
+                  }`}
+                  onClick={() => {
+                    setPosicion({
+                      VISION_GENERAL: false,
+                      TABLA: false,
+                      EQUIPOS: true,
+                      REGLAS: false,
+                    });
+                  }}
+                >
+                  EQUIPOS
+                </li>
+
+                <li
+                  className={`relative flex cursor-pointer items-center justify-center px-1 ${
+                    posicion.TABLA
+                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      : "inactive"
+                  }`}
+                  onClick={() => {
+                    setPosicion({
+                      VISION_GENERAL: false,
+                      TABLA: true,
+                      EQUIPOS: false,
+                      REGLAS: false,
+                    });
+                  }}
+                >
+                  <p>TABLA</p>
+                </li>
               </ul>
 
               {posicion.VISION_GENERAL && (
@@ -158,23 +165,21 @@ const Torneo = () => {
                   <div className="lg:flex justify-between ">
                     <div className="lg:flex lg:flex-col lg:w-screen justify-between">
                       <div className="flex lg:justify-between gap-4 m-4 gris items-center py-4 justify-start text-xl lg:text-2xl tituloTorneo">
-                        
                         <div>
                           El torneo comienza el:
                           <p className="blanco">{torneo.fecha_inicio}</p>
                         </div>
-                        
+
                         <div>
                           <a
                             type="buttom"
-                            className="bg-[#ffe500] items-center justify-center text-black font-bold py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
                             href="https://surveyheart.com/form/6376bc345c66671af98b8eed"
                             target="_blank"
                           >
                             Registrarse
                           </a>
                         </div>
-                        
                       </div>
 
                       <div className="flex m-4 items-center justify-between">
@@ -216,7 +221,7 @@ const Torneo = () => {
                         <div className="">
                           <button
                             type="buttom"
-                            className="bg-[#ffe500] items-center justify-center text-black font-bold py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#ffe500] items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
                             onClick={() => {
                               setPosicion({
                                 VISION_GENERAL: false,
@@ -231,64 +236,162 @@ const Torneo = () => {
                         </div>
                       </div>
                     </div>
-                    
+
                     <div className="">
                       <div>
-                        <p className="text-white py-4 bg-[#403f3f] px-6 font-bold">PREMIACION DEL TORNEO </p>
-                          <div className="flex bg-[#242424] my-[3px] justify-between items-center">
-                            <p className="text-white p-4 text-sm px-6 font-bold">PREMIACION TOTAL</p>
-                            <p className="text-[#FFE600] text-2xl mx-6">{torneo.premio_primer_lugar + torneo.premio_segundo_lugar + torneo.premio_tercer_lugar}$</p>
-                          </div>
+                        <p className="text-white py-4 bg-[#403f3f] px-6 font-bold">
+                          PREMIACION DEL TORNEO{" "}
+                        </p>
+                        <div className="flex bg-[#242424] my-[3px] justify-between items-center">
+                          <p className="text-white p-4 text-sm px-6 font-bold">
+                            PREMIACION TOTAL
+                          </p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            {torneo.premio_primer_lugar +
+                              torneo.premio_segundo_lugar +
+                              torneo.premio_tercer_lugar}
+                            $
+                          </p>
+                        </div>
 
-                          <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                            <p className="text-white p-4 px-6">1° lugar</p>
-                            <p className="text-[#FFE600] text-2xl mx-6">{torneo.premio_primer_lugar}$</p>
-                          </div>
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">1° lugar</p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            {torneo.premio_primer_lugar}$
+                          </p>
+                        </div>
 
-                          <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                            <p className="text-white p-4 px-6">2° lugar</p>
-                            <p className="text-[#FFE600] text-2xl mx-6">{torneo.premio_segundo_lugar}$</p>
-                          </div>
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">2° lugar</p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            {torneo.premio_segundo_lugar}$
+                          </p>
+                        </div>
 
-                          <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                            <p className="text-white p-4 px-6">3° lugar</p>
-                            <p className="text-[#FFE600] text-2xl mx-6">{torneo.premio_tercer_lugar}$</p>
-                          </div>
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">3° lugar</p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            {torneo.premio_tercer_lugar}$
+                          </p>
+                        </div>
                       </div>
 
                       <div className="pt-2">
-                        <p className="text-white py-6 bg-[#403f3f] px-6 font-bold">VACANTES DISPONIBLES</p>
+                        <p className="text-white py-6 bg-[#403f3f] px-6 font-bold">
+                          VACANTES DISPONIBLES
+                        </p>
 
-                          <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                            <p className="text-white p-4 px-6">Ranuras llenas</p>
-                            <p className="blanco text-2xl mx-6">{torneo.inscritos}/{torneo.ranuras}</p>
-                          </div>
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">Ranuras llenas</p>
+                          <p className="blanco text-2xl mx-6">
+                            {torneo.inscritos}/{torneo.ranuras}
+                          </p>
+                        </div>
 
-                          <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                            <p className="text-white p-4 px-6">Se han inscrito</p>
-                            <p className="text-white text-2xl mx-6">{torneo.inscritos}</p>
-                          </div>
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">Se han inscrito</p>
+                          <p className="text-white text-2xl mx-6">
+                            {torneo.inscritos}
+                          </p>
+                        </div>
 
-                          <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                            <p className="text-white p-4 px-6">Reservas</p>
-                            <p className="text-white text-2xl mx-6">{torneo.reservas}</p>
-                          </div>
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">Reservas</p>
+                          <p className="text-white text-2xl mx-6">
+                            {torneo.reservas}
+                          </p>
+                        </div>
                       </div>
                     </div>
-
                   </div>
                 </>
               )}
 
-              {posicion.TABLA && (
-                <div className="flex gap-2 m-4 blanco items-center py-4 justify-start text-xl lg:text-2xl lg:justify-start tituloTorneo">
-                  <p className="blanco">Tabla</p>
-                </div>
-              )}
+              {posicion.TABLA && <div className=""></div>}
 
               {posicion.EQUIPOS && (
-                <div className="flex gap-2 m-4 blanco items-center py-4 justify-start text-xl lg:text-2xl lg:justify-start tituloTorneo">
-                  <p className="blanco">Equipos</p>
+                <div className="lg:grid lg:grid-cols-3 gap-4">
+                  {torneo.equipos.map((equipo) => (
+                    <>
+
+                      <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4">
+                        <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] w-52 ">
+                          <img
+                            src={equipo.avatar}
+                            alt="..."
+                            className="circuloPerfil p-2 rounded-full max-w-full h-auto "
+                            style={{
+                              background: "linear-gradient( #c59b37, #f4e078 )",
+                            }}
+                          />
+                          <h2 className="nombreCard text-2xl pt-2">
+                            {equipo.nombre}
+                          </h2>
+
+                          <p className="subTitulo text-base">{equipo.tag}</p>
+
+                          <h3 className="about">
+                            {
+                              equipo.jugadores.map((jugador) => (
+                                <ul className="flex gap-8 hover:bg-yellow-800 m-2 items-center justify-betwee">
+                                  <li className="flex flex-row items-center justify-between">
+                                    <img
+                                      src={jugador.avatar}
+                                      alt="..."
+                                      className="p-2 rounded-full w-12 h-12"
+                                      
+                                    />
+                                    <p className="text-white text-sm mx-2">
+                                      {jugador.nick}
+                                    </p>
+                                  </li>
+                          
+                                  <li className="flex flex-row items-center justify-center">
+                                    <p className="text-white text-sm mx-2">
+                                      {jugador.roll}
+                                    </p>
+                                  </li>
+                                  <div className="flex items-stretch justify-end">
+                                  <li className="flex flex-row items-center justify-center">
+                                    <p className="text-white text-sm mx-2">
+                                      {jugador.pais}
+                                    </p>
+                                  </li>
+                                 
+                                  <img
+                                    src='../icons/steam.svg'
+                                    alt="..."
+                                    className="p-2 rounded-full w-8 h-8 cursor-pointer"
+                                    onClick={() => window.open('https://steamcommunity.com/id/'+jugador.steam_id)}
+
+                                  />
+
+                                  </div>
+                                </ul>
+                                
+                                
+                              ))
+                            }
+                          </h3>
+
+                          <p className="descripcion text-base w-60"></p>
+
+                          <div className="flex gap-10  mt-6">
+
+                              <div className={`
+                                      flex items-center text-2xl drop-shadow-sm rounded-2xl border-4  p-4 justify-center w-60 text-white 
+                                      ${equipo.estado == 'ACTIVO' ? 'border-green-400 ' : ''}
+                                      ${equipo.estado == 'ELIMINADO' ? 'border-red-900 text-red-600' : ''}
+                                      ${equipo.estado == 'ESPERA' ? 'border-yellow-400 text-yellow-400' : ''}`}
+                              >
+                                {equipo.estado}
+                              </div>
+
+                          </div> 
+                        </div>
+                      </div>
+                    </>
+                  ))}
                 </div>
               )}
 
