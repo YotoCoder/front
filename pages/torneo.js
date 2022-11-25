@@ -362,7 +362,7 @@ const Torneo = () => {
                                     src='../icons/steam.svg'
                                     alt="..."
                                     className="p-2 rounded-full w-8 h-8 cursor-pointer"
-                                    onClick={() => window.open('https://steamcommunity.com/id/'+jugador.steam_id)}
+                                    onClick={() => window.open('https://steamcommunity.com/profiles/'+jugador.steam_id)}
 
                                   />
 
