@@ -347,7 +347,7 @@ const Torneo = () => {
                                   <p>{jugador.roll}</p>
                                 </div>
 
-                                <div className="">{jugador.pais}</div>
+                                <div className="text-white">{jugador.pais}</div>
 
                                 <img
                                   src="../icons/steam.svg"
