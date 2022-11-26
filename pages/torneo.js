@@ -34,9 +34,9 @@ const Torneo = () => {
   });
 
 
-  const host = "http://localhost:8000/api/torneo/";
+  // const host = "http://localhost:8000/api/torneo/";
 
-  // const host = "https://admin.vemastercup.com/api/torneo/";
+  const host = "https://admin.vemastercup.com/api/torneo/";
 
   useEffect(() => {
     axios.get(host).then((res) => {
