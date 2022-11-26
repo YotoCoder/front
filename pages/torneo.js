@@ -4,6 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 import parse from "html-react-parser";
+import Flag from 'react-world-flags'
 
 const Nav = dynamic(() => import("./components/Nav"), {
   suspense: true,
@@ -32,8 +33,10 @@ const Torneo = () => {
     REGLAS: false,
   });
 
-  // https://admin.vemastercup.com/api/torneo/
-  const host = "https://admin.vemastercup.com/api/torneo/";
+
+  const host = "http://localhost:8000/api/torneo/";
+
+  // const host = "https://admin.vemastercup.com/api/torneo/";
 
   useEffect(() => {
     axios.get(host).then((res) => {
@@ -335,31 +338,36 @@ const Torneo = () => {
                           <div className=" w-full ">
                             {equipo.jugadores.map((jugador) => (
                               <div className="flex items-center hover:bg-yellow-800 justify-between gap-4 py-2">
-                                <img
-                                  src={jugador.avatar}
-                                  alt="..."
-                                  className="rounded-full object-cover w-12 h-12"
-                                />
+                                <div className="flex items-center gap-2">
+                                  <img
+                                    src={jugador.avatar}
+                                    alt="..."
+                                    className="rounded-full object-cover w-12 h-12"
+                                  />
 
-                                <div className="text-white">{jugador.nick}</div>
-
+                                  <div className="text-white">{jugador.nick}</div>
+                                </div>
                                 <div className="text-gray-500 ">
                                   <p>{jugador.roll}</p>
                                 </div>
+                                
+                                <div className='flex items-center gap-2 '>
+                                  <div className="h-6 w-6 pt-1">
+                                    <Flag code={ jugador.pais } height="6" />
+                                  </div>
 
-                                <div className="text-white">{jugador.pais}</div>
-
-                                <img
-                                  src="../icons/steam.svg"
-                                  alt="..."
-                                  className="rounded-full w-6 h-6 cursor-pointer"
-                                  onClick={() =>
-                                    window.open(
-                                      "https://steamcommunity.com/profiles/" +
-                                        jugador.steam_id
-                                    )
-                                  }
-                                />
+                                  <img
+                                    src="../icons/steam.svg"
+                                    alt="..."
+                                    className="rounded-full w-6 h-6 cursor-pointer"
+                                    onClick={() =>
+                                      window.open(
+                                        "https://steamcommunity.com/profiles/" +
+                                          jugador.steam_id
+                                      )
+                                    }
+                                  />
+                                  </div>
                               </div>
                             ))}
                           </div>
