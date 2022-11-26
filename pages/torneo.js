@@ -41,6 +41,7 @@ const Torneo = () => {
   useEffect(() => {
     axios.get(host).then((res) => {
       setTorneo(res.data[0]);
+      
       setCargando(false);
     });
   }, []);
@@ -355,15 +356,16 @@ const Torneo = () => {
                                   <div className="h-6 w-6 pt-1">
                                     <Flag code={ jugador.pais } height="6" />
                                   </div>
-
+                                  {
+                                    console.log(typeof jugador.steam_id)
+                                  }
                                   <img
                                     src="../icons/steam.svg"
                                     alt="..."
                                     className="rounded-full w-6 h-6 cursor-pointer"
                                     onClick={() =>
                                       window.open(
-                                        "https://steamcommunity.com/profiles/" +
-                                          jugador.steam_id
+                                        jugador.steam_id
                                       )
                                     }
                                   />
