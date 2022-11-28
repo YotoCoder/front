@@ -3,6 +3,8 @@ import { Suspense } from "react";
 
 import Cargador from "./components/Cargador";
 
+import { Toaster } from "react-hot-toast";
+
 const MainContent = dynamic(() => import("./components/MainContent"), {
   suspense: true,
 });
@@ -73,7 +75,9 @@ export default function Home() {
           <Nav />
         </div>
         <div>
-          <MainContent />
+          <MainContent /> <div className="z-[5000]">
+      
+      </div>
           <About />
           <Cards />
           <div className="py-4">
@@ -81,12 +85,29 @@ export default function Home() {
               primary={"Sponsors"}
               secondary={"Empresas que apoyan el proyecto VMCP."}
             />
+            <Toaster
+          toastOptions={{
+            loading: {
+              duration: 5000,
+            },
+
+            success: {
+              duration: 3000,
+            },
+            // black theme
+            style: {
+              background: "#403f3f",
+              color: "#fff",
+            },
+          }}
+        />
           </div>
           <Sponsors />
         </div>
         <div>
           <Footer />
         </div>
+        
       </div>
     </Suspense>
   );

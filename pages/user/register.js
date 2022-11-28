@@ -6,15 +6,65 @@ import Footer from "../components/Footer";
 
 import axios from "axios";
 import { useRouter } from "next/router";
+import { toast, Toaster } from "react-hot-toast";
 
 const Register = () => {
+
+  const router = useRouter();
+
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+
+  const [error, setError] = useState(false);
+
+  const host = process.env.APIhost;
+  const API_URL = host + "/users/register/";
+  const API_LOGIN = host + "/token/";
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    toast.promise(axios.post(API_URL, { username, password }), {
+      loading: "Cargando...",
+
+      success: (data) => {
+        // console.log(data)
+        axios.post(API_LOGIN, { username, password }).then((res) => {
+          localStorage.setItem("token", res.data.access);
+          localStorage.setItem("username", username);
+          router.push("/");
+        });
+        return <b>Bienvenido {username}!</b>;
+      },
+      error: (err) => {
+        
+        return <b>Ups! al parecer hubo un error, lo mas probable es que ya este registrado ese nick comunicate con el area de soporte para mas ayuda.</b>;
+        },
+    });
+  };
+
   useEffect(() => {
-    console.log(window.localStorage.getItem("token"));
   }, []);
 
   return (
     <>
       <Nav />
+      <Toaster
+            toastOptions={{
+              loading: {
+                duration: 5000,
+              },
+
+              success: {
+                duration: 3000,
+              },
+              // black theme
+              style: {
+                background: "#403f3f",
+                color: "#fff",
+              },
+            }}
+          />
       <div className="lg:flex lg:pt-20 items-center justify-center">
         <div className="flex items-center justify-center">
           <img
@@ -38,6 +88,7 @@ const Register = () => {
                   <input
                     id="username"
                     type="text"
+                    onChange={(e) => setUsername(e.target.value)}
                     className="block w-full px-4 py-2 mt-2  bg-[#403f3f] border  rounded-md  text-white border-gray-600  focus:border-gray-500 focus:outline-none focus:ring"
                   />
                 </div>
@@ -49,6 +100,7 @@ const Register = () => {
                   <input
                     id="password"
                     type="password"
+                    onChange={(e) => setPassword(e.target.value)}
                     className="block w-full px-4 py-2 mt-2  border  rounded-md bg-[#403f3f] text-white border-gray-600 focus:border-gray-500 focus:outline-none focus:ring"
                   />
                 </div>
@@ -67,7 +119,9 @@ const Register = () => {
               </div>
 
               <div className="flex justify-start mt-6">
-                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-md bg-black focus:outline-none focus:bg-gray-600">
+                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-md bg-black focus:outline-none focus:bg-gray-600"
+                        onClick={handleSubmit}
+                >
                   Registrarse
                 </button>
                 <Link

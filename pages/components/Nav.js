@@ -7,6 +7,7 @@ import Menudrop from "./Menudrop";
 import Menuliga from "./Menuliga";
 import Usermenu from "./Usermenu";
 
+
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
@@ -93,13 +94,23 @@ function Nav() {
                     <Usermenu />
                   </div>
                 ) : (
-                  <Link
-                    href="/user/login"
-                    className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
-                  >
-                    Login
-                    <img src="../icons/user.svg" className="w-4 lg:w-8" />{" "}
-                  </Link>
+                  <div className="flex">
+                    <Link
+                      href="/user/register"
+                      className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
+                    >
+                      Registrarte
+                      
+                    </Link>
+
+                    <Link
+                      href="/user/login"
+                      className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
+                    >
+                      Login
+                      <img src="../icons/user.svg" className="w-4 lg:w-8" />{" "}
+                    </Link>
+                  </div>
                 )}
               </div>
             </div>

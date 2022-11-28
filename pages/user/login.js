@@ -46,18 +46,23 @@ const Login = () => {
 
   return (
     <>
-      <Toaster
-        toastOptions={{
-          loading: {
-            duration: Infinity,
-          },
-
-          success: {
-            duration: 3000,
-          },
-        }}
-      />
       <Nav />
+        <Toaster
+            toastOptions={{
+              loading: {
+                duration: 5000,
+              },
+
+              success: {
+                duration: 3000,
+              },
+              // black theme
+              style: {
+                background: "#403f3f",
+                color: "#fff",
+              },
+            }}
+          />
       <div className="lg:flex lg:pt-20 items-center justify-center">
         <div className="flex items-center justify-center">
           <img
@@ -81,6 +86,7 @@ const Login = () => {
                   <input
                     id="username"
                     type="text"
+                    required
                     className="block w-full px-4 py-2 mt-2  bg-[#403f3f] border  rounded-md  text-gray-300 border-gray-600  focus:border-gray-500 focus:outline-none focus:ring"
                     onChange={(e) => setUsername(e.target.value)}
                   />
@@ -93,6 +99,7 @@ const Login = () => {
                   <input
                     id="password"
                     type="password"
+                    required
                     className="block w-full px-4 py-2 mt-2  border  rounded-md bg-[#403f3f] text-gray-300 border-gray-600 focus:border-gray-500 focus:outline-none focus:ring"
                     onChange={(e) => setPassword(e.target.value)}
                   />
@@ -100,7 +107,7 @@ const Login = () => {
               </div>
 
               <div className="flex justify-start gap-2 mt-6">
-                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-2xl bg-black focus:outline-none focus:bg-gray-600"
+                <button type="submit" className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-2xl bg-black focus:outline-none focus:bg-gray-600"
                         onClick={handleSubmit}
                 >
                   Entrar
