@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import { useRouter } from 'next/router';
+import { useRouter } from "next/router";
 import Link from "next/link";
 import Menudrop from "./Menudrop";
 
+import Menuliga from "./Menuliga";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -26,40 +27,55 @@ function Nav() {
                 <div className="ml-10 flex items-baseline space-x-4">
                   <Link
                     href="/"
-                    className={`${router.pathname == "/" ? "border-b-[2px] border-select" : ""} hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    className={`${
+                      router.pathname == "/"
+                        ? "border-b-[2px] border-select"
+                        : ""
+                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Home
                   </Link>
 
-                  <div className="relative z-[1000]" >
+                  <div className="relative z-[1000]">
                     <Menudrop />
                   </div>
                   
-                  
+                  <div className="relative z-[1000]">
+                    <Menuliga />
+                  </div>
 
                   <Link
                     href="/sponsors"
-                    className={`${router.pathname == "/sponsors" ? "border-b-[2px] border-select" : ""} hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    className={`${
+                      router.pathname == "/sponsors"
+                        ? "border-b-[2px] border-select"
+                        : ""
+                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Sponsors
                   </Link>
 
                   <Link
                     href="/contacto"
-                    className={`${router.pathname == "/contacto" ? "border-b-[2px] border-select" : ""} hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}  
+                    className={`${
+                      router.pathname == "/contacto"
+                        ? "border-b-[2px] border-select"
+                        : ""
+                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Contacto
-                    
                   </Link>
-
 
                   <Link
                     href="/nosotros"
-                    className={`${router.pathname == "/nosotros" ? "border-b-[2px] border-select" : ""} hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    className={`${
+                      router.pathname == "/nosotros"
+                        ? "border-b-[2px] border-select"
+                        : ""
+                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Nosotros
                   </Link>
-                  
                 </div>
               </div>
             </div>
@@ -71,7 +87,6 @@ function Nav() {
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
-                
                 {!isOpen ? (
                   <svg
                     className="block h-6 w-6"
@@ -124,30 +139,44 @@ function Nav() {
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <Link
                   href="/"
-                  className={`${router.pathname == "/" ? "bg-yellow-700 w-full" : ""} text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}                >
+                  className={`${
+                    router.pathname == "/" ? "bg-yellow-700 w-full" : ""
+                  } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
+                >
                   Home
                 </Link>
 
                 <Link
                   href="/nosotros"
-                  className={`${router.pathname == "/nosotros" ? "bg-yellow-700 w-full" : ""} text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
+                  className={`${
+                    router.pathname == "/nosotros" ? "bg-yellow-700 w-full" : ""
+                  } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
                 >
                   Nosotros
                 </Link>
 
-                <div className="relative z-[1000]">
+                <div className="relative z-[1005]">
                   <Menudrop />
                 </div>
-                
+
+                <div className="relative z-[1000]">
+                    <Menuliga />
+                </div>
+
                 <Link
                   href="/sponsors"
-                  className={`${router.pathname == "/sponsors" ? "bg-yellow-700 w-full" : ""} text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}                >
+                  className={`${
+                    router.pathname == "/sponsors" ? "bg-yellow-700 w-full" : ""
+                  } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
+                >
                   Sponsors
                 </Link>
 
                 <Link
                   href="/contacto"
-                  className={`${router.pathname == "/contacto" ? "bg-yellow-700 w-full" : ""} text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
+                  className={`${
+                    router.pathname == "/contacto" ? "bg-yellow-700 w-full" : ""
+                  } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
                 >
                   Contacto
                 </Link>
@@ -156,9 +185,6 @@ function Nav() {
           )}
         </Transition>
       </nav>
-
-    
-   
     </div>
   );
 }
