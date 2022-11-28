@@ -7,6 +7,6 @@ module.exports = nextConfig
 
 module.exports = {
   env: {
-    APIhost: 'http://localhost:8000',
+    APIhost: 'https://admin.vemastercup.com',
   },
 }

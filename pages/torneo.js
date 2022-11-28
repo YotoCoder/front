@@ -40,8 +40,8 @@ const Torneo = () => {
 
   useEffect(() => {
     axios.get(host).then((res) => {
-      setTorneo(res.data[0]);
-      
+      setTorneo(res.data.results[0]);
+      console.log(res.data.results[0]);
       setCargando(false);
     });
   }, []);

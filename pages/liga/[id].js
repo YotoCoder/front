@@ -7,6 +7,8 @@ import Cargador from "../components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
 
+import { toast, Toaster } from "react-hot-toast";
+
 const Nav = dynamic(() => import("../components/Nav"), {
   suspense: true,
 });
@@ -28,12 +30,17 @@ const Liga = () => {
   const [jugadores, setJugadores] = useState([]);
   const [cargando, setCargando] = useState(true);
 
+  const [MMR, setMMR] = useState(null);
+
   const [posicion, setPosicion] = useState({
     VISION_GENERAL: true,
     TABLA: false,
-    LIGAS: false,
+    REGISTRO: false,
     REGLAS: false,
   });
+
+  const API_URL = process.env.APIhost + "/ligas/";
+
 
   const host = process.env.APIhost;
   const router = useRouter();
@@ -52,6 +59,37 @@ const Liga = () => {
       setJugadores(res.data);
     });
   }, [id]);
+
+  const handleRegistro = (e) => {
+
+    let headersList = {
+      "Authorization": "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "application/json" 
+     }
+     
+     let bodyContent = JSON.stringify({
+       "liga_id": id,
+       "mmr": MMR
+     });
+     
+     let reqOptions = {
+       url: `${host}/liga/registrar-jugador`,
+       method: "POST",
+       headers: headersList,
+       data: bodyContent,
+     }
+     
+    e.preventDefault();
+    axios(reqOptions).then((res) => {
+      toast.success("Te has registrado correctamente, GLHF! 🎮 VEmasterCUP!");
+      setTimeout(() => {
+        router.reload();
+      }, 200);
+    }
+    ).catch((err) => {
+      toast.error("No se pudo registrar, el MMR es Obligatorio o ya estas registrado en la liga, verifica la tabla.");
+    });
+  };
 
   return (
     <Suspense fallback={<Cargador />}>
@@ -84,6 +122,22 @@ const Liga = () => {
       <div className="flex flex-col ">
         <div className="sticky top-0 z-50 w-full">
           <Nav />
+          <Toaster
+            toastOptions={{
+              loading: {
+                duration: 5000,
+              },
+
+              success: {
+                duration: 3000,
+              },
+              // black theme
+              style: {
+                background: "#403f3f",
+                color: "#fff",
+              },
+            }}
+          />
         </div>
 
         {cargando ? (
@@ -108,7 +162,7 @@ const Liga = () => {
                     setPosicion({
                       VISION_GENERAL: true,
                       TABLA: false,
-                      LIGAS: false,
+                      REGISTRO: false,
                       REGLAS: false,
                     });
                   }}
@@ -126,7 +180,7 @@ const Liga = () => {
                     setPosicion({
                       VISION_GENERAL: false,
                       TABLA: false,
-                      LIGAS: false,
+                      REGISTRO: false,
                       REGLAS: true,
                     });
                   }}
@@ -144,7 +198,7 @@ const Liga = () => {
                     setPosicion({
                       VISION_GENERAL: false,
                       TABLA: true,
-                      LIGAS: false,
+                      REGISTRO: false,
                       REGLAS: false,
                     });
                   }}
@@ -164,14 +218,33 @@ const Liga = () => {
                         </div>
 
                         <div>
-                          <a
-                            type="buttom"
+                          {
+                            localStorage.getItem("token") ? (
+                              <button
                             className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
-                            href="https://surveyheart.com/form/6376bc345c66671af98b8eed"
-                            target="_blank"
+                            onClick={() => {
+                              setPosicion({
+                                VISION_GENERAL: false,
+                                TABLA: false,
+                                REGISTRO: true,
+                                REGLAS: false,
+                              });
+                            }}
                           >
                             Registrarse
-                          </a>
+                          </button>
+                            ) : (
+                              <button
+                                className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
+                                onClick={() => {
+                                  toast.error("Debes iniciar sesión para registrarte en la liga");
+                                }}
+                              >
+                                Registrarse
+                              </button>
+                            )
+                          }
+                          
                         </div>
                       </div>
 
@@ -221,7 +294,7 @@ const Liga = () => {
                               setPosicion({
                                 VISION_GENERAL: false,
                                 TABLA: false,
-                                LIGAS: false,
+                                REGISTRO: false,
                                 REGLAS: true,
                               });
                             }}
@@ -366,7 +439,49 @@ const Liga = () => {
                   </p>
                 </>
               )}
+              
+              {posicion.REGISTRO && (
+                <>
+                  <div className="flex flex-col gap-2 m-4 blanco items-center py-4 justify-start text-xl lg:text-2xl lg:justify-start tituloLiga">
+                    <p className="blanco">Registro</p>
+                  
+                    <div className="flex gap-2 items-center">
+                      <p className="text-[#ababab] text-sm">
+                        {jugadores.length} / {liga.ranuras}
+                      </p>
+                      
+                      <div className="w-24 h-2 bg-[#ababab] rounded-full">
+                        <div
+                          className="w-1/2 h-full bg-[#FFE600] rounded-full"
+                          style={{
+                            width: `${(jugadores.length / liga.ranuras) * 100}%`,
+                          }}
+                        ></div>
+                      </div>
+                    </div>
+
+                    <div>
+                      <p>Ingrese Su MMR</p>
+                      <input
+                          id="MMR"
+                          type="number"
+                          required
+                          className="block w-full px-4 py-2 mt-2  bg-[#403f3f] border  rounded-md  text-gray-300 border-gray-600  focus:border-gray-500 focus:outline-none focus:ring"
+                          onChange={(e) => setMMR(e.target.value)}
+                        />
+                      <button
+                        className="w-full py-2 mt-4 text-black bg-[#FFE600] rounded-md focus:outline-none"
+                        onClick={handleRegistro}
+                      >
+                        Registrarme
+                      </button>
+                    </div>
+                  </div>
+                </>
+              )}
+
             </div>
+            
           </>
         )}
 
