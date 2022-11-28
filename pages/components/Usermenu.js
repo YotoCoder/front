@@ -1,12 +1,23 @@
 import { Transition } from '@headlessui/react'
 import Link from 'next/link'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 const Usermenu = () => {
 
   const [userMenuOpen, setUserMenuOpen] = useState(false)
 
+  const [username, setUsername] = useState('')
+
+  useEffect(() => {
+    const username = window.localStorage.getItem('username')
+    setUsername(username)
+  }, [])
+
   return (
+
+    <>
+    {
+      username ? (
 
     <div className="relative z-[5000]">
         <button
@@ -17,11 +28,14 @@ const Usermenu = () => {
           aria-haspopup="true"
         >
         <span className="sr-only">Abrir Menu</span>
-        <img
-          src="../icons/user.svg"
-          className="h-6 w-6 lg:h-8 lg:w-8 cursor-pointer justify-center items-center"
-          alt="user"
-        />
+        <div className='flex items-center justify-center text-white gap-2'>
+          <p>{username}</p>
+          <img
+            src="../icons/user.svg"
+            className="h-6 w-6 lg:h-8 lg:w-8 cursor-pointer justify-center items-center"
+            alt="user"
+          />
+        </div>
       </button>
 
       <Transition
@@ -33,9 +47,9 @@ const Usermenu = () => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-current ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-4 bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
           <Link
-            href="#"
+            href={`/user/profile/${username}`}
             className="block px-4 py-2 text-base text-white hover:bg-yellow-700"
             role="menuitem"
           >
@@ -43,7 +57,7 @@ const Usermenu = () => {
           </Link>
 
           <Link
-            href="#"
+            href="/user/logout"
             className="block px-4 py-2 text-base text-white hover:bg-yellow-700"
             role="menuitem"
           >
@@ -52,6 +66,10 @@ const Usermenu = () => {
         </div>
       </Transition>
     </div>
+
+    ) : null
+}
+  </>
   )
 }
 

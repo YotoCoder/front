@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -11,6 +11,12 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
+  const [session, setSession] = useState(false);
+
+  useEffect(() => {
+    window.localStorage.getItem("token") ? setSession(true) : setSession(false);
+  }, []);
+
   return (
     <div>
       <nav className="bg-[#202225]">
@@ -18,17 +24,16 @@ function Nav() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-              <Link href="/" >
-                    <img
-                      className="h-16 w-16"
-                      src="../images/escudo.png"
-                      alt="logo"
-                    />
+                <Link href="/">
+                  <img
+                    className="h-16 w-16"
+                    src="../images/escudo.png"
+                    alt="logo"
+                  />
                 </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
-                  
                   <Link
                     href="/"
                     className={`${
@@ -43,7 +48,7 @@ function Nav() {
                   <div className="relative z-[1000]">
                     <Menudrop />
                   </div>
-                  
+
                   <div className="relative z-[1000]">
                     <Menuliga />
                   </div>
@@ -83,13 +88,23 @@ function Nav() {
                 </div>
               </div>
               <div className="absolute z-[2000] right-10">
-                <Usermenu />
+                {session ? (
+                  <div className="">
+                    <Usermenu />
+                  </div>
+                ) : (
+                  <Link
+                    href="/user/login"
+                    className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
+                  >
+                    Login
+                    <img src="../icons/user.svg" className="w-4 lg:w-8" />{" "}
+                  </Link>
+                )}
               </div>
             </div>
-            
 
             <div className="-mr-2 flex md:hidden">
-            
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
@@ -98,7 +113,6 @@ function Nav() {
                 aria-expanded="false"
               >
                 {!isOpen ? (
-                  
                   <svg
                     className="block h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -135,7 +149,7 @@ function Nav() {
             </div>
           </div>
         </div>
-                    
+
         <Transition
           show={isOpen}
           enter="transition ease-out duration-300 transform"
@@ -171,7 +185,7 @@ function Nav() {
                 </div>
 
                 <div className="relative z-[1000]">
-                    <Menuliga />
+                  <Menuliga />
                 </div>
 
                 <Link
