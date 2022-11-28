@@ -260,7 +260,7 @@ const Liga = () => {
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">Se han inscrito</p>
                           <p className="text-white text-2xl mx-6">
-                            {liga.inscritos}
+                            {jugadores.length}
                           </p>
                         </div>
 
@@ -307,7 +307,7 @@ const Liga = () => {
 
                     <tbody>
                       {jugadores.map((jugador, i) => (
-                        <tr className="bg-[#242424]">
+                        <tr className="bg-[#242424] hover:bg-yellow-700">
                           <td className="px-1 py-2 text-white border font-serif border-[#121212]">
                             {i + 1}
                           </td>

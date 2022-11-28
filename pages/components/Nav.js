@@ -5,6 +5,7 @@ import Link from "next/link";
 import Menudrop from "./Menudrop";
 
 import Menuliga from "./Menuliga";
+import Usermenu from "./Usermenu";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,14 +18,17 @@ function Nav() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
-                  className="h-16 w-16"
-                  src="../images/escudo.png"
-                  alt="logo"
-                />
+              <Link href="/" >
+                    <img
+                      className="h-16 w-16"
+                      src="../images/escudo.png"
+                      alt="logo"
+                    />
+                </Link>
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
+                  
                   <Link
                     href="/"
                     className={`${
@@ -78,16 +82,23 @@ function Nav() {
                   </Link>
                 </div>
               </div>
+              <div className="absolute z-[2000] right-10">
+                <Usermenu />
+              </div>
             </div>
+            
+
             <div className="-mr-2 flex md:hidden">
+            
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 type="button"
-                className=" inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                className=" inline-flex items-center justify-center m-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
                 aria-controls="mobile-menu"
                 aria-expanded="false"
               >
                 {!isOpen ? (
+                  
                   <svg
                     className="block h-6 w-6"
                     xmlns="http://www.w3.org/2000/svg"
@@ -124,7 +135,7 @@ function Nav() {
             </div>
           </div>
         </div>
-
+                    
         <Transition
           show={isOpen}
           enter="transition ease-out duration-300 transform"
