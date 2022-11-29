@@ -47,12 +47,7 @@ function Menudrop() {
             >
               Master CUP 2023 | Primavera
             </MyLink>
-            <MyLink
-              href="/shuffle"
-              className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium"
-            >
-              Liga Master Shuffle
-            </MyLink>
+            
           </div>
         </Menu.Item>
       </Menu.Items>
