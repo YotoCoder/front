@@ -27,9 +27,9 @@ const Torneo = () => {
   const [cargando, setCargando] = useState(true);
 
   const [posicion, setPosicion] = useState({
-    VISION_GENERAL: true,
+    VISION_GENERAL: false,
     TABLA: false,
-    EQUIPOS: false,
+    EQUIPOS: true,
     REGLAS: false,
   });
 
