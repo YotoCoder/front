@@ -14,22 +14,22 @@ export default function Game() {
       home: {
         team: {
           id: "12",
-          name: "Team 1"
+          name: "Team 1",
         },
         score: {
-          score: 0
-        }
+          score: 100,
+        },
       },
       visitor: {
         team: {
           id: "13",
-          name: "Team 4"
+          name: "Team 4",
         },
         score: {
-          score: 1
-        }
-      }
-    }
+          score: 10,
+        },
+      },
+    },
   };
   const game3 = {
     id: "3",
@@ -39,22 +39,22 @@ export default function Game() {
       home: {
         team: {
           id: "11",
-          name: "Team 2"
+          name: "Team 2",
         },
         score: {
-          score: 1
-        }
+          score: 1,
+        },
       },
       visitor: {
         team: {
           id: "12",
-          name: "Team 3"
+          name: "Team 3",
         },
         score: {
-          score: 0
-        }
-      }
-    }
+          score: 0,
+        },
+      },
+    },
   };
   const game1 = {
     id: "1",
@@ -64,10 +64,10 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Team 1"
+          name: "Team 1",
         },
         score: {
-          score: 2
+          score: 2,
         },
         seed: {
           displayName: "A1",
@@ -75,116 +75,111 @@ export default function Game() {
           sourceGame: game2,
           sourcePool: {
             id: "1",
-            name: "Pool A"
-
-          }
-        }
+            name: "Pool A",
+          },
+        },
       },
       visitor: {
         team: {
           id: "11",
-          name: "Team 2"
+          name: "Team 2",
         },
         score: {
-          score: 3
+          score: 3000,
         },
         seed: {
           displayName: "A2",
           rank: 1,
           sourceGame: game3,
-          sourcePool: {}
-        }
-      }
-    }
+          sourcePool: {},
+        },
+      },
+    },
   };
 
   const games = [
     {
       id: "1",
-      name: "semi-finals",
+      name: "Upper",
       scheduled: Number(new Date()),
       sides: {
         home: {
           team: {
             id: "10",
-            name: "Team 1"
+            name: "Team 1",
           },
           score: {
-            score: 2
+            score: 300,
           },
           seed: {
             displayName: "A1",
             rank: 1,
             sourceGame: game2,
-            sourcePool: {}
-          }
+            sourcePool: {},
+          },
         },
         visitor: {
           team: {
             id: "11",
-            name: "Team 2"
+            name: "Team 2",
           },
           score: {
-            score: 3
+            score: 301,
           },
           seed: {
             displayName: "A2",
             rank: 1,
             sourceGame: game3,
-            sourcePool: {}
-          }
-        }
-      }
+            sourcePool: {},
+          },
+        },
+      },
     },
     {
       id: "1",
-      name: "finals",
+      name: "Lower",
       scheduled: Number(new Date()),
       sides: {
         home: {
           team: {
             id: "10",
-            name: "Team 1"
+            name: "Team 1",
           },
           score: {
-            score: 2
+            score: 2,
           },
           seed: {
             displayName: "A1",
             rank: 1,
             sourceGame: game2,
-            sourcePool: {}
-          }
+            sourcePool: {},
+          },
         },
         visitor: {
           team: {
             id: "11",
-            name: "Team 2"
+            name: "Team 2",
           },
           score: {
-            score: 3
+            score: 3,
           },
           seed: {
             displayName: "A2",
             rank: 1,
             sourceGame: game3,
-            sourcePool: {}
-          }
-        }
-      }
-    }
+          },
+        },
+      },
+    },
   ];
-
-
 
   return (
     <>
-      <div className='p-2' 
-           style={{ width: "100%", height: "100%" }}
+      <div
+        className="p-2"
+        style={{ width: "100%", height: "100%", color: "white" }}
       >
-        <BracketGenerator
-          games={games}
-          />
+        <BracketGenerator games={games} />
       </div>
     </>
   );
