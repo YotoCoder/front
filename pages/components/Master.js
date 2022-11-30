@@ -5,8 +5,6 @@ import {
   BracketGenerator,
 } from "react-tournament-bracket";
 
-import Titulo from "./Titulo";
-
 export default function Game() {
   const game15 = {
     id: "15",

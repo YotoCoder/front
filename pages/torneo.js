@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 import parse from "html-react-parser";
 import Flag from 'react-world-flags'
+import Game from "./components/Master";
 
 const Nav = dynamic(() => import("./components/Nav"), {
   suspense: true,
@@ -181,9 +182,9 @@ const Torneo = () => {
                             href="#"
                             target="_blank"
                           >
-                            {torneo.estado == "E" && ("Inscribirse")}
-                            {torneo.estado == "J" && ("En juego")}
-                            {torneo.estado == "F" && ("Finalizado")}
+                            {torneo.estado == "E" && "Inscribirse"}
+                            {torneo.estado == "J" && "En juego"}
+                            {torneo.estado == "F" && "Finalizado"}
                           </a>
                         </div>
                       </div>
@@ -313,7 +314,14 @@ const Torneo = () => {
                 </>
               )}
 
-              {posicion.TABLA && <div className=""></div>}
+              {posicion.TABLA && (
+                <>
+                  <Titulo primary="Main Event" secondary="VeMasterCUP" />
+                  <div className="Game flex">
+                    <Game />
+                  </div>
+                </>
+              )}
 
               {posicion.EQUIPOS && (
                 <div className="lg:grid lg:grid-cols-3 gap-4">
@@ -348,30 +356,28 @@ const Torneo = () => {
                                     className="rounded-full object-cover w-12 h-12"
                                   />
 
-                                  <div className="text-white">{jugador.nick}</div>
+                                  <div className="text-white">
+                                    {jugador.nick}
+                                  </div>
                                 </div>
                                 <div className="text-gray-500 ">
                                   <p>{jugador.roll}</p>
                                 </div>
-                                
-                                <div className='flex items-center gap-2 '>
+
+                                <div className="flex items-center gap-2 ">
                                   <div className="h-6 w-6 pt-1">
-                                    <Flag code={ jugador.pais } height="6" />
+                                    <Flag code={jugador.pais} height="6" />
                                   </div>
-                                  {
-                                    console.log(typeof jugador.steam_id)
-                                  }
+                                  {console.log(typeof jugador.steam_id)}
                                   <img
                                     src="../icons/steam.svg"
                                     alt="..."
                                     className="rounded-full w-6 h-6 cursor-pointer"
                                     onClick={() =>
-                                      window.open(
-                                        jugador.steam_id
-                                      )
+                                      window.open(jugador.steam_id)
                                     }
                                   />
-                                  </div>
+                                </div>
                               </div>
                             ))}
                           </div>
