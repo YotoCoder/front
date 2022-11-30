@@ -16,7 +16,7 @@ const Shuffle = () => {
       </Head>
 
       <Nav />
-      <Titulo primary={"Liga Master Shuffle"} secondary={"Clasificaciones y Resultados."} />
+      <Titulo primary={"Torneo VeMasterCUP"} secondary={"Clasificaciones y Resultados."} />
       
       <div className='Game flex w-full'>
         <Game />

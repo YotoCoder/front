@@ -48,8 +48,9 @@ const Usermenu = () => {
         leaveTo="transform opacity-0 scale-95"
       >
         <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-4 bg-black ring-1 ring-black ring-opacity-5 focus:outline-none">
+          {/* ref={`/user/profile/${username}`} */}
           <Link
-            href={`/user/profile/${username}`}
+            href='#'
             className="block px-4 py-2 text-base text-white hover:bg-yellow-700"
             role="menuitem"
           >

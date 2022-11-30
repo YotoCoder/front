@@ -178,10 +178,12 @@ const Torneo = () => {
                           <a
                             type="buttom"
                             className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
-                            href="https://surveyheart.com/form/6376bc345c66671af98b8eed"
+                            href="#"
                             target="_blank"
                           >
-                            Registrarse
+                            {torneo.estado == "E" && ("Inscribirse")}
+                            {torneo.estado == "J" && ("En juego")}
+                            {torneo.estado == "F" && ("Finalizado")}
                           </a>
                         </div>
                       </div>
