@@ -388,8 +388,8 @@ const Liga = () => {
                             <div className="lg:flex gap-2 items-center justify-between">
                               <img
                                 src={
-                                  jugador.imagen
-                                    ? jugador.imagen
+                                  jugador.user.avatar
+                                    ? host + jugador.user.avatar
                                     : "../images/escudo.png"
                                 }
                                 alt="avatar-jugador"
