@@ -343,7 +343,7 @@ const Torneo = () => {
                   <>
                   <div className="flex items-center justify-center">
                     <img src='/images/fases/titulo_fase.png'
-                          alt="fase a y b del torneo"
+                          alt="titulo de la fase del torneo"
                           className=''
                       />
                   </div>
@@ -351,20 +351,40 @@ const Torneo = () => {
                     
                     <img src='/images/fases/grupo_a.png'
                          alt="grupo a del torneo"
-                         className=''
+                         className='flex decoration-purple-300'
                     />
                     <img src='/images/fases/grupo_b.png'
-                         alt="grupo a del torneo"
-                         className=''
+                         alt="grupo b del torneo"
+                         className='flex'
                     />
                   </div>
 
-                  <div className="hidden">
-                    <img src='/images/partidos.jpeg'
-                         alt='partidos del torneo'
-                        className=' overflow-scroll pb-20'
-                    />
-                  </div>
+                    <div className="flex items-center justify-center p-4 py-16">
+                      <img src='/images/fases/dia_1.png' alt="dia 1 del torneo"
+                           className='border p-4 rounded-2xl shadow-lg shadow-[#e7cd66]'
+                      />
+                    </div>
+                    <div className="flex items-center justify-center p-4 py-16">
+                      <img src='/images/fases/dia_2.png' alt="dia 2 del torneo"
+                           className='border p-4 rounded-2xl shadow-lg shadow-[#e7cd66]'
+                      />
+                    </div>
+                    <div className="flex items-center justify-center p-4 py-16">
+                      <img src='/images/fases/dia_3.png' alt="dia 3 del torneo"
+                           className='border p-4 rounded-2xl shadow-lg shadow-[#e7cd66]'
+                      />
+                    </div>
+                    <div className="flex items-center justify-center p-4 py-16">
+                      <img src='/images/fases/dia_4.png' alt="dia 4 del torneo"
+                           className='border p-4 rounded-2xl shadow-lg shadow-[#e7cd66]'
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-center p-4 py-16">
+                      <img src='/images/fases/dia_5.png' alt="dia 5 del torneo"
+                           className='border p-4 rounded-2xl shadow-lg shadow-[#e7cd66]'
+                      />
+                    </div>
                   </>
                 )
               }
