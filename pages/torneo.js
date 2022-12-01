@@ -341,25 +341,28 @@ const Torneo = () => {
                 // FASES
                 posicion.FASES && (
                   <>
-                  <div className="flex flex-col px-4 items-center justify-center">
+                  <div className="flex items-center justify-center">
                     <img src='/images/fases/titulo_fase.png'
-                         alt="fase a y b del torneo"
-                         className=''
-                    />
+                          alt="fase a y b del torneo"
+                          className=''
+                      />
+                  </div>
+                  <div className="lg:flex items-center justify-center">
+                    
                     <img src='/images/fases/grupo_a.png'
                          alt="grupo a del torneo"
-                        className=''
+                         className=''
                     />
                     <img src='/images/fases/grupo_b.png'
                          alt="grupo a del torneo"
-                        className=''
+                         className=''
                     />
                   </div>
 
                   <div className="hidden">
                     <img src='/images/partidos.jpeg'
                          alt='partidos del torneo'
-                        className=' overflow-scroll pb-20's
+                        className=' overflow-scroll pb-20'
                     />
                   </div>
                   </>
