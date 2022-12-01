@@ -42,7 +42,7 @@ const Torneo = () => {
   useEffect(() => {
     axios.get(host).then((res) => {
       setTorneo(res.data.results[0]);
-      console.log(res.data.results[0]);
+      // console.log(res.data.results[0]);
       setCargando(false);
     });
   }, []);
@@ -103,6 +103,7 @@ const Torneo = () => {
                       VISION_GENERAL: true,
                       TABLA: false,
                       EQUIPOS: false,
+                      FASES: false,
                       REGLAS: false,
                     });
                   }}
@@ -121,6 +122,7 @@ const Torneo = () => {
                       VISION_GENERAL: false,
                       TABLA: false,
                       EQUIPOS: false,
+                      FASES: false,
                       REGLAS: true,
                     });
                   }}
@@ -139,11 +141,31 @@ const Torneo = () => {
                       VISION_GENERAL: false,
                       TABLA: false,
                       EQUIPOS: true,
+                      FASES: false,
                       REGLAS: false,
                     });
                   }}
                 >
                   EQUIPOS
+                </li>
+
+                <li
+                  className={`relative flex cursor-pointer items-center justify-center px-1 ${
+                    posicion.FASES
+                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      : "inactive"
+                  }`}
+                  onClick={() => {
+                    setPosicion({
+                      VISION_GENERAL: false,
+                      TABLA: false,
+                      EQUIPOS: false,
+                      FASES: true,
+                      REGLAS: false,
+                    });
+                  }}
+                >
+                  FASES
                 </li>
 
                 <li
@@ -157,11 +179,12 @@ const Torneo = () => {
                       VISION_GENERAL: false,
                       TABLA: true,
                       EQUIPOS: false,
+                      FASES: false,
                       REGLAS: false,
                     });
                   }}
                 >
-                  <p>TABLA</p>
+                  <p>MAIN EVENT</p>
                 </li>
               </ul>
 
@@ -314,6 +337,26 @@ const Torneo = () => {
                 </>
               )}
 
+              {
+                // FASES
+                posicion.FASES && (
+                  <>
+                  <div className="flex flex-col p-4 items-center justify-center">
+                    <img src='/images/fases.jpeg'
+                         alt="fase a y b del torneo"
+                         className='w-96 pb-8' />
+                  </div>
+                  <div className="">
+                    <img src='/images/partidos.jpeg'
+                         alt='partidos del torneo'
+                        className=' overflow-scroll pb-20'
+                        
+                    />
+                  </div>
+                  </>
+                )
+              }
+
               {posicion.TABLA && (
                 <>
                   <Titulo primary="Main Event" secondary="VeMasterCUP" />
@@ -368,7 +411,7 @@ const Torneo = () => {
                                   <div className="h-6 w-6 pt-1">
                                     <Flag code={jugador.pais} height="6" />
                                   </div>
-                                  {console.log(typeof jugador.steam_id)}
+                                  {/*console.log(typeof jugador.steam_id)}*/}
                                   <img
                                     src="../icons/steam.svg"
                                     alt="..."

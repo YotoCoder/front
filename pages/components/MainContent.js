@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const MainContent = () => {
   return (
     <div className='flex relative lg:top-0 flex-col items-center justify-start top-[-10vh] h-screen  z-[20] w-screen lg:h-max lg:w-full'
@@ -79,11 +81,11 @@ const MainContent = () => {
           <img src='../images/sponsors.png' alt='sponsors' className='relative sponsor object-cover w-[55%]' />
 
           {/* boton */}
-          <a type='button' href='https://bit.ly/3tGpK92' target='_blank' value=''  >
-            <p className='flex relative registrarBtn mx-4 px-1 p-3 h-full  lg:p-6  '>
-              INSCRIBIRSE
+          <Link type='button' href='/torneo' value=''  >
+            <p className='flex flex-row relative registrarBtn mx-4 px-10 p-3 lg:p-6 lg:px-16 h-full'>
+              VER 
             </p>
-          </a>
+          </Link>
         </div>
     </div>
   )
