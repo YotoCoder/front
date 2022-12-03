@@ -63,11 +63,14 @@ export default function Home() {
           content="Pagina de organización de Torneos de Dota 2 online en Venezuela y latinoamerica."
         />
 
-        <meta property="og:image" content="../images/escudo.png" />
+        <meta
+          property="og:image"
+          content="https://vemastercup.com/images/escudo.png"
+        />
 
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
-        <link rel="icon" href="../images/escudo.png" />
+        <link rel="icon" href="https://vemastercup.com/images/escudo.png" />
       </Head>
 
       <div className="flex flex-col">
@@ -75,9 +78,7 @@ export default function Home() {
           <Nav />
         </div>
         <div>
-          <MainContent /> <div className="z-[5000]">
-      
-      </div>
+          <MainContent /> <div className="z-[5000]"></div>
           <About />
           <Cards />
           <div className="py-4">
@@ -86,28 +87,27 @@ export default function Home() {
               secondary={"Empresas que apoyan el proyecto VMCP."}
             />
             <Toaster
-          toastOptions={{
-            loading: {
-              duration: 5000,
-            },
+              toastOptions={{
+                loading: {
+                  duration: 5000,
+                },
 
-            success: {
-              duration: 3000,
-            },
-            // black theme
-            style: {
-              background: "#403f3f",
-              color: "#fff",
-            },
-          }}
-        />
+                success: {
+                  duration: 3000,
+                },
+                // black theme
+                style: {
+                  background: "#403f3f",
+                  color: "#fff",
+                },
+              }}
+            />
           </div>
           <Sponsors />
         </div>
         <div>
           <Footer />
         </div>
-        
       </div>
     </Suspense>
   );

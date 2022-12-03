@@ -25,7 +25,7 @@ function Menudrop() {
             : ""
         } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2`}
       >
-        Torneos <img src="../icons/down.svg" className="w-4 h-4" />
+        Torneos <img src="https://vemastercup.com/icons/down.svg" className="w-4 h-4" />
       </Menu.Button>
       <Menu.Items>
         <Menu.Item>

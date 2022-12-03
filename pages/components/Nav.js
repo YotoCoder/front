@@ -28,7 +28,7 @@ function Nav() {
                 <Link href="/">
                   <img
                     className="h-16 w-16"
-                    src="../images/escudo.png"
+                    src="https://vemastercup.com/images/escudo.png"
                     alt="logo"
                   />
                 </Link>
@@ -108,7 +108,9 @@ function Nav() {
                       className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
                     >
                       Login
-                      <img src="../icons/user.svg" className="w-4 lg:w-8" />{" "}
+                      <img src="../icons/user.svg"
+                           className="w-4 lg:w-8"
+                      />{" "}
                     </Link>
                   </div>
                 )}
