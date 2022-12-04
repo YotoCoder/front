@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
-
 import dynamic from "next/dynamic";
 import { Suspense } from "react";
-
 import Cargador from "../../components/Cargador";
-
 import { Toaster } from "react-hot-toast";
+
+import MenuForm from "./components/MenuForm";
 
 const Head = dynamic(() => import("next/head"), {
   suspense: true,
@@ -40,8 +39,6 @@ const Username = () => {
       setCargando(false);
     });
   }, [username]);
-
-  console.log(user);
 
   return (
     <Suspense fallback={<Cargador />}>
@@ -80,18 +77,33 @@ const Username = () => {
           {/* user profile*/}
           <div className="flex relative lg:w-96 mt-20 flex-col card items-center justify-center w-auto m-4">
             <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] w-52 ">
-              <img
-                src={
-                  user.avatar
-                    ? host + user.avatar
-                    : "https://vemastercup.com/icons/user.svg"
-                }
-                alt="..."
-                className="w-44 h-44 p-2 rounded-full lg:block"
-                style={{
-                  background: "linear-gradient( #c59b37, #f4e078 )",
-                }}
-              />
+              <div className="">
+                <img
+                  src={
+                    user.avatar
+                      ? host + user.avatar
+                      : "https://vemastercup.com/icons/user.svg"
+                  }
+                  alt="avatar"
+                  id="img"
+                  className="w-44 h-44 p-2 rounded-full lg:block"
+                  style={{
+                    background: "linear-gradient( #c59b37, #f4e078 )",
+                  }}
+                />
+              </div>
+
+              {(username == user.username) ? (
+                  <img
+                    src="../../icons/edit.svg"
+                    alt="menu-editar"
+                    className="w-6 relative right-[-140px] top-[-40] cursor-pointer"
+                    onClick={() => {
+                      return <MenuForm />;
+                    }}
+                  />
+                ) : (<></>)}
+
               <h2 className="nombreCard text-2xl pt-2">
                 {user.first_name ? user.first_name : "Nombre"}{" "}
                 {user.last_name ? user.last_name : "Apellido"}

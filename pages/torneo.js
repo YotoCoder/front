@@ -50,7 +50,7 @@ const Torneo = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>Venezuela Master CUP</title>
+        <title>Torneos | VMCP</title>
         <meta lang="es" />
         <meta
           property="og:title"

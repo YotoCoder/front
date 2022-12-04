@@ -29,6 +29,14 @@ const Liga = () => {
   const [liga, setLiga] = useState([]);
   const [jugadores, setJugadores] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const [ascendente, setAscendente] = useState(false);
+
+  const [inOrder, setInOrder] = useState({
+    MMR: false,
+    PG: true,
+    PP: false,
+    PJ: false,
+  });
 
   const [MMR, setMMR] = useState(null);
 
@@ -92,10 +100,14 @@ const Liga = () => {
       });
   };
 
+  useEffect(() => {
+    console.log(jugadores);
+  }, [jugadores]);
+
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>Venezuela Master CUP</title>
+        <title>Ligas | VMCP</title>
         <meta lang="es" />
         <meta
           property="og:title"
@@ -366,34 +378,151 @@ const Liga = () => {
                         <th className="px-1 py-2 blanco border border-[#121212]">
                           Jugador
                         </th>
-                        <th className="px-1 py-2 blanco border border-[#121212]">
+                        <th
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
+                            inOrder.MMR ? "bg-yellow-800" : ""
+                          }`}
+                          onClick={() => {
+                            setAscendente(!ascendente);
+                            if (ascendente) {
+                              jugadores.sort((a, b) => {
+                                return b.mmr - a.mmr;
+                              });
+                            }
+                            if (!ascendente) {
+                              jugadores.sort((a, b) => {
+                                return a.mmr - b.mmr;
+                              });
+                            }
+                            setJugadores([...jugadores]);
+                            setInOrder({
+                              MMR: true,
+                              ganadas: false,
+                              perdidas: false,
+                            });
+                          }}
+                        >
                           MMR
                         </th>
-                        <th className="px-1 py-2 blanco border border-[#121212]">
-                          Ganadas
+                        <th
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
+                            inOrder.PG ? "bg-yellow-800" : ""
+                          }`}
+                          onClick={() => {
+                            setAscendente(!ascendente);
+                            if (ascendente) {
+                              jugadores.sort((a, b) => {
+                                return b.ganadas - a.ganadas;
+                              });
+                            }
+                            if (!ascendente) {
+                              jugadores.sort((a, b) => {
+                                return a.ganadas - b.ganadas;
+                              });
+                            }
+                            setJugadores([...jugadores]);
+                            setInOrder({
+                              MMR: false,
+                              PG: true,
+                              PP: false,
+                              PJ: false,
+                            });
+                          }}
+                        >
+                          PG
                         </th>
-                        <th className="px-1 py-2 blanco border border-[#121212]">
-                          Perdidas
+                        <th
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
+                            inOrder.PP ? "bg-yellow-800" : ""
+                          }`}
+                          onClick={() => {
+                            setAscendente(!ascendente);
+                            if (ascendente) {
+                              jugadores.sort((a, b) => {
+                                return b.perdidas - a.perdidas;
+                              });
+                            }
+                            if (!ascendente) {
+                              jugadores.sort((a, b) => {
+                                return a.perdidas - b.perdidas;
+                              });
+                            }
+                            setJugadores([...jugadores]);
+                            setInOrder({
+                              MMR: false,
+                              PG: false,
+                              PP: true,
+                              PJ: false,
+                            });
+                          }}
+                        >
+                          PP
+                        </th>
+                        <th
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
+                            inOrder.PJ ? "bg-yellow-800" : ""
+                          }`}
+                          onClick={() => {
+                            setAscendente(!ascendente);
+                            if (ascendente) {
+                              jugadores.sort((a, b) => {
+                                return (
+                                  b.ganadas +
+                                  b.perdidas -
+                                  (a.ganadas + a.perdidas)
+                                );
+                              });
+                            }
+                            if (!ascendente) {
+                              jugadores.sort((a, b) => {
+                                return (
+                                  a.ganadas +
+                                  a.perdidas -
+                                  (b.ganadas + b.perdidas)
+                                );
+                              });
+                            }
+                            setJugadores([...jugadores]);
+
+                            setInOrder({
+                              MMR: false,
+                              PG: false,
+                              PP: false,
+                              PJ: true,
+                            });
+                          }}
+                        >
+                          PJ
                         </th>
                       </tr>
                     </thead>
 
                     <tbody>
                       {jugadores.map((jugador, i) => (
-                        <tr className="bg-[#242424] hover:bg-yellow-700">
-                          <td className="px-1 py-2 text-white border font-serif border-[#121212]">
+                        <tr
+                          className={` hover:bg-yellow-700 ${
+                            i % 2 == 0 ? "bg-[#1d1d1d]" : "bg-[#242424]"
+                          }`}
+                        >
+                          <td
+                            className={`px-1 py-2 text-white border font-serif border-[#121212]`}
+                          >
                             {i + 1}
                           </td>
                           <td className="px-1 py-2 text-white border border-[#121212]">
-                            <div className="lg:flex gap-2 items-center justify-between">
+                            <div className="flex gap-2 items-center justify-between">
                               <img
                                 src={
                                   jugador.user.avatar
                                     ? host + jugador.user.avatar
-                                    : "../images/escudo.png"
+                                    : "https://vemastercup.com/icons/user.svg"
                                 }
                                 alt="avatar-jugador"
-                                className="w-8 h-8 rounded-full hidden lg:block"
+                                className="w-8 h-8 rounded-full lg:block cursor-pointer"
+                                onClick={() =>
+                                  window.open(
+                                    '/user/profile/' + jugador.user.username
+                                  )}
                               />
 
                               <p className="">{jugador.user.username}</p>
@@ -420,6 +549,9 @@ const Liga = () => {
                           </td>
                           <td className="px-1 py-2 text-white border border-[#121212]">
                             {jugador.perdidas}
+                          </td>
+                          <td className="px-1 py-2 text-white border border-[#121212]">
+                            {jugador.perdidas + jugador.ganadas}/12
                           </td>
                         </tr>
                       ))}
