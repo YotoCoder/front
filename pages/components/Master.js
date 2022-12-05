@@ -9,7 +9,7 @@ export default function Game() {
   const game15 = {
     id: "15",
     name: "15",
-    scheduled: "12-12-2022",
+    scheduled: "12-14-2022",
     sides: {
       home: {
         team: {
@@ -41,7 +41,7 @@ export default function Game() {
   const game14 = {
     id: "14",
     name: "14",
-    scheduled: "12-11-2022",
+    scheduled: "12-13-2022",
     sides: {
       home: {
         team: {
@@ -73,7 +73,7 @@ export default function Game() {
   const game12 = {
     id: "12",
     name: "12",
-    scheduled: "12-09-2022",
+    scheduled: "12-11-2022",
     sides: {
       home: {
         team: {
@@ -105,7 +105,7 @@ export default function Game() {
   const game8 = {
     id: "8",
     name: "8",
-    scheduled: "12-08-2022",
+    scheduled: "12-10-2022",
     sides: {
       home: {
         team: {
@@ -137,7 +137,7 @@ export default function Game() {
   const game7 = {
     id: "7",
     name: "7",
-    scheduled: "12-07-2022",
+    scheduled: "12-09-2022",
     sides: {
       home: {
         team: {
@@ -169,7 +169,7 @@ export default function Game() {
   const game4 = {
     id: "4",
     name: "4",
-    scheduled: "12-06-2022",
+    scheduled: "12-08-2022",
     sides: {
       home: {
         team: {
@@ -201,7 +201,7 @@ export default function Game() {
   const game3 = {
     id: "3",
     name: "3",
-    scheduled: "12-05-2022",
+    scheduled: "12-07-2022",
     sides: {
       home: {
         team: {
@@ -227,7 +227,7 @@ export default function Game() {
   const game2 = {
     id: "2",
     name: "2",
-    scheduled: "12-05-2022",
+    scheduled: "12-07-2022",
     sides: {
       home: {
         team: {
@@ -253,7 +253,7 @@ export default function Game() {
   const game1 = {
     id: "1",
     name: "1",
-    scheduled: "12-05-2022",
+    scheduled: "12-07-2022",
     sides: {
       home: {
         team: {
@@ -279,7 +279,7 @@ export default function Game() {
   const gameLower1 = {
     id: "5",
     name: "5",
-    scheduled: "12/06/2022",
+    scheduled: "12/08/2022",
     sides: {
       home: {
         team: {
@@ -320,7 +320,7 @@ export default function Game() {
   const gameLower2 = {
     id: "6",
     name: "6",
-    scheduled: "12-06-2022",
+    scheduled: "12-08-2022",
     sides: {
       home: {
         team: {
@@ -361,7 +361,7 @@ export default function Game() {
   const gameLower3 = {
     id: "10",
     name: "10",
-    scheduled: "12/08/2022",
+    scheduled: "12/10/2022",
     sides: {
       home: {
         team: {
@@ -402,7 +402,7 @@ export default function Game() {
   const gameLower4 = {
     id: "9",
     name: "9",
-    scheduled: "12/07/2022",
+    scheduled: "12/09/2022",
     sides: {
       home: {
         team: {
@@ -443,7 +443,7 @@ export default function Game() {
   const gameLower5 = {
     id: "11",
     name: "11",
-    scheduled: "12/09/2022",
+    scheduled: "12/11/2022",
     sides: {
       home: {
         team: {
@@ -484,7 +484,7 @@ export default function Game() {
   const gameLower6 = {
     id: "13",
     name: "13",
-    scheduled: "12/10/2022",
+    scheduled: "12/12/2022",
     sides: {
       home: {
         team: {
