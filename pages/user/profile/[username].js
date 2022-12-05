@@ -1,3 +1,5 @@
+import { useAtom } from "jotai";
+import { sessionAtom, usernameSessionAtom } from "../../../store";
 import React, { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import axios from "axios";
@@ -5,8 +7,8 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Cargador from "../../components/Cargador";
 import { Toaster } from "react-hot-toast";
+import Link from "next/link";
 
-import MenuForm from "./components/MenuForm";
 
 const Head = dynamic(() => import("next/head"), {
   suspense: true,
@@ -27,6 +29,9 @@ const Nav = dynamic(() => import("../../components/Nav"), {
 const Username = () => {
   const [cargando, setCargando] = useState(true);
   const [user, setUser] = useState({});
+
+  const [session, setSession] = useAtom(sessionAtom);
+  const [usernameSession, setUsernameSession] = useAtom(usernameSessionAtom);
 
   const host = process.env.APIhost;
   const router = useRouter();
@@ -93,20 +98,23 @@ const Username = () => {
                 />
               </div>
 
-              {(username == user.username) ? (
+              {(username == usernameSession) ? (
+                <Link
+                  // href={"/user/form/" + username}
+                  href={'#'}
+                  // as={`/user/form/${username}`}
+                >
                   <img
                     src="../../icons/edit.svg"
                     alt="menu-editar"
                     className="w-6 relative right-[-140px] top-[-40] cursor-pointer"
-                    onClick={() => {
-                      return <MenuForm />;
-                    }}
                   />
+                </Link>
                 ) : (<></>)}
 
               <h2 className="nombreCard text-2xl pt-2">
-                {user.first_name ? user.first_name : "Nombre"}{" "}
-                {user.last_name ? user.last_name : "Apellido"}
+                {user.first_name ? user.first_name : ""}{" "}
+                {user.last_name ? user.last_name : ""}
               </h2>
 
               <p className="subTitulo text-base">@{username}</p>

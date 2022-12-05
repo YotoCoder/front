@@ -1,4 +1,6 @@
 import React, { useEffect, useState } from "react";
+import { useAtom } from "jotai";
+import { sessionAtom, usernameSessionAtom } from "../../store";
 import { Transition } from "@headlessui/react";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -8,14 +10,22 @@ import Menuliga from "./Menuliga";
 import Usermenu from "./Usermenu";
 
 
+
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
   const router = useRouter();
 
-  const [session, setSession] = useState(false);
+  const [session, setSession] = useAtom(sessionAtom);
+  const [usernameSession, setUsernameSession] = useAtom(usernameSessionAtom);
 
   useEffect(() => {
-    window.localStorage.getItem("token") ? setSession(true) : setSession(false);
+    window.localStorage.getItem("token") 
+      ? setSession(true)
+      : setSession(false);
+
+    window.localStorage.getItem("username")
+      ? setUsernameSession(window.localStorage.getItem("username"))
+      : setUsernameSession(null);
   }, []);
 
   return (
@@ -108,7 +118,7 @@ function Nav() {
                       className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
                     >
                       Login
-                      <img src="../icons/user.svg"
+                      <img src="https://vemastercup.com/icons/user.svg"
                            className="w-4 lg:w-8"
                       />{" "}
                     </Link>
