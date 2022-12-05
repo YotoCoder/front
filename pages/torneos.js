@@ -59,7 +59,7 @@ const Torneos = () => {
         <div className="flex flex-col items-center justify-left text-gray-300 text-base">
           <p>Inicio: 30/11/2022</p>
 
-          <p>Final: 14/12/2022</p>
+          <p>Final: 11/12/2022</p>
         </div>
 
         <div className="flex flex-col items-center justify-center pt-10 px-10 text-gray-50 text-base">
