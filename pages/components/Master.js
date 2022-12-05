@@ -425,7 +425,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Ganadaor de 6",
+          name: "Ganador de 6",
         },
         score: {
           score: 0,
