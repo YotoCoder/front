@@ -38,11 +38,13 @@ const Username = () => {
   const { username } = router.query;
 
   useEffect(() => {
+    if (username != undefined) {
     axios.get(`${host}/users/${username}`).then((res) => {
       setUser(res.data);
       console.log(res.data);
       setCargando(false);
     });
+    }
   }, [username]);
 
   return (
@@ -100,8 +102,8 @@ const Username = () => {
 
               {(username == usernameSession) ? (
                 <Link
-                  // href={"/user/form/" + username}
-                  href={'#'}
+                  href={"/user/form/" + username}
+                  // href={'#'}
                   // as={`/user/form/${username}`}
                 >
                   <img
