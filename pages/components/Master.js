@@ -174,7 +174,7 @@ export default function Game() {
       home: {
         team: {
           id: "13",
-          name: "Team 7",
+          name: "INCA GOD",
           seed: 1,
         },
         score: {
@@ -184,7 +184,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Team 8",
+          name: "ALWAYS BE TOXIC",
         },
         score: {
           score: 0,
@@ -206,7 +206,7 @@ export default function Game() {
       home: {
         team: {
           id: "11",
-          name: "Team 5",
+          name: "ELECTROSAURIOS",
         },
         score: {
           score: 0,
@@ -215,7 +215,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "12",
-          name: "Team 6",
+          name: "FIRE FROGS",
         },
         score: {
           score: 0,
@@ -232,7 +232,7 @@ export default function Game() {
       home: {
         team: {
           id: "12",
-          name: "Team 3",
+          name: "BIZ GAMING",
         },
         score: {
           score: 0,
@@ -241,7 +241,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "13",
-          name: "Team 4",
+          name: "VALHALLA",
         },
         score: {
           score: 0,
@@ -258,7 +258,7 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Team 1",
+          name: "SUSHI TEAM",
         },
         score: {
           score: 0,
@@ -267,7 +267,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Team 2",
+          name: "GOD 5 FINGER",
         },
         score: {
           score: 0,
