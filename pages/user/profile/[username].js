@@ -9,6 +9,7 @@ import Cargador from "../../components/Cargador";
 import { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import Tooltip from "@mui/material/Tooltip";
+import Flag from "react-world-flags";
 
 const Head = dynamic(() => import("next/head"), {
   suspense: true,
@@ -139,7 +140,12 @@ const Username = () => {
                 {user.last_name ? user.last_name : ""}
               </h2>
 
-              <p className="subTitulo text-base">@{username}</p>
+              <div className="flex items-center gap-2 ">
+                <p className="subTitulo text-base">@{username}</p>
+                <div className="h-6 w-6 pt-1">
+                  <Flag code={user.pais ? user.pais : 'VE'} height="6" />
+                </div>
+              </div>
 
               <h3 className="about pt-8 pb-4">Sobre Mi</h3>
 
@@ -149,7 +155,9 @@ const Username = () => {
 
               <div className="flex gap-10 border- border-t border-[#32353B] mt-6">
                 <Tooltip
-                  title={user.discord ? 'Copiado ' + user.discord : "Sin discord"}
+                  title={
+                    user.discord ? "Copiado " + user.discord : "Sin discord"
+                  }
                   open={openTooltip}
                   onClose={() => setOpenTooltip(false)}
                   arrow

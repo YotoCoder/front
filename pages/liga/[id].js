@@ -526,7 +526,14 @@ const Liga = () => {
                               />
 
                               <p className="">{jugador.user.username}</p>
+                              <div className="flex gap-2">
+                              <Flag
+                                  code={
+                                    jugador.user.pais ? jugador.user.pais : "VE"
+                                  }
+                                  className="w-6 h-6"
 
+                                />
                               <img
                                 src="../icons/steam.svg"
                                 alt="..."
@@ -539,6 +546,7 @@ const Liga = () => {
                                   )
                                 }
                               />
+                              </div>
                             </div>
                           </td>
                           <td className="px-1 py-2 text-white border border-[#121212]">
