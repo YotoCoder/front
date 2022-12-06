@@ -118,15 +118,15 @@ const Register = () => {
                 </div>
               </div>
 
-              <div className="flex justify-start mt-6">
-                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-md bg-black focus:outline-none focus:bg-gray-600"
+              <div className="flex justify-start gap-2 mt-6">
+                <button className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-2xl bg-black focus:outline-none focus:bg-gray-600"
                         onClick={handleSubmit}
                 >
                   Registrarse
                 </button>
                 <Link
                   href="/"
-                  className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-500 rounded-md hover:bg-red-700 focus:outline-none focus:bg-gray-600"
+                  className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform bg-gray-500 rounded-2xl hover:bg-red-700 focus:outline-none focus:bg-gray-600"
                 >
                   Cancelar
                 </Link>

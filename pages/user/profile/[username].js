@@ -78,6 +78,22 @@ const Username = () => {
       <div className="sticky top-0 z-50 w-full">
         <Nav />
       </div>
+        <Toaster
+          toastOptions={{
+            loading: {
+              duration: 5000,
+            },
+
+            success: {
+              duration: 3000,
+            },
+            // black theme
+            style: {
+              background: "#403f3f",
+              color: "#fff",
+            },
+          }}
+        />
 
       <div className="lg:flex lg:flex-col lg:items-center lg:justify-center">
         <div className="lg:flex">

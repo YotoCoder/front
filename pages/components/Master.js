@@ -430,6 +430,7 @@ export default function Game() {
         score: {
           score: 0,
         },
+        
         seed: {
           displayName: "A2",
           rank: 1,

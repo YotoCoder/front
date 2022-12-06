@@ -79,7 +79,9 @@ const Contacto = () => {
           </p>
         </div>
       </div>
-      <Footer />
+      <div className="lg:fixed bottom-0 w-[100%]">
+        <Footer />
+      </div>
     </Suspense>
   );
 };
