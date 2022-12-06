@@ -52,6 +52,7 @@ const Userform = () => {
     bodyContent.append("pais", user.pais);
     bodyContent.append("discord", user.discord);
     bodyContent.append("steam_id", user.steam_id);
+    bodyContent.append("id_amigo", user.id_amigo);
 
     if (changeEmail) {
       bodyContent.append("email", user.email);
@@ -293,6 +294,22 @@ const Userform = () => {
                 value={user.steam_id}
                 onChange={(e) => {
                   setUser({ ...user, steam_id: e.target.value });
+                }}
+              />
+
+              <label className="font-bold flex gap-2" htmlFor="id_amigo">
+                ID de amigo en Dota 2{" "}
+              </label>
+              {error && <div className="text-red-500">{error.id_amigo}</div>}
+              <input
+                type="text-area"
+                name="id_amigo"
+                placeholder="123456789"
+                id="id_amigo"
+                className="bg-[#40444b] p-2 rounded-md"
+                value={user.id_amigo}
+                onChange={(e) => {
+                  setUser({ ...user, id_amigo: e.target.value });
                 }}
               />
 
