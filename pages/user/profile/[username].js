@@ -51,6 +51,16 @@ const Username = () => {
     }
   }, [username]);
 
+  useEffect(() => {
+    if (user.id_amigo != undefined) {
+      axios.get(`https://api.opendota.com/api/players/${user.id_amigo}`).then((res) => {
+          setMmr(res.data.mmr_estimate.estimate);
+          console.log(res.data.mmr_estimate.estimate);
+          setCargando(false);
+          });
+    }
+  }, [user.id_amigo]);
+
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
@@ -144,20 +154,18 @@ const Username = () => {
               <div className="flex items-center gap-2 ">
                 <p className="subTitulo text-base">@{username}</p>
                 <div className="h-6 w-6 pt-1">
-                  <Flag code={user.pais ? user.pais : 'VE'} height="6" />
+                  <Flag code={user.pais ? user.pais : "VE"} height="6" />
                 </div>
               </div>
 
               <div className="flex flex-col items-start justify-start">
-                
-                  <p className="text-gray-400 text-base pt-4">
-                    Roll: {user.roll ? user.roll : "Sin rol"}
-                  </p>
-        
-                  <p className="text-gray-400 text-base">
-                    MMR: {mmr ? mmr : "Steam privado"}
-                  </p>
-               
+                <p className="text-gray-400 text-base pt-4">
+                  Roll: {user.roll ? user.roll : "Sin rol"}
+                </p>
+
+                <p className="text-gray-400 text-base">
+                  MMR avg: {mmr ? mmr : "Sin id amigo o steam privado"}
+                </p>
               </div>
 
               <h3 className="about pt-8 pb-4">Sobre Mi</h3>
