@@ -30,6 +30,7 @@ const Nav = dynamic(() => import("../../components/Nav"), {
 const Username = () => {
   const [cargando, setCargando] = useState(true);
   const [user, setUser] = useState({});
+  const [mmr, setMmr] = useState(null);
 
   const [session, setSession] = useAtom(sessionAtom);
   const [usernameSession, setUsernameSession] = useAtom(usernameSessionAtom);
@@ -145,6 +146,18 @@ const Username = () => {
                 <div className="h-6 w-6 pt-1">
                   <Flag code={user.pais ? user.pais : 'VE'} height="6" />
                 </div>
+              </div>
+
+              <div className="flex flex-col items-start justify-start">
+                
+                  <p className="text-gray-400 text-base pt-4">
+                    Roll: {user.roll ? user.roll : "Sin rol"}
+                  </p>
+        
+                  <p className="text-gray-400 text-base">
+                    MMR: {mmr ? mmr : "Steam privado"}
+                  </p>
+               
               </div>
 
               <h3 className="about pt-8 pb-4">Sobre Mi</h3>

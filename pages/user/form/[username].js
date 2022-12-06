@@ -173,6 +173,22 @@ const Userform = () => {
                 }}
               />
 
+              <label className="font-bold" htmlFor="roll">
+                Roll
+              </label>
+              {error && <div className="text-red-500">{error.roll}</div>}
+              <input
+                type="text"
+                name="roll"
+                id="roll"
+                className="bg-[#40444b] p-2 rounded-md"
+                value={user.roll}
+                onChange={(e) => {
+                  setUser({ ...user, roll: e.target.value });
+                  
+                }}
+              />
+
               <label className="font-bold" htmlFor="pais">
                 País
               </label>
