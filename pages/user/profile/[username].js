@@ -8,7 +8,7 @@ import { Suspense } from "react";
 import Cargador from "../../components/Cargador";
 import { Toaster } from "react-hot-toast";
 import Link from "next/link";
-
+import Tooltip from "@mui/material/Tooltip";
 
 const Head = dynamic(() => import("next/head"), {
   suspense: true,
@@ -33,17 +33,19 @@ const Username = () => {
   const [session, setSession] = useAtom(sessionAtom);
   const [usernameSession, setUsernameSession] = useAtom(usernameSessionAtom);
 
+  const [openTooltip, setOpenTooltip] = useState(false);
+
   const host = process.env.APIhost;
   const router = useRouter();
   const { username } = router.query;
 
   useEffect(() => {
     if (username != undefined) {
-    axios.get(`${host}/users/${username}`).then((res) => {
-      setUser(res.data);
-      console.log(res.data);
-      setCargando(false);
-    });
+      axios.get(`${host}/users/${username}`).then((res) => {
+        setUser(res.data);
+        console.log(res.data);
+        setCargando(false);
+      });
     }
   }, [username]);
 
@@ -78,22 +80,22 @@ const Username = () => {
       <div className="sticky top-0 z-50 w-full">
         <Nav />
       </div>
-        <Toaster
-          toastOptions={{
-            loading: {
-              duration: 5000,
-            },
+      <Toaster
+        toastOptions={{
+          loading: {
+            duration: 5000,
+          },
 
-            success: {
-              duration: 3000,
-            },
-            // black theme
-            style: {
-              background: "#403f3f",
-              color: "#fff",
-            },
-          }}
-        />
+          success: {
+            duration: 3000,
+          },
+          // black theme
+          style: {
+            background: "#403f3f",
+            color: "#fff",
+          },
+        }}
+      />
 
       <div className="lg:flex lg:flex-col lg:items-center lg:justify-center">
         <div className="lg:flex">
@@ -116,7 +118,7 @@ const Username = () => {
                 />
               </div>
 
-              {(username == usernameSession) ? (
+              {username == usernameSession ? (
                 <Link
                   href={"/user/form/" + username}
                   // href={'#'}
@@ -128,7 +130,9 @@ const Username = () => {
                     className="w-6 relative right-[-140px] top-[-40] cursor-pointer"
                   />
                 </Link>
-                ) : (<></>)}
+              ) : (
+                <></>
+              )}
 
               <h2 className="nombreCard text-2xl pt-2">
                 {user.first_name ? user.first_name : ""}{" "}
@@ -144,17 +148,27 @@ const Username = () => {
               </p>
 
               <div className="flex gap-10 border- border-t border-[#32353B] mt-6">
-                <a
-                  href={user.instagram_id ? user.instagram_id : "#"}
-                  target="_blank"
-                  rel="noreferrer"
+                <Tooltip
+                  title={user.discord ? 'Copiado ' + user.discord : "Sin discord"}
+                  open={openTooltip}
+                  onClose={() => setOpenTooltip(false)}
+                  arrow
                 >
-                  <img
-                    src="../../icons/discord2.svg"
-                    alt="instagram"
-                    className="w-[60px] mt-4"
-                  />
-                </a>
+                  <i
+                    onClick={() => {
+                      navigator.clipboard.writeText(user.discord);
+                      setOpenTooltip(true);
+                    }}
+                    className="fa-sharp fa-solid fa-share-nodes text-[rgba(0,0,0,0.35)] transition-all 500 hover:text-blue-500 cursor-pointer"
+                  >
+                    <img
+                      src="../../icons/discord2.svg"
+                      alt="discord"
+                      className="w-[60px] mt-4"
+                    />
+                  </i>
+                </Tooltip>
+
                 <a
                   href={user.steam_id ? user.steam_id : "#"}
                   target="_blank"

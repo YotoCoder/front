@@ -287,7 +287,7 @@ const Userform = () => {
               <input
                 type="text-area"
                 name="steam_id"
-                placeholder="usuario#1234"
+                placeholder="https://steamcommunity.com/profiles/76561198061357779/"
                 id="steam_id"
                 className="bg-[#40444b] p-2 rounded-md"
                 value={user.steam_id}
