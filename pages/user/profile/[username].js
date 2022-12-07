@@ -127,7 +127,11 @@ const Username = () => {
 
         <meta
           name="description"
-          content="Pagina de organización de Torneos de Dota 2 online en Venezuela y latinoamerica."
+          content={
+            "Perfil de usuario de " +
+            username +
+            " en VMVCP"
+          }
           key="desc"
         />
         <meta
@@ -208,7 +212,7 @@ const Username = () => {
               </div>
 
               <div className="flex flex-col items-start justify-center">
-              <div>
+                <div>
                   <p className="text-gray-400 text-base pt-4">
                     Roll: {user.roll ? user.roll : "Sin rol"}
                   </p>
