@@ -126,17 +126,9 @@ const Username = () => {
         />
 
         <meta
-          name="description"
-          content={
-            "Perfil de usuario de " +
-            username +
-            " en VMVCP"
-          }
-          key="desc"
-        />
-        <meta
           name="og:description"
-          content="Pagina de organización de Torneos de Dota 2 online en Venezuela y latinoamerica."
+          content={"Perfil de usuario de " + username + " en VMVCP"}
+          key="desc"
         />
 
         <meta property="og:image" content="../images/escudo.png" />
