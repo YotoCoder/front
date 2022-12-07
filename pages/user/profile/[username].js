@@ -224,9 +224,9 @@ const Username = () => {
                     Wins: {wins ? wins : ""}
                   </p>
 
-                  <p className="text-gray-400 text-base">
+                  {/* <p className="text-gray-400 text-base">
                     Losses: {losses ? losses : ""}
-                  </p>
+                  </p> */}
                 </div>
                 <div className="bg-[#2f3136] flex flex-col w-72 items-center justify-center drop-shadow-md text-gray-100 text-base p-4 m-4 rounded-xl">
                   <p className="text-bold ">Top 3 Heroes</p>
