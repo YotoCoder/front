@@ -110,7 +110,7 @@ export default function Game() {
       home: {
         team: {
           id: "13",
-          name: "Ganador de 3",
+          name: "FIRE FROGS",
           seed: 1,
         },
         score: {
@@ -218,7 +218,7 @@ export default function Game() {
           name: "FIRE FROGS",
         },
         score: {
-          score: 0,
+          score: 1,
         },
       },
     },
@@ -325,7 +325,7 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Perdedor de 3",
+          name: "ELECTROSAURIOS",
         },
         score: {
           score: 0,
