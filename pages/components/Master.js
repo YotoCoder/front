@@ -142,7 +142,7 @@ export default function Game() {
       home: {
         team: {
           id: "13",
-          name: "Ganador de 1",
+          name: "SUSHI TEAM",
           seed: 1,
         },
         score: {
@@ -261,7 +261,7 @@ export default function Game() {
           name: "SUSHI TEAM",
         },
         score: {
-          score: 0,
+          score: 1,
         },
       },
       visitor: {
@@ -284,7 +284,7 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Perdedor de 1",
+          name: "GOD 5 FINGER",
         },
         score: {
           score: 0,
