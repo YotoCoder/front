@@ -328,7 +328,7 @@ export default function Game() {
           name: "ELECTROSAURIOS",
         },
         score: {
-          score: 0,
+          score: 1,
         },
         seed: {
           displayName: "A1",
@@ -425,7 +425,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Ganador de 6",
+          name: "ELERCTROSAURIOS",
         },
         score: {
           score: 0,
