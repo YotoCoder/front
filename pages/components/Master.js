@@ -425,7 +425,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "ELERCTROSAURIOS",
+          name: "ELECTROSAURIOS",
         },
         score: {
           score: 0,
