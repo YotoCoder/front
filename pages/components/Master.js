@@ -287,7 +287,7 @@ export default function Game() {
           name: "GOD 5 FINGER",
         },
         score: {
-          score: 0,
+          score: 1,
         },
         seed: {
           displayName: "A1",
@@ -384,7 +384,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Ganador de 5",
+          name: "GOD 5 FINGER",
         },
         score: {
           score: 0,
