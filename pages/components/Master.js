@@ -120,7 +120,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Ganador de 4",
+          name: "ALWAYS BE TOXIC",
         },
         score: {
           score: 0,
@@ -187,7 +187,7 @@ export default function Game() {
           name: "ALWAYS BE TOXIC",
         },
         score: {
-          score: 0,
+          score: 1,
         },
       },
       seed: {
@@ -343,7 +343,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Perdedor de 4",
+          name: "INCA GOD",
         },
         score: {
           score: 0,
