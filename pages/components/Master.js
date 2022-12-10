@@ -146,7 +146,7 @@ export default function Game() {
           seed: 1,
         },
         score: {
-          score: 0,
+          score: 2,
         },
       },
       visitor: {
@@ -407,7 +407,7 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Perdedor de 7",
+          name: "BIZ GAMING",
         },
         score: {
           score: 0,
