@@ -78,7 +78,7 @@ export default function Game() {
       home: {
         team: {
           id: "13",
-          name: "Ganador de 7",
+          name: "SUSHI TEAM",
           seed: 1,
         },
         score: {
