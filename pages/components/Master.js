@@ -88,7 +88,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Ganador de 8",
+          name: "FIRE FROGS",
         },
         score: {
           score: 0,
@@ -114,7 +114,7 @@ export default function Game() {
           seed: 1,
         },
         score: {
-          score: 0,
+          score: 2,
         },
       },
       visitor: {
@@ -366,10 +366,10 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Perdedor de 8",
+          name: "ALWAYS BE TOXIC",
         },
         score: {
-          score: 0,
+          score: 1,
         },
         seed: {
           displayName: "A1",
@@ -449,7 +449,7 @@ export default function Game() {
       home: {
         team: {
           id: "10",
-          name: "Ganador de 10",
+          name: "ALWAYS BE TOXIC",
         },
         score: {
           score: 0,
