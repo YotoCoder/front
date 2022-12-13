@@ -56,7 +56,7 @@ export default function Game() {
       visitor: {
         team: {
           id: "11",
-          name: "Ganador de Lower (13)",
+          name: "BIZ GAMING",
         },
         score: {
           score: 0,
@@ -511,7 +511,7 @@ export default function Game() {
           name: "BIZ GAMING",
         },
         score: {
-          score: 0,
+          score: 2,
         },
         seed: {
           displayName: "A2",
