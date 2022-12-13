@@ -552,9 +552,7 @@ export default function Game() {
             <div className="pt-[120px] pl-10">
               <BracketGame game={game14} />
             </div>
-            <div className="pt-[120px] pl-10">
-              <BracketGame game={game15} />
-            </div>
+            
           </div>
           {/* <BracketGenerator games={games} /> */}
         </div>
