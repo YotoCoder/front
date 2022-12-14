@@ -55,7 +55,7 @@ const MainContent = () => {
          {/* fecha */}
          
             <div className='fecha'>
-                <p className='text-3xl lg:text-5xl'>NOV 30 - DIC 11</p>
+                <p className='text-3xl lg:text-5xl'>NOV 30 - DIC 13</p>
             </div>
          
          {/* modalidad */}
@@ -66,11 +66,11 @@ const MainContent = () => {
           {/* prize pool */}
           <div className="flex items-center divPrizePool m-2 px-4">
             <div className='prize-pool pr-2'>
-              <p className='text-3xl lg:text-4xl'>PRIZE POOL: </p>
+              <p className='text-3xl lg:text-4xl'>GANADOR: </p>
             </div>
             
             <div className=''>
-              <p className='prize-pool-amount text-3xl lg:text-5xl'>+$1.000</p>
+              <p className='prize-pool-amount text-3xl lg:text-5xl'>BIZ GAMING</p>
             </div>
 
           </div>

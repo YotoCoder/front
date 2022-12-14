@@ -59,7 +59,7 @@ export default function Game() {
           name: "BIZ GAMING",
         },
         score: {
-          score: 0,
+          score: 3,
         },
       },
       seed: {

@@ -479,7 +479,11 @@ const Torneo = () => {
                                           : ""
                                       }`}
                             >
-                              {equipo.estado}
+                              {
+                                equipo.nombre == 'Biz Gaming'
+                                  ? 'GANADOR'
+                                  : equipo.estado                                
+                              }
                             </div>
                           </div>
                         </div>
