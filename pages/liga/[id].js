@@ -559,7 +559,7 @@ const Liga = () => {
                             {jugador.perdidas}
                           </td>
                           <td className="px-1 py-2 text-white border border-[#121212]">
-                            {jugador.perdidas + jugador.ganadas}/15
+                            {jugador.perdidas + jugador.ganadas}
                           </td>
                         </tr>
                       ))}
