@@ -227,7 +227,7 @@ const Liga = () => {
                       <div className="flex lg:justify-between gap-4 m-4 gris items-center py-4 justify-start text-xl lg:text-2xl tituloLiga">
                         <div>
                           El liga comienza el:
-                          <p className="blanco">{liga.fecha_inicio}</p>
+                          {/* <p className="blanco">{liga.fecha_inicio}</p> */}
                         </div>
 
                         <div>
@@ -282,7 +282,7 @@ const Liga = () => {
                       <div className="m-4">
                         <p className="gris">COMIENZA A LAS</p>
                         <p className="flex blanco gap-2">
-                          <p>{liga.fecha_inicio}</p> <p>5:00 PM</p>
+                          {/* <p>{liga.fecha_inicio}</p> <p></p> */}
                         </p>
                       </div>
 
