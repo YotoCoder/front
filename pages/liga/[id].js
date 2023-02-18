@@ -226,7 +226,7 @@ const Liga = () => {
                     <div className="lg:flex lg:flex-col lg:w-screen justify-between">
                       <div className="flex lg:justify-between gap-4 m-4 gris items-center py-4 justify-start text-xl lg:text-2xl tituloLiga">
                         <div>
-                          El liga comienza el:
+                          Una liga de dota 2 
                           {/* <p className="blanco">{liga.fecha_inicio}</p> */}
                         </div>
 
