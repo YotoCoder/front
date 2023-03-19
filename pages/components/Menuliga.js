@@ -35,7 +35,7 @@ function Menuliga() {
   }, []);
 
   return (
-    <Menu as="div" className="relative inline-block text-left">
+    <Menu as="div" className="relative inline-block text-left ">
       <Menu.Button
         className={`${
           router.pathname == "/torneos" || router.pathname == "/shuffle"
@@ -65,7 +65,7 @@ function Menuliga() {
               <MyLink
                 key={id}
                 href={`/liga/${liga.id}`}
-                className="hover:bg-yellow-700 text-white px-8 py-2  text-sm font-medium w-max"
+                className="hover:bg-yellow-700 text-white px-6 py-2  text-sm font-medium w-max"
                 onClick={() => {
                   edicion[1](liga);
                 }}
