@@ -6,6 +6,9 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { useState } from "react";
 
+import { useAtom } from "jotai";
+import { coroticoEdicionAtom } from "../../store";
+
 const MyLink = forwardRef((props, ref) => {
   let { href, children, ...rest } = props;
   return (
@@ -20,6 +23,8 @@ const MyLink = forwardRef((props, ref) => {
 function Menuliga() {
   const router = useRouter();
   const [ligas, setLigas] = useState([]);
+
+  const edicion = useAtom(coroticoEdicionAtom);
 
   const host = process.env.APIhost;
 
@@ -36,9 +41,16 @@ function Menuliga() {
           router.pathname == "/torneos" || router.pathname == "/shuffle"
             ? "border-b-[2px] border-select"
             : ""
-        } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2`}
+        } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2
+          bg-yellow-600 rounded-md
+        `}
       >
-        Ligas{" "}
+        {
+          edicion[0] != null
+            ? edicion[0].nombre
+            : "Edición"
+
+        }
         <img src="https://vemastercup.com/icons/down.svg" className="w-4 h-4" />
       </Menu.Button>
       <Menu.Items>
@@ -54,6 +66,9 @@ function Menuliga() {
                 key={id}
                 href={`/liga/${liga.id}`}
                 className="hover:bg-yellow-700 text-white px-8 py-2  text-sm font-medium w-max"
+                onClick={() => {
+                  edicion[1](liga);
+                }}
               >
                 {liga.nombre}
               </MyLink>

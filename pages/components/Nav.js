@@ -6,6 +6,8 @@ import { useRouter } from "next/router";
 import Link from "next/link";
 import Menudrop from "./Menudrop";
 
+import MenuDropLiga from "./MenuDropLiga";
+
 import Menuliga from "./Menuliga";
 import Usermenu from "./Usermenu";
 
@@ -60,8 +62,8 @@ function Nav() {
                     <Menudrop />
                   </div>
 
-                  <div className="relative z-[1000]">
-                    <Menuliga />
+                  <div className="relative flex text-left z-[2000] text-white ">
+                    <MenuDropLiga />
                   </div>
 
                   <Link
@@ -207,8 +209,8 @@ function Nav() {
                   <Menudrop />
                 </div>
 
-                <div className="relative z-[1000]">
-                  <Menuliga />
+                <div className="relative flex text-left z-[999] text-white ">
+                    <MenuDropLiga />
                 </div>
 
                 <Link

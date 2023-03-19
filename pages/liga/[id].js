@@ -7,7 +7,10 @@ import Cargador from "../components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
 
+
+
 import { toast, Toaster } from "react-hot-toast";
+import Menuliga from "../components/Menuliga";
 
 const Nav = dynamic(() => import("../components/Nav"), {
   suspense: true,
@@ -161,7 +164,9 @@ const Liga = () => {
           <>
             <div className="bg-[#121212] my-4 lg:mt-4 lg:px-16">
               <div className="flex items-center py-4 justify-center text-xl lg:text-2xl lg:justify-start tituloTorneo">
-                {liga.nombre}
+                {//liga.nombre}
+                  'Corotico Master League'
+                }
               </div>
 
               <ul className="flex justify-start gap-2 lg:gap-6 text-xs lg:text-base px-2 mb-4 border-b border-[#6E6F73]">
@@ -204,7 +209,7 @@ const Liga = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.TABLA
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#a08111] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -217,6 +222,9 @@ const Liga = () => {
                   }}
                 >
                   <p>TABLA</p>
+                </li>
+                <li className="z-[10]">
+                  <Menuliga />
                 </li>
               </ul>
 
