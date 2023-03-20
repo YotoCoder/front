@@ -45,8 +45,8 @@ const Liga = () => {
   const [MMR, setMMR] = useState(null);
 
   const [posicion, setPosicion] = useState({
-    VISION_GENERAL: false,
-    TABLA: true,
+    VISION_GENERAL: true,
+    TABLA: false,
     REGISTRO: false,
     REGLAS: false,
   });
