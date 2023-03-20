@@ -36,8 +36,7 @@ function MenuDropLiga() {
             }}
           >
             <MyLink
-              // href="/mmrchampionship"
-              href="#"
+              href="/mmrchampionship/1"
               className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium w-max"
             >
               MMR Championship
