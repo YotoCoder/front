@@ -82,11 +82,17 @@ const Liga = () => {
     // si la fecha de inicio aun no ha llegado no se puede registrar
     // si la fecha de finalizacion ya ha llegado no se puede registrar
     // si el usuario ya esta registrado no se puede registrar
+    // mmr minimo para registro 5000
 
-    // if (new Date(liga.fecha_inicio) > new Date()) {
-    //   toast.error("La liga aun no ha comenzado");
-    //   return;
-    // }
+    if (MMR < 5000) {
+      toast.error("El MMR minimo para registrarse es 5000");
+      return;
+    }
+
+    if (new Date(liga.fecha_inicio) > new Date()) {
+      toast.error(`La liga aun no ha comenzado, registro abierto a partir del ${liga.fecha_inicio}`);
+      return;
+    }
 
     // if (new Date(liga.fecha_fin) < new Date()) {
     //   toast.error("La liga ya ha finalizado");
@@ -317,24 +323,34 @@ const Liga = () => {
                         </div>
                       </div>
 
-                      <div className="m-4">
-                        <p className="gris">COMIENZA A LAS</p>
-                        <p className="flex blanco gap-2">
-                          {/* <p>{liga.fecha_inicio}</p> <p></p> */}
-                        </p>
+                      <div className="m-4 flex gap-4">
+                        <div>
+                          <p className="gris">COMIENZA</p>
+                          <p className=" blanco gap-6">
+                            <p>{liga.fecha_inicio}</p> <p></p>
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="gris">FINALIZA</p>
+                          <p className=" blanco gap-2">
+                            <p>{liga.fecha_fin}</p> <p></p>
+                          </p>
+                        </div>
                       </div>
+                      
 
                       <div className="m-4">
-                        <p className="blanco lg:text-2xl pb-4 lg:pb-8">
-                          RESTRICCIONES DE LA LIGA
+                        <p className="blanco lg:text-2xl lg:pb-2">
+                          Detalles
                         </p>
                         <p className="text-[#6E6F73] lg:w-96">
-                          Al participar solo o en equipo en el liga, todos los
-                          jugadores reconocen que están totalmente de acuerdo
-                          con las reglas y los términos del liga.
-                          <br></br>
-                          Al no cumplir con los requisitos previos, los usuarios
-                          serán eliminados del liga y baneados.
+                          Vemastercup te trae la mejor liga individual de dota 2 para medallas altas.<br></br><br></br>
+                          Durante 1 mes jugaras partidas individual en tu ranked, al finalizar la edición la persona que obtenga mas puntos se llevara el gran premio.
+                          <br></br><br></br>
+                          ¡Este torneo se lleva a cabo para dar inicio al gran Segundo torneo de la vemartercup por equipos que se estará realizando a inicios de Abril! 
+
+
                         </p>
                         <div className="">
                           <button
