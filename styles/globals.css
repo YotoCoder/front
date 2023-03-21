@@ -148,7 +148,7 @@ nav {
 }
 
 .nombreCard {
-    font-family: 'Roboto';
+    font-family: 'inter';
     font-style: normal;
     font-weight: 400;
     
@@ -158,17 +158,17 @@ nav {
 }
 
 .subTitulo {
-    font-family: 'Roboto';
+    font-family: 'inter';
     font-style: normal;
     font-weight: 400;
-    line-height: 30px;
+    line-height: 34px;
     /* identical to box height */
     
     color: #bdc1c4;
 }
 
 .about {
-    font-family: 'Roboto';
+    font-family: 'inter';
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
@@ -178,7 +178,7 @@ nav {
 }
 
 .descripcion {
-    font-family: 'Roboto';
+    font-family: 'inter';
     font-style: normal;
     font-weight: 400;
     line-height: 21px;

@@ -146,7 +146,7 @@ const Liga = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>Ligas | VMCP</title>
+        <title>Ligas | MMR Championship</title>
         <meta lang="es" />
         <meta
           property="og:title"

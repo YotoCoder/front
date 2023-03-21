@@ -33,6 +33,12 @@ const Liga = () => {
   const [jugadores, setJugadores] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [ascendente, setAscendente] = useState(false);
+  const [fechaInicioFormateada, setFechaInicioFormateada] = useState('');
+  const [fechaFinFormateada, setFechaFinFormateada] = useState('');
+
+  const nombreMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
+  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  ];
 
   const [inOrder, setInOrder] = useState({
     MMR: false,
@@ -59,6 +65,16 @@ const Liga = () => {
   useEffect(() => {
     axios.get(`${host}/liga/${id}`).then((res) => {
       setLiga(res.data);
+      
+      // formatear fechas dia mes año sin restar un dia
+
+      setFechaInicioFormateada(
+        {dia: new Date(res.data.fecha_inicio).getDate() + 1, mes: new Date(res.data.fecha_inicio).getMonth(), ano: new Date(res.data.fecha_inicio).getFullYear()}
+      )
+
+      setFechaFinFormateada(
+        {dia: new Date(res.data.fecha_fin).getDate() + 1, mes: new Date(res.data.fecha_fin).getMonth(), ano: new Date(res.data.fecha_fin).getFullYear()}
+      )
 
       setCargando(false);
     });
@@ -71,6 +87,13 @@ const Liga = () => {
   }, [id]);
 
   const handleRegistro = (e) => {
+
+    // si la fecha final ya paso, no se puede registrar
+    if (new Date(liga.fecha_fin) < new Date()) {
+      toast.error("La fecha de registro ya ha finalizado.");
+      return;
+    }
+
     let headersList = {
       Authorization: "Bearer " + localStorage.getItem("token"),
       "Content-Type": "application/json",
@@ -110,7 +133,7 @@ const Liga = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>Ligas | VMCP</title>
+        <title>Ligas | COROTICO</title>
         <meta lang="es" />
         <meta
           property="og:title"
@@ -226,6 +249,17 @@ const Liga = () => {
                 <li className="z-[10]">
                   <Menuliga />
                 </li>
+
+                {/* colocar periodo de fechas */}
+                  <li className="text-slate-300 items-center  lg:visible">
+                    <div>
+                      Inicio: {fechaInicioFormateada.dia + "-" + nombreMes[fechaFinFormateada.mes] + "-" + fechaInicioFormateada.ano}
+                    </div>
+                    <div>
+                      Fin: {fechaFinFormateada.dia + "-" + nombreMes[fechaFinFormateada.mes] + "-" + fechaFinFormateada.ano}
+                    </div>
+                  </li>
+                  
               </ul>
 
               {posicion.VISION_GENERAL && (
@@ -287,11 +321,20 @@ const Liga = () => {
                         </div>
                       </div>
 
-                      <div className="m-4">
-                        <p className="gris">COMIENZA A LAS</p>
-                        <p className="flex blanco gap-2">
-                          {/* <p>{liga.fecha_inicio}</p> <p></p> */}
-                        </p>
+                      <div className="m-4 flex gap-4">
+                        <div>
+                          <p className="gris">COMIENZA</p>
+                          <p className=" blanco gap-6">
+                            <p>{liga.fecha_inicio}</p> <p></p>
+                          </p>
+                        </div>
+                        
+                        <div>
+                          <p className="gris">FINALIZA</p>
+                          <p className=" blanco gap-2">
+                            <p>{liga.fecha_fin}</p> <p></p>
+                          </p>
+                        </div>
                       </div>
 
                       <div className="m-4">
