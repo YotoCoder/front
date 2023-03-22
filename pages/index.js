@@ -5,7 +5,10 @@ import Cargador from "./components/Cargador";
 
 import { Toaster } from "react-hot-toast";
 import Eventos from "./components/sections/Eventos";
-import Impacto from "./components/sections";
+import Impacto from "./components/sections/Impacto";
+
+import ObjetivosSM from "./components/sections/ObjetivosSM";
+import ObjetivosLG from "./components/sections/ObjetivosLG";
 
 const MainContent = dynamic(() => import("./components/MainContent"), {
   suspense: true,
@@ -85,14 +88,18 @@ export default function Home() {
           <div className="lg:pt-16">
             <Eventos />
           </div>
-
-          <div className="">
+          <div className="lg:py-6">
             <Impacto />
           </div>
-          <div className="lg:py-4 py-36">
+          <div className="pt-44 lg:hidden block">
+            <ObjetivosSM />
+          </div>
+          <div className="pt-2 lg:block hidden">
+            <ObjetivosLG />
+          </div>
+          <div className="lg:py-4 py-20">
             <Cards />
           </div>
-          
           <div className="py-4">
             <Titulo
               primary={"Sponsors"}
