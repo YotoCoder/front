@@ -10,6 +10,9 @@ module.exports = {
         "select": "#FFE600",
         
       },
+      backgroundImage: {
+        "backgroundEvento": "url('/images/sections/bgeventos.png')",
+      }
    
     }
     

@@ -4,6 +4,7 @@ import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 
 import { Toaster } from "react-hot-toast";
+import Eventos from "./components/sections/Eventos";
 
 const MainContent = dynamic(() => import("./components/MainContent"), {
   suspense: true,
@@ -80,6 +81,9 @@ export default function Home() {
         <div>
           <MainContent /> <div className="z-[5000]"></div>
           <About />
+          <div className="lg:py-16">
+            <Eventos />
+          </div>
           <Cards />
           <div className="py-4">
             <Titulo
