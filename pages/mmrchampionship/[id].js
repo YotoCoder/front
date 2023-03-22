@@ -381,7 +381,29 @@ const Liga = () => {
                             PREMIACION TOTAL
                           </p>
                           <p className="text-[#FFE600] text-2xl mx-6">
-                            {liga.premios}
+                            300$
+                            
+                          </p>
+                        </div>
+
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">1° lugar</p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            150$
+                          </p>
+                        </div>
+
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">2° lugar</p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            100$
+                          </p>
+                        </div>
+
+                        <div className="flex my-[3px] bg-[#242424] justify-between items-center">
+                          <p className="text-white p-4 px-6">3° lugar</p>
+                          <p className="text-[#FFE600] text-2xl mx-6">
+                            50$
                           </p>
                         </div>
                       </div>
