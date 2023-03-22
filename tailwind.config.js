@@ -12,6 +12,7 @@ module.exports = {
       },
       backgroundImage: {
         "backgroundEvento": "url('/images/sections/bgeventos.png')",
+        "backgroundImpacto": "url('/images/sections/impacto.png')",
       }
    
     }
