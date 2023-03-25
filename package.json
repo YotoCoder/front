@@ -13,6 +13,7 @@
     "@emotion/styled": "^11.10.5",
     "@headlessui/react": "^1.7.4",
     "@mui/material": "^5.10.16",
+    "@nextui-org/react": "^1.0.0-beta.12",
     "axios": "^1.2.0",
     "formik": "^2.2.9",
     "html-react-parser": "^3.0.4",

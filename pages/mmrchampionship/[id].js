@@ -607,11 +607,14 @@ const Liga = () => {
                     </thead>
 
                     <tbody>
-                      {jugadores.map((jugador, i) => (
+                      {// abrir un modal para editar el MMR actual pg pp
+                      
+                      jugadores.map((jugador, i) => (
                         <tr
                           className={` hover:bg-yellow-700 ${
                             i % 2 == 0 ? "bg-[#1d1d1d]" : "bg-[#242424]"
                           }`}
+                          onClick={() => alert(jugador.mmr_actual)}
                         >
                           <td
                             className={`px-1 py-2 text-white border font-serif border-[#121212]`}
@@ -627,7 +630,7 @@ const Liga = () => {
                                     : "https://vemastercup.com/icons/user.svg"
                                 }
                                 alt="avatar-jugador"
-                                className="w-8 h-8 rounded-full lg:block cursor-pointer"
+                                className="w-0 lg:w-8 h-8 rounded-full lg:block cursor-pointer"
                                 onClick={() =>
                                   window.open(
                                     '/user/profile/' + jugador.user.username
