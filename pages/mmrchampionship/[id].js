@@ -89,10 +89,10 @@ const Liga = () => {
       return;
     }
 
-    if (new Date(liga.fecha_inicio) > new Date()) {
-      toast.error(`La liga aun no ha comenzado, registro abierto a partir del ${liga.fecha_inicio}`);
-      return;
-    }
+    // if (new Date(liga.fecha_inicio) > new Date()) {
+    //   toast.error(`La liga aun no ha comenzado, registro abierto a partir del ${liga.fecha_inicio}`);
+    //   return;
+    // }
 
     // if (new Date(liga.fecha_fin) < new Date()) {
     //   toast.error("La liga ya ha finalizado");
