@@ -1,9 +1,18 @@
 import { useState } from "react";
 import ModalMMR from "./Modalmmr";
 import styles from "./Modal.module.css";
+import axios from "axios";
+import { toast, Toaster } from "react-hot-toast";
+import { useRouter } from "next/router";
+
+const API_URL = process.env.APIhost + "/mmrchampionship/";
+
+const host = process.env.APIhost;
 
 export default function MyPage() {
   const [isOpen, setIsOpen] = useState(false);
+
+  const router = useRouter();
 
   const handleOpenModal = () => {
     setIsOpen(true);
@@ -13,12 +22,6 @@ export default function MyPage() {
     setIsOpen(false);
   };
 
-  const handleSave = () => {
-    // peticion patch endpoind  /mmrchampionship/update-jugador-by-user/5
-    // mensaje success toast
-    // cerrar modal y actualizar tabla
-  };
-
   const [values, setValues] = useState({
     id_player: "1",
     mmr_actual: "5000",
@@ -26,8 +29,66 @@ export default function MyPage() {
     perdidas: "30",
   });
 
+  const handleSave = (e, id_player) => {
+    // peticion patch endpoind  /mmrchampionship/update-jugador-by-user/5
+
+    let headersList = {
+      Authorization: "Bearer " + localStorage.getItem("token"),
+      "Content-Type": "application/json",
+    };
+
+    let bodyContent = JSON.stringify({
+      mmr_actual: 999,
+      ganadas: 999,
+      perdidas: 999,
+    });
+
+    let reqOptions = {
+      url: `${host}/mmrchampionship/update-jugador-by-user/3`, // id_player
+      method: "PATCH",
+      headers: headersList,
+      data: bodyContent,
+    };
+
+    e.preventDefault();
+    axios(reqOptions)
+      .then((res) => {
+        toast.success("Puntuacion actualizada correctamente!");
+        setTimeout(() => {
+          router.reload();
+        }, 200);
+      })
+      .catch((err) => {
+        toast.error(
+          "Hubo un problema por favor vuelve a intentarlo si el problema persiste comunicate con soporte.  " +
+            err.response.data.message +
+            " " +
+            err.message
+        );
+      });
+
+    // cerrar modal y actualizar tabla
+  };
+
   return (
     <>
+      <Toaster
+        toastOptions={{
+          loading: {
+            duration: 5000,
+          },
+
+          success: {
+            duration: 3000,
+          },
+          // black theme
+          style: {
+            background: "#403f3f",
+            color: "#fff",
+          },
+        }}
+      />
+
       <button className="text-white" onClick={handleOpenModal}>
         Open Modal
       </button>

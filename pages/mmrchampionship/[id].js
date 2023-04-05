@@ -345,12 +345,14 @@ const Liga = () => {
                           Detalles
                         </p>
                         <p className="text-[#6E6F73] lg:w-96">
-                          Vemastercup te trae la mejor liga individual de dota 2 para medallas altas.<br></br><br></br>
-                          Durante 1 mes jugaras partidas individual en tu ranked, al finalizar la edición la persona que obtenga mas puntos se llevara el gran premio.
+                        Biz Gaming te trae la mejor liga individual de dota 2 para incentivar el dota venezolano en alto nivel.<br></br><br></br>
+                        Durante 3 semanas se jugarán partidas individuales en modo clasificación (partidas solo ranked), al finalizar la edición las 3 personas que obtengan la mayor cantidad de MMR se llevarán el pozo.
                           <br></br><br></br>
                           ¡Este torneo se lleva a cabo para dar inicio al gran Segundo torneo de la vemartercup por equipos que se estará realizando a inicios de Abril! 
 
-
+                            <p>
+                              Premio extra al jugador que haya jugado la mayor cantidad de partidas y no haya conseguido quedar entre los ganadores.
+                            </p>
                         </p>
                         <div className="">
                           <button
