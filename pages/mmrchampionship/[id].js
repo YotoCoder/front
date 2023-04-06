@@ -609,14 +609,14 @@ const Liga = () => {
                     </thead>
 
                     <tbody>
-                      {// abrir un modal para editar el MMR actual pg pp
+                      {// abrir un modal para editar el MMR actual pg pp onClick={() => alert(jugador.mmr_actual)}
                       
                       jugadores.map((jugador, i) => (
                         <tr
                           className={` hover:bg-yellow-700 ${
                             i % 2 == 0 ? "bg-[#1d1d1d]" : "bg-[#242424]"
                           }`}
-                          onClick={() => alert(jugador.mmr_actual)}
+                          
                         >
                           <td
                             className={`px-1 py-2 text-white border font-serif border-[#121212]`}
