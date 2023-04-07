@@ -253,7 +253,7 @@ const Liga = () => {
                 {/* colocar periodo de fechas */}
                   <li className="text-slate-300 items-center  lg:visible">
                     <div>
-                      Inicio: {fechaInicioFormateada.dia + "-" + nombreMes[fechaFinFormateada.mes] + "-" + fechaInicioFormateada.ano}
+                      Inicio: {fechaInicioFormateada.dia + "-" + nombreMes[fechaInicioFormateada.mes] + "-" + fechaInicioFormateada.ano}
                     </div>
                     <div>
                       Fin: {fechaFinFormateada.dia + "-" + nombreMes[fechaFinFormateada.mes] + "-" + fechaFinFormateada.ano}
