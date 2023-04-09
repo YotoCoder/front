@@ -7,8 +7,6 @@ import Cargador from "../components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
 
-
-
 import { toast, Toaster } from "react-hot-toast";
 import Menuliga from "../components/Menuliga";
 
@@ -33,11 +31,22 @@ const Liga = () => {
   const [jugadores, setJugadores] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [ascendente, setAscendente] = useState(false);
-  const [fechaInicioFormateada, setFechaInicioFormateada] = useState('');
-  const [fechaFinFormateada, setFechaFinFormateada] = useState('');
+  const [fechaInicioFormateada, setFechaInicioFormateada] = useState("");
+  const [fechaFinFormateada, setFechaFinFormateada] = useState("");
 
-  const nombreMes = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio",
-  "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"
+  const nombreMes = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
   ];
 
   const [inOrder, setInOrder] = useState({
@@ -65,16 +74,20 @@ const Liga = () => {
   useEffect(() => {
     axios.get(`${host}/liga/${id}`).then((res) => {
       setLiga(res.data);
-      
+
       // formatear fechas dia mes año sin restar un dia
 
-      setFechaInicioFormateada(
-        {dia: new Date(res.data.fecha_inicio).getDate() + 1, mes: new Date(res.data.fecha_inicio).getMonth(), ano: new Date(res.data.fecha_inicio).getFullYear()}
-      )
+      setFechaInicioFormateada({
+        dia: new Date(res.data.fecha_inicio).getDate() + 1,
+        mes: new Date(res.data.fecha_inicio).getMonth(),
+        ano: new Date(res.data.fecha_inicio).getFullYear(),
+      });
 
-      setFechaFinFormateada(
-        {dia: new Date(res.data.fecha_fin).getDate() + 1, mes: new Date(res.data.fecha_fin).getMonth(), ano: new Date(res.data.fecha_fin).getFullYear()}
-      )
+      setFechaFinFormateada({
+        dia: new Date(res.data.fecha_fin).getDate() + 1,
+        mes: new Date(res.data.fecha_fin).getMonth(),
+        ano: new Date(res.data.fecha_fin).getFullYear(),
+      });
 
       setCargando(false);
     });
@@ -87,7 +100,6 @@ const Liga = () => {
   }, [id]);
 
   const handleRegistro = (e) => {
-
     // si la fecha final ya paso, no se puede registrar
     if (new Date(liga.fecha_fin) < new Date()) {
       toast.error("La fecha de registro ya ha finalizado.");
@@ -185,11 +197,52 @@ const Liga = () => {
           </div>
         ) : (
           <>
-            <div className="bg-[#121212] my-4 lg:mt-4 lg:px-16">
-              <div className="flex items-center py-4 justify-center text-xl lg:text-2xl lg:justify-start tituloTorneo">
-                {//liga.nombre}
-                  'Corotico Master League'
-                }
+            <div className="bg-[#121212] lg:my-4 lg:mt-4 lg:px-16">
+              <div className="flex items-center justify-center pb-2 lg:pb-4">
+                <img
+                  src={host + liga.avatar}
+                  className="w-[1200px] h-[80px] lg:h-[200px]"
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    filter: "brightness(0.7)",
+                    borderRadius: "10px",
+                  }}
+                />
+                <div
+                  className="text-white absolute mt-[-40px] lg:mt-[-50px] text-xl lg:text-4xl black titulo-liga"
+                  style={{ textShadow: "4px 2px 2px #000" }}
+                >
+                  Corotico Master League
+                </div>
+                <p
+                  className="text-white absolute lg:text-2xl lg:pt-20"
+                  style={{ textShadow: "2px 2px 2px #000" }}
+                >
+                  {liga.nombre}
+                </p>
+                {/* colocar periodo de fechas */}
+                <li
+                  className="absolute text-xs mr-60 mt-6 text-white items-center lg:mr-[800px] lg:mt-10 lg:text-2xl"
+                  style={{ textShadow: "2px 2px 2px #000" }}
+                >
+                  <div>
+                    Inicio:{" "}
+                    {fechaInicioFormateada.dia +
+                      "-" +
+                      nombreMes[fechaInicioFormateada.mes] +
+                      "-" +
+                      fechaInicioFormateada.ano}
+                  </div>
+                  <div>
+                    Fin:{" "}
+                    {fechaFinFormateada.dia +
+                      "-" +
+                      nombreMes[fechaFinFormateada.mes] +
+                      "-" +
+                      fechaFinFormateada.ano}
+                  </div>
+                </li>
               </div>
 
               <ul className="flex justify-start gap-2 lg:gap-6 text-xs lg:text-base px-2 mb-4 border-b border-[#6E6F73]">
@@ -249,17 +302,6 @@ const Liga = () => {
                 <li className="z-[10]">
                   <Menuliga />
                 </li>
-
-                {/* colocar periodo de fechas */}
-                  <li className="text-slate-300 items-center  lg:visible">
-                    <div>
-                      Inicio: {fechaInicioFormateada.dia + "-" + nombreMes[fechaInicioFormateada.mes] + "-" + fechaInicioFormateada.ano}
-                    </div>
-                    <div>
-                      Fin: {fechaFinFormateada.dia + "-" + nombreMes[fechaFinFormateada.mes] + "-" + fechaFinFormateada.ano}
-                    </div>
-                  </li>
-                  
               </ul>
 
               {posicion.VISION_GENERAL && (
@@ -268,7 +310,7 @@ const Liga = () => {
                     <div className="lg:flex lg:flex-col lg:w-screen justify-between">
                       <div className="flex lg:justify-between gap-4 m-4 gris items-center py-4 justify-start text-xl lg:text-2xl tituloLiga">
                         <div>
-                          Una liga de dota 2 
+                          Una liga de dota 2
                           {/* <p className="blanco">{liga.fecha_inicio}</p> */}
                         </div>
 
@@ -328,7 +370,7 @@ const Liga = () => {
                             <p>{liga.fecha_inicio}</p> <p></p>
                           </p>
                         </div>
-                        
+
                         <div>
                           <p className="gris">FINALIZA</p>
                           <p className=" blanco gap-2">
@@ -572,31 +614,31 @@ const Liga = () => {
                                 className="w-8 h-8 rounded-full lg:block cursor-pointer"
                                 onClick={() =>
                                   window.open(
-                                    '/user/profile/' + jugador.user.username
-                                  )}
+                                    "/user/profile/" + jugador.user.username
+                                  )
+                                }
                               />
 
                               <p className="">{jugador.user.username}</p>
                               <div className="flex gap-2">
-                              <Flag
+                                <Flag
                                   code={
                                     jugador.user.pais ? jugador.user.pais : "VE"
                                   }
                                   className="w-6 h-6"
-
                                 />
-                              <img
-                                src="../icons/steam.svg"
-                                alt="..."
-                                className="rounded-full  w-6 h-6 cursor-pointer hidden lg:block"
-                                onClick={() =>
-                                  window.open(
-                                    jugador.user.steam_id
-                                      ? jugador.user.steam_id
-                                      : "https://steamcommunity.com/"
-                                  )
-                                }
-                              />
+                                <img
+                                  src="../icons/steam.svg"
+                                  alt="..."
+                                  className="rounded-full  w-6 h-6 cursor-pointer hidden lg:block"
+                                  onClick={() =>
+                                    window.open(
+                                      jugador.user.steam_id
+                                        ? jugador.user.steam_id
+                                        : "https://steamcommunity.com/"
+                                    )
+                                  }
+                                />
                               </div>
                             </div>
                           </td>

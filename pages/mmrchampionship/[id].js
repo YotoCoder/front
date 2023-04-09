@@ -7,8 +7,6 @@ import Cargador from "../components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
 
-
-
 import { toast, Toaster } from "react-hot-toast";
 import Menuligammr from "../components/Menummrchampionship";
 
@@ -33,6 +31,23 @@ const Liga = () => {
   const [jugadores, setJugadores] = useState([]);
   const [cargando, setCargando] = useState(true);
   const [ascendente, setAscendente] = useState(false);
+  const [fechaInicioFormateada, setFechaInicioFormateada] = useState("");
+  const [fechaFinFormateada, setFechaFinFormateada] = useState("");
+
+  const nombreMes = [
+    "Enero",
+    "Febrero",
+    "Marzo",
+    "Abril",
+    "Mayo",
+    "Junio",
+    "Julio",
+    "Agosto",
+    "Septiembre",
+    "Octubre",
+    "Noviembre",
+    "Diciembre",
+  ];
 
   const [inOrder, setInOrder] = useState({
     MMR_INICIAL: false,
@@ -60,7 +75,17 @@ const Liga = () => {
   useEffect(() => {
     axios.get(`${host}/mmrchampionship/${id}`).then((res) => {
       setLiga(res.data);
+      setFechaInicioFormateada({
+        dia: new Date(res.data.fecha_inicio).getDate() + 1,
+        mes: new Date(res.data.fecha_inicio).getMonth(),
+        ano: new Date(res.data.fecha_inicio).getFullYear(),
+      });
 
+      setFechaFinFormateada({
+        dia: new Date(res.data.fecha_fin).getDate() + 1,
+        mes: new Date(res.data.fecha_fin).getMonth(),
+        ano: new Date(res.data.fecha_fin).getFullYear(),
+      });
       setCargando(false);
     });
   }, [id]);
@@ -72,13 +97,12 @@ const Liga = () => {
       setJugadores(
         res.data.sort((a, b) => {
           return b.puntos - a.puntos;
-        }
-      ));
+        })
+      );
     });
   }, [id]);
 
   const handleRegistro = (e) => {
-
     // si la fecha de inicio aun no ha llegado no se puede registrar
     // si la fecha de finalizacion ya ha llegado no se puede registrar
     // si el usuario ya esta registrado no se puede registrar
@@ -99,13 +123,14 @@ const Liga = () => {
     //   return;
     // }
 
-    
-
-   if(jugadores.find(jugador => jugador.user.username === localStorage.getItem("username"))){
+    if (
+      jugadores.find(
+        (jugador) => jugador.user.username === localStorage.getItem("username")
+      )
+    ) {
       toast.error("Ya estas registrado en esta liga");
       return;
     }
-
 
     let headersList = {
       Authorization: "Bearer " + localStorage.getItem("token"),
@@ -198,11 +223,52 @@ const Liga = () => {
           </div>
         ) : (
           <>
-            <div className="bg-[#121212] my-4 lg:mt-4 lg:px-16">
-              <div className="flex items-center py-4 justify-center text-xl lg:text-2xl lg:justify-start tituloTorneo">
-                {//liga.nombre}
-                  'MMR Championship'
-                }
+            <div className="bg-[#121212] lg:my-4 lg:mt-4 lg:px-16">
+              <div className="flex items-center justify-center pb-2 lg:pb-4">
+                <img
+                  src={host + liga.avatar}
+                  className="w-[1200px] h-[80px] lg:h-[200px]"
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: "center",
+                    filter: "brightness(0.7)",
+                    borderRadius: "10px",
+                  }}
+                />
+                <div
+                  className="text-white absolute mt-[-40px] lg:mt-[-50px] text-xl lg:text-4xl black titulo-liga"
+                  style={{ textShadow: "4px 2px 2px #000" }}
+                >
+                  MMR Championship
+                </div>
+                <p
+                  className="text-white absolute lg:text-2xl lg:pt-20"
+                  style={{ textShadow: "2px 2px 2px #000" }}
+                >
+                  {liga.nombre}
+                </p>
+                {/* colocar periodo de fechas */}
+                <li
+                  className="absolute text-xs mr-60 mt-6 text-white items-center lg:mr-[800px] lg:mt-10 lg:text-2xl"
+                  style={{ textShadow: "2px 2px 2px #000" }}
+                >
+                  <div>
+                    Inicio:{" "}
+                    {fechaInicioFormateada.dia +
+                      "-" +
+                      nombreMes[fechaInicioFormateada.mes] +
+                      "-" +
+                      fechaInicioFormateada.ano}
+                  </div>
+                  <div>
+                    Fin:{" "}
+                    {fechaFinFormateada.dia +
+                      "-" +
+                      nombreMes[fechaFinFormateada.mes] +
+                      "-" +
+                      fechaFinFormateada.ano}
+                  </div>
+                </li>
               </div>
 
               <ul className="flex justify-start gap-2 lg:gap-6 text-xs lg:text-base px-2 mb-4 border-b border-[#6E6F73]">
@@ -270,7 +336,7 @@ const Liga = () => {
                     <div className="lg:flex lg:flex-col lg:w-screen justify-between">
                       <div className="flex lg:justify-between gap-4 m-4 gris items-center py-4 justify-start text-xl lg:text-2xl tituloLiga">
                         <div>
-                          Una liga de dota 2 
+                          Una liga de dota 2
                           {/* <p className="blanco">{liga.fecha_inicio}</p> */}
                         </div>
 
@@ -330,7 +396,7 @@ const Liga = () => {
                             <p>{liga.fecha_inicio}</p> <p></p>
                           </p>
                         </div>
-                        
+
                         <div>
                           <p className="gris">FINALIZA</p>
                           <p className=" blanco gap-2">
@@ -338,21 +404,28 @@ const Liga = () => {
                           </p>
                         </div>
                       </div>
-                      
 
                       <div className="m-4">
-                        <p className="blanco lg:text-2xl lg:pb-2">
-                          Detalles
-                        </p>
+                        <p className="blanco lg:text-2xl lg:pb-2">Detalles</p>
                         <p className="text-[#6E6F73] lg:w-96">
-                        Biz Gaming te trae la mejor liga individual de dota 2 para incentivar el dota venezolano en alto nivel.<br></br><br></br>
-                        Durante 3 semanas se jugarán partidas individuales en modo clasificación (partidas solo ranked), al finalizar la edición las 3 personas que obtengan la mayor cantidad de MMR se llevarán el pozo.
-                          <br></br><br></br>
-                          ¡Este torneo se lleva a cabo para dar inicio al gran Segundo torneo de la vemartercup por equipos que se estará realizando a inicios de Abril! 
-
-                            <p>
-                              Premio extra al jugador que haya jugado la mayor cantidad de partidas y no haya conseguido quedar entre los ganadores.
-                            </p>
+                          Biz Gaming te trae la mejor liga individual de dota 2
+                          para incentivar el dota venezolano en alto nivel.
+                          <br></br>
+                          <br></br>
+                          Durante 3 semanas se jugarán partidas individuales en
+                          modo clasificación (partidas solo ranked), al
+                          finalizar la edición las 3 personas que obtengan la
+                          mayor cantidad de MMR se llevarán el pozo.
+                          <br></br>
+                          <br></br>
+                          ¡Este torneo se lleva a cabo para dar inicio al gran
+                          Segundo torneo de la vemartercup por equipos que se
+                          estará realizando a inicios de Abril!
+                          <p>
+                            Premio extra al jugador que haya jugado la mayor
+                            cantidad de partidas y no haya conseguido quedar
+                            entre los ganadores.
+                          </p>
                         </p>
                         <div className="">
                           <button
@@ -382,31 +455,22 @@ const Liga = () => {
                           <p className="text-white p-4 text-sm px-6 font-bold">
                             PREMIACION TOTAL
                           </p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
-                            300$
-                            
-                          </p>
+                          <p className="text-[#FFE600] text-2xl mx-6">300$</p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">1° lugar</p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
-                            150$
-                          </p>
+                          <p className="text-[#FFE600] text-2xl mx-6">150$</p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">2° lugar</p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
-                            100$
-                          </p>
+                          <p className="text-[#FFE600] text-2xl mx-6">100$</p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">3° lugar</p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
-                            50$
-                          </p>
+                          <p className="text-[#FFE600] text-2xl mx-6">50$</p>
                         </div>
                       </div>
 
@@ -609,77 +673,80 @@ const Liga = () => {
                     </thead>
 
                     <tbody>
-                      {// abrir un modal para editar el MMR actual pg pp onClick={() => alert(jugador.mmr_actual)}
-                      
-                      jugadores.map((jugador, i) => (
-                        <tr
-                          className={` hover:bg-yellow-700 ${
-                            i % 2 == 0 ? "bg-[#1d1d1d]" : "bg-[#242424]"
-                          }`}
-                          
-                        >
-                          <td
-                            className={`px-1 py-2 text-white border font-serif border-[#121212]`}
+                      {
+                        // abrir un modal para editar el MMR actual pg pp onClick={() => alert(jugador.mmr_actual)}
+
+                        jugadores.map((jugador, i) => (
+                          <tr
+                            className={` hover:bg-yellow-700 ${
+                              i % 2 == 0 ? "bg-[#1d1d1d]" : "bg-[#242424]"
+                            }`}
                           >
-                            {i + 1}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
-                            <div className="flex gap-2 items-center justify-between">
-                              <img
-                                src={
-                                  jugador.user.avatar
-                                    ? host + jugador.user.avatar
-                                    : "https://vemastercup.com/icons/user.svg"
-                                }
-                                alt="avatar-jugador"
-                                className="w-0 lg:w-8 h-8 rounded-full lg:block cursor-pointer"
-                                onClick={() =>
-                                  window.open(
-                                    '/user/profile/' + jugador.user.username
-                                  )}
-                              />
-
-                              <p className="">{jugador.user.username}</p>
-                              <div className="flex gap-2">
-                              <Flag
-                                  code={
-                                    jugador.user.pais ? jugador.user.pais : "VE"
+                            <td
+                              className={`px-1 py-2 text-white border font-serif border-[#121212]`}
+                            >
+                              {i + 1}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              <div className="flex gap-2 items-center justify-between">
+                                <img
+                                  src={
+                                    jugador.user.avatar
+                                      ? host + jugador.user.avatar
+                                      : "https://vemastercup.com/icons/user.svg"
                                   }
-                                  className="w-6 h-6"
-
+                                  alt="avatar-jugador"
+                                  className="w-0 lg:w-8 h-8 rounded-full lg:block cursor-pointer"
+                                  onClick={() =>
+                                    window.open(
+                                      "/user/profile/" + jugador.user.username
+                                    )
+                                  }
                                 />
-                              <img
-                                src="../icons/steam.svg"
-                                alt="..."
-                                className="rounded-full  w-6 h-6 cursor-pointer hidden lg:block"
-                                onClick={() =>
-                                  window.open(
-                                    jugador.user.steam_id
-                                      ? jugador.user.steam_id
-                                      : "https://steamcommunity.com/"
-                                  )
-                                }
-                              />
+
+                                <p className="">{jugador.user.username}</p>
+                                <div className="flex gap-2">
+                                  <Flag
+                                    code={
+                                      jugador.user.pais
+                                        ? jugador.user.pais
+                                        : "VE"
+                                    }
+                                    className="w-6 h-6"
+                                  />
+                                  <img
+                                    src="../icons/steam.svg"
+                                    alt="..."
+                                    className="rounded-full  w-6 h-6 cursor-pointer hidden lg:block"
+                                    onClick={() =>
+                                      window.open(
+                                        jugador.user.steam_id
+                                          ? jugador.user.steam_id
+                                          : "https://steamcommunity.com/"
+                                      )
+                                    }
+                                  />
+                                </div>
                               </div>
-                            </div>
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
-                            {jugador.mmr_inicial}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
-                            {jugador.mmr_actual}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
-                            {jugador.ganadas}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
-                            {jugador.perdidas}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
-                            {jugador.mmr_actual - jugador.mmr_inicial}
-                          </td>
-                        </tr>
-                      ))}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              {jugador.mmr_inicial}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              {jugador.mmr_actual}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              {jugador.ganadas}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              {jugador.perdidas}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              {jugador.mmr_actual - jugador.mmr_inicial}
+                            </td>
+                          </tr>
+                        ))
+                      }
                     </tbody>
                   </table>
                 </div>
