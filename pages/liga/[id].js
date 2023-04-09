@@ -10,6 +10,9 @@ import Flag from "react-world-flags";
 import { toast, Toaster } from "react-hot-toast";
 import Menuliga from "../components/Menuliga";
 
+import ColorThief from 'colorthief';
+
+
 const Nav = dynamic(() => import("../components/Nav"), {
   suspense: true,
 });
@@ -33,6 +36,7 @@ const Liga = () => {
   const [ascendente, setAscendente] = useState(false);
   const [fechaInicioFormateada, setFechaInicioFormateada] = useState("");
   const [fechaFinFormateada, setFechaFinFormateada] = useState("");
+  const [dominantColor, setDominantColor] = useState([0, 0, 0]);
 
   const nombreMes = [
     "Enero",
@@ -98,6 +102,18 @@ const Liga = () => {
       setJugadores(res.data);
     });
   }, [id]);
+
+  useEffect(()=>{
+    
+    const colorThief = new ColorThief();
+    const img = new Image();
+    img.src = host + liga.avatar;
+    img.crossOrigin = 'Anonymous';
+    img.onload = () => {
+      setDominantColor(colorThief.getColor(img));
+      console.log(dominantColor);
+    };
+  }, [liga])
 
   const handleRegistro = (e) => {
     // si la fecha final ya paso, no se puede registrar
@@ -201,12 +217,14 @@ const Liga = () => {
               <div className="flex items-center justify-center pb-2 lg:pb-4">
                 <img
                   src={host + liga.avatar}
+                  id='img'
                   className="w-[1200px] h-[80px] lg:h-[200px]"
                   style={{
                     objectFit: "cover",
                     objectPosition: "center",
                     filter: "brightness(0.7)",
                     borderRadius: "10px",
+                    boxShadow: `0px 0px 34px rgb(${dominantColor})`,
                   }}
                 />
                 <div

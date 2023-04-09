@@ -15,6 +15,7 @@
     "@mui/material": "^5.10.16",
     "@nextui-org/react": "^1.0.0-beta.12",
     "axios": "^1.2.0",
+    "colorthief": "^2.4.0",
     "formik": "^2.2.9",
     "html-react-parser": "^3.0.4",
     "jotai": "^1.10.0",
