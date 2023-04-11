@@ -5,29 +5,27 @@ import axios from "axios";
 import { toast, Toaster } from "react-hot-toast";
 import { useRouter } from "next/router";
 
+import { useAtom } from "jotai";
+
+import { dataJugadorModalAtom } from "../../../store";
+
+import { modalIsOpenAtom } from "../../../store";
+
 const API_URL = process.env.APIhost + "/mmrchampionship/";
 
 const host = process.env.APIhost;
 
-export default function MyPage() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function MyModal() {
+  const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom);
 
   const router = useRouter();
 
-  const handleOpenModal = () => {
-    setIsOpen(true);
-  };
 
   const handleCloseModal = () => {
     setIsOpen(false);
   };
 
-  const [values, setValues] = useState({
-    id_player: "1",
-    mmr_actual: "5000",
-    ganadas: "20",
-    perdidas: "30",
-  });
+  const [values, setValues] = useAtom(dataJugadorModalAtom);
 
   const handleSave = (e, id_player) => {
     // peticion patch endpoind  /mmrchampionship/update-jugador-by-user/5
@@ -37,14 +35,10 @@ export default function MyPage() {
       "Content-Type": "application/json",
     };
 
-    let bodyContent = JSON.stringify({
-      mmr_actual: 999,
-      ganadas: 999,
-      perdidas: 999,
-    });
+    let bodyContent = values;
 
     let reqOptions = {
-      url: `${host}/mmrchampionship/update-jugador-by-user/3`, // id_player
+      url: `${host}/mmrchampionship/update-jugador-by-user/${values.jugador_id}`, // id_player
       method: "PATCH",
       headers: headersList,
       data: bodyContent,
@@ -89,13 +83,36 @@ export default function MyPage() {
         }}
       />
 
-      <button className="text-white" onClick={handleOpenModal}>
-        Open Modal
-      </button>
-      <ModalMMR isOpen={isOpen} onClose={handleCloseModal}>
+      {/* <button
+        className="border-2 border-yellow-400/60 text-white rounded-md px-2 py-1"
+        onClick={() => {
+          setIsOpen(true);
+        }}
+      >
+        Editar
+      </button> */}
+      <ModalMMR isOpen={isOpen} onClose={() => setIsOpen(false)}>
         <h2 className={styles.tittle}>Actualizando puntuación</h2>
 
         <table className="w-[300px]">
+          <tr className="flex pl-20 pt-6 items-center justify-between">
+            <td className="text-white font-bold">
+              <p className="text-white font-bold">ID Amigo</p>
+            </td>
+            <td className="text-white font-bold">
+              <input
+                className={styles.inputIdAmigo}
+                type="number"
+                value={values.id_amigo}
+                onChange={(e) => {
+                  setValues((values) => {
+                    return {...values, id_amigo: e.target.value}
+                  })
+                }}
+              ></input>
+            </td>
+          </tr>
+
           <tr className="flex pl-20 pt-8 items-center justify-between">
             <td className="text-white font-bold">
               <p className="text-white font-bold">MMR Actual</p>

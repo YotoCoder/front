@@ -10,7 +10,13 @@ import Flag from "react-world-flags";
 import { toast, Toaster } from "react-hot-toast";
 import Menuligammr from "../components/Menummrchampionship";
 
-import ColorThief from 'colorthief';
+import MyModal from "../components/modals/Modalchildren";
+
+import { useAtom } from "jotai";
+
+import { dataJugadorModalAtom, modalIsOpenAtom } from "../../store";
+
+import ColorThief from "colorthief";
 
 const Nav = dynamic(() => import("../components/Nav"), {
   suspense: true,
@@ -36,6 +42,9 @@ const Liga = () => {
   const [fechaInicioFormateada, setFechaInicioFormateada] = useState("");
   const [fechaFinFormateada, setFechaFinFormateada] = useState("");
   const [dominantColor, setDominantColor] = useState([0, 0, 0]);
+
+  const [values, setValues] = useAtom(dataJugadorModalAtom);
+  const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom);
 
   const nombreMes = [
     "Enero",
@@ -63,8 +72,8 @@ const Liga = () => {
   const [MMR, setMMR] = useState(null);
 
   const [posicion, setPosicion] = useState({
-    VISION_GENERAL: true,
-    TABLA: false,
+    VISION_GENERAL: false,
+    TABLA: true,
     REGISTRO: false,
     REGLAS: false,
   });
@@ -93,28 +102,22 @@ const Liga = () => {
     });
   }, [id]);
 
-  useEffect(()=>{
-    
+  useEffect(() => {
     const colorThief = new ColorThief();
     const img = new Image();
     img.src = host + liga.avatar;
-    img.crossOrigin = 'Anonymous';
+    img.crossOrigin = "Anonymous";
     img.onload = () => {
       setDominantColor(colorThief.getColor(img));
       console.log(dominantColor);
     };
-  }, [liga])
-
+  }, [liga]);
 
   useEffect(() => {
     axios.get(`${host}/mmrchampionship/${id}/jugadores`).then((res) => {
       setJugadores(res.data);
-      // ordenar los jugadores por puntos
-      setJugadores(
-        res.data.sort((a, b) => {
-          return b.puntos - a.puntos;
-        })
-      );
+      // ordenar los jugadores por la diferencia entre ganadas y perdidas
+
     });
   }, [id]);
 
@@ -222,7 +225,7 @@ const Liga = () => {
               },
 
               success: {
-                duration: 3000,
+                duration: 5000,
               },
               // black theme
               style: {
@@ -537,6 +540,9 @@ const Liga = () => {
                         <th className="px-1 py-2 blanco border border-[#121212]">
                           Jugador
                         </th>
+                        <th className="px-1 py-2 blanco border border-[#121212]">
+                          ID Amigo
+                        </th>
                         <th
                           className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
                             inOrder.MMR_INICIAL ? "bg-yellow-800" : ""
@@ -686,6 +692,14 @@ const Liga = () => {
                         >
                           Puntos
                         </th>
+                        {
+                          localStorage.getItem('username') ? (
+                            <th className="px-1 py-2 blanco border border-[#121212]">
+                              Acciones
+                            </th>
+                          ) : null
+                        }
+                        
                       </tr>
                     </thead>
 
@@ -747,6 +761,9 @@ const Liga = () => {
                               </div>
                             </td>
                             <td className="px-1 py-2 text-white border border-[#121212]">
+                              {jugador.id_amigo}
+                            </td>
+                            <td className="px-1 py-2 text-white border border-[#121212]">
                               {jugador.mmr_inicial}
                             </td>
                             <td className="px-1 py-2 text-white border border-[#121212]">
@@ -761,11 +778,46 @@ const Liga = () => {
                             <td className="px-1 py-2 text-white border border-[#121212]">
                               {jugador.mmr_actual - jugador.mmr_inicial}
                             </td>
+                            
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              <button
+                                className=""
+                                onClick={() => {
+                                  // modal para editar
+                                  console.log(jugador);
+                                  setValues({
+                                    jugador_id: jugador.id,
+                                    id_amigo: jugador.id_amigo,
+                                    mmr_actual: jugador.mmr_actual,
+                                    ganadas: jugador.ganadas,
+                                    perdidas: jugador.perdidas,
+                                  });
+                                }}
+                              >
+                                {
+                                  // verificar si el usuario existe en local storage para mostrar el boton de editar que llama
+                                  jugador.user.username ==
+                                  localStorage.getItem("username") ? (
+                                    <button
+                                      className="border-2 border-yellow-400/60 text-white rounded-md px-2 py-1"
+                                      onClick={() => {
+                                        setIsOpen(true);
+                                      }}
+                                    >
+                                      Editar
+                                    </button>
+                                  ) : (
+                                    ""
+                                  )
+                                }
+                              </button>
+                            </td>
                           </tr>
                         ))
                       }
                     </tbody>
                   </table>
+                  <MyModal></MyModal>
                 </div>
               )}
 

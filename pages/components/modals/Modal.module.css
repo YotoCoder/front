@@ -8,6 +8,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    z-index: 10000;
   }
   
   .modal {
@@ -56,7 +57,7 @@
 
       box-sizing: border-box;
 
-      width: 56px;
+      width: 66px;
       height: 56px;
       color: #FFFFFF;
 
@@ -69,4 +70,28 @@
       text-align: center;
       justify-content: center;
 
+      padding-left: 10px;
   }
+
+.inputIdAmigo {
+  /* Rectangle 89 */
+
+
+    box-sizing: border-box;
+
+    width: 115px;
+    height: 56px;
+    color: #FFFFFF;
+
+    background: #242424;
+    border: 1px solid #FFFFFF;
+    border-radius: 12px;
+
+    position: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+
+    padding-left: 10px;
+
+}
