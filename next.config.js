@@ -7,8 +7,8 @@ module.exports = nextConfig
 
 module.exports = {
   env: {
-    // APIhost: 'https://admin.vemastercup.com',
-    APIhost: 'http://localhost:8000',
+    APIhost: 'https://admin.vemastercup.com',
+    // APIhost: 'http://localhost:8000',
     NEXT_PUBLIC_GA_MEASUREMENT_ID: 'G-W0C0MEQS4Z'
   },
 }
