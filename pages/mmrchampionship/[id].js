@@ -115,7 +115,26 @@ const Liga = () => {
 
   useEffect(() => {
     axios.get(`${host}/mmrchampionship/${id}/jugadores`).then((res) => {
-      setJugadores(res.data);
+
+
+      const data = res.data;
+      const dataWithPoints = data.map((data) => ({
+        ...data,
+        puntos: data.mmr_inicial - data.mmr_actual,
+      }));
+
+      // ordenar por puntos el array de jugadores
+      dataWithPoints.sort((a, b) => {
+        if (a.puntos < b.puntos) {
+          return -1;
+        }
+        if (a.puntos > b.puntos) {
+          return 1;
+        }
+        return 0;
+      });
+
+      setJugadores(dataWithPoints);
       // ordenar los jugadores por la diferencia entre ganadas y perdidas
 
     });
@@ -661,24 +680,18 @@ const Liga = () => {
                           }`}
                           onClick={() => {
                             setAscendente(!ascendente);
+                           
                             if (ascendente) {
                               jugadores.sort((a, b) => {
-                                return (
-                                  b.ganadas +
-                                  b.perdidas -
-                                  (a.ganadas + a.perdidas)
-                                );
+                                return b.puntos - a.puntos;
                               });
                             }
                             if (!ascendente) {
                               jugadores.sort((a, b) => {
-                                return (
-                                  a.ganadas +
-                                  a.perdidas -
-                                  (b.ganadas + b.perdidas)
-                                );
+                                return a.puntos - b.puntos;
                               });
                             }
+
                             setJugadores([...jugadores]);
 
                             setInOrder({
