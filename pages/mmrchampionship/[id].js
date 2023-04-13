@@ -43,6 +43,8 @@ const Liga = () => {
   const [fechaFinFormateada, setFechaFinFormateada] = useState("");
   const [dominantColor, setDominantColor] = useState([0, 0, 0]);
 
+  const [puntaje, setPuntaje] = useState(0);
+
   const [values, setValues] = useAtom(dataJugadorModalAtom);
   const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom);
 
@@ -115,12 +117,10 @@ const Liga = () => {
 
   useEffect(() => {
     axios.get(`${host}/mmrchampionship/${id}/jugadores`).then((res) => {
-
-
       const data = res.data;
       const dataWithPoints = data.map((data) => ({
         ...data,
-        puntos: data.mmr_inicial - data.mmr_actual,
+        puntos: data.perdidas - data.ganadas,
       }));
 
       // ordenar por puntos el array de jugadores
@@ -136,7 +136,6 @@ const Liga = () => {
 
       setJugadores(dataWithPoints);
       // ordenar los jugadores por la diferencia entre ganadas y perdidas
-
     });
   }, [id]);
 
@@ -680,7 +679,7 @@ const Liga = () => {
                           }`}
                           onClick={() => {
                             setAscendente(!ascendente);
-                           
+
                             if (ascendente) {
                               jugadores.sort((a, b) => {
                                 return b.puntos - a.puntos;
@@ -705,14 +704,11 @@ const Liga = () => {
                         >
                           Puntos
                         </th>
-                        {
-                          localStorage.getItem('username') ? (
-                            <th className="px-1 py-2 blanco border border-[#121212]">
-                              Acciones
-                            </th>
-                          ) : null
-                        }
-                        
+                        {localStorage.getItem("username") ? (
+                          <th className="px-1 py-2 blanco border border-[#121212]">
+                            Acciones
+                          </th>
+                        ) : null}
                       </tr>
                     </thead>
 
@@ -789,9 +785,9 @@ const Liga = () => {
                               {jugador.perdidas}
                             </td>
                             <td className="px-1 py-2 text-white border border-[#121212]">
-                              {jugador.mmr_actual - jugador.mmr_inicial}
+                              {(jugador.ganadas - jugador.perdidas) * 30} 
                             </td>
-                            
+
                             <td className="px-1 py-2 text-white border border-[#121212]">
                               <button
                                 className=""
