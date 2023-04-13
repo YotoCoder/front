@@ -43,7 +43,7 @@ const Liga = () => {
   const [fechaFinFormateada, setFechaFinFormateada] = useState("");
   const [dominantColor, setDominantColor] = useState([0, 0, 0]);
 
-  const [puntaje, setPuntaje] = useState(0);
+  const [puntaje, setPuntaje] = useState(0)
 
   const [values, setValues] = useAtom(dataJugadorModalAtom);
   const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom);
@@ -784,8 +784,16 @@ const Liga = () => {
                             <td className="px-1 py-2 text-white border border-[#121212]">
                               {jugador.perdidas}
                             </td>
-                            <td className="px-1 py-2 text-white border border-[#121212]">
-                              {(jugador.ganadas - jugador.perdidas) * 30} 
+                            <td
+                              className={`px-1 py-2 text-white border border-[#121212]
+                                          ${jugador.ganadas - jugador.perdidas > 0 ? "text-green-400" : null}
+                                          ${jugador.ganadas - jugador.perdidas < 0 ? "text-red-400" : null}
+                                          ${jugador.ganadas - jugador.perdidas == 0 ? "text-yellow-400" : null}
+                                          `}
+                            >
+                              {
+                                (jugador.ganadas - jugador.perdidas) * 30 
+                              } 
                             </td>
 
                             <td className="px-1 py-2 text-white border border-[#121212]">
