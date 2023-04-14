@@ -43,7 +43,7 @@ const Liga = () => {
   const [fechaFinFormateada, setFechaFinFormateada] = useState("");
   const [dominantColor, setDominantColor] = useState([0, 0, 0]);
 
-  const [puntaje, setPuntaje] = useState(0)
+  const [puntaje, setPuntaje] = useState(0);
 
   const [values, setValues] = useAtom(dataJugadorModalAtom);
   const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom);
@@ -589,7 +589,7 @@ const Liga = () => {
                           MMR Inicial
                         </th>
 
-                        <th
+                        {/* <th
                           className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
                             inOrder.MMR_ACTUAL ? "bg-yellow-800" : ""
                           }`}
@@ -615,7 +615,7 @@ const Liga = () => {
                           }}
                         >
                           MMR Actual
-                        </th>
+                        </th> */}
 
                         <th
                           className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
@@ -775,9 +775,9 @@ const Liga = () => {
                             <td className="px-1 py-2 text-white border border-[#121212]">
                               {jugador.mmr_inicial}
                             </td>
-                            <td className="px-1 py-2 text-white border border-[#121212]">
+                            {/* <td className="px-1 py-2 text-white border border-[#121212]">
                               {jugador.mmr_actual}
-                            </td>
+                            </td> */}
                             <td className="px-1 py-2 text-white border border-[#121212]">
                               {jugador.ganadas}
                             </td>
@@ -786,14 +786,28 @@ const Liga = () => {
                             </td>
                             <td
                               className={`px-1 py-2 text-white border border-[#121212]
-                                          ${jugador.ganadas - jugador.perdidas > 0 ? "text-green-400" : null}
-                                          ${jugador.ganadas - jugador.perdidas < 0 ? "text-red-400" : null}
-                                          ${jugador.ganadas - jugador.perdidas == 0 ? "text-yellow-400" : null}
+                                          ${
+                                            jugador.ganadas - jugador.perdidas >
+                                            0
+                                              ? "text-green-400"
+                                              : null
+                                          }
+                                          ${
+                                            jugador.ganadas - jugador.perdidas <
+                                            0
+                                              ? "text-red-400"
+                                              : null
+                                          }
+                                          ${
+                                            jugador.ganadas -
+                                              jugador.perdidas ==
+                                            0
+                                              ? "text-yellow-400"
+                                              : null
+                                          }
                                           `}
                             >
-                              {
-                                (jugador.ganadas - jugador.perdidas) * 30 
-                              } 
+                              {(jugador.ganadas - jugador.perdidas) * 30}
                             </td>
 
                             <td className="px-1 py-2 text-white border border-[#121212]">
