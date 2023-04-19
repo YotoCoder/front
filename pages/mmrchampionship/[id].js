@@ -7,6 +7,9 @@ import Cargador from "../components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
 
+import moment from "moment";
+import "moment/locale/es";
+
 import { toast, Toaster } from "react-hot-toast";
 import Menuligammr from "../components/Menummrchampionship";
 
@@ -69,6 +72,7 @@ const Liga = () => {
     PG: false,
     PP: false,
     PUNTOS: true,
+    UPDATE: false,
   });
 
   const [MMR, setMMR] = useState(null);
@@ -204,6 +208,8 @@ const Liga = () => {
   useEffect(() => {
     console.log(jugadores);
   }, [jugadores]);
+
+  moment.locale("es");
 
   return (
     <Suspense fallback={<Cargador />}>
@@ -640,6 +646,7 @@ const Liga = () => {
                               PG: true,
                               PP: false,
                               PUNTOS: false,
+                              UPDATE: false,
                             });
                           }}
                         >
@@ -668,6 +675,7 @@ const Liga = () => {
                               PG: false,
                               PP: true,
                               PUNTOS: false,
+                              UPDATE: false,
                             });
                           }}
                         >
@@ -704,6 +712,38 @@ const Liga = () => {
                         >
                           Puntos
                         </th>
+
+                        <th className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
+                            inOrder.UPDATE ? "bg-yellow-800" : ""
+                          }`
+                        }
+                            onClick={() => {
+                              setAscendente(!ascendente);
+                              if (ascendente) {
+                                jugadores.sort((a, b) => {
+                                  return new Date(b.updated_at) - new Date(a.updated_at);
+                                });
+                              }
+                              if (!ascendente) {
+                                jugadores.sort((a, b) => {
+                                  return new Date(a.updated_at) - new Date(b.updated_at);
+                                });
+                              }
+                              setJugadores([...jugadores]);
+                              setInOrder({
+                                MMR_INICIAL: false,
+                                MMR_ACTUAL: false,
+                                PG: false,
+                                PP: false,
+                                PUNTOS: false,
+                                UPDATE: true,
+                              });
+                              
+                            } }
+                        >
+                          Actualizado
+                        </th>
+
                         {localStorage.getItem("username") ? (
                           <th className="px-1 py-2 blanco border border-[#121212]">
                             Acciones
@@ -808,6 +848,13 @@ const Liga = () => {
                                           `}
                             >
                               {(jugador.ganadas - jugador.perdidas) * 30}
+                            </td>
+
+                            <td className="px-1 py-2 text-white border border-[#121212]">
+                              {
+                                // moment(jugador.update_at).format('DD/MM hh:mma')
+                                moment(jugador.updated_at).fromNow()
+                              }
                             </td>
 
                             <td className="px-1 py-2 text-white border border-[#121212]">
