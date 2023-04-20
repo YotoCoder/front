@@ -48,7 +48,7 @@ const consultaMatchesByPlayers = async (player) => {
   return data;
 };
 
-const Apidata = ({ props }) => {
+const Gozu = ({ props }) => {
   const [players, setPlayers] = React.useState([]);
   const [matches, setMatches] = React.useState([]);
 
@@ -110,14 +110,14 @@ const Apidata = ({ props }) => {
     datasets: [
       // eje Y
       {
-        label: props.user.username,
+        label: props ? props.user.username : "VemasterCup",
         data: partidas,
         borderColor: randonColor(),
       },
     ],
   };
 
-  const idAmigo = props.id_amigo;
+  const idAmigo = props ? props.id_amigo : 0;
 
   // consultar primero los jugadores de la mmr championship 1 y luego consultar los matches de cada uno de ellos
   // obtenner un array con el resultado diario de cada jugador ejemplo si gano 5 y perdio 7 el resultado seria -2
@@ -202,4 +202,4 @@ const Apidata = ({ props }) => {
   );
 };
 
-export default Apidata;
+export default Gozu;
