@@ -1,9 +1,10 @@
 import React from 'react'
 import { BallTriangle } from 'react-loader-spinner';
 
-const Cargador = () => {
+const Cargador = ({height}) => {
   return (
-    <div className='flex flex-col text-white justify-center items-center h-screen'>
+    <div className={`flex flex-col text-white justify-center items-center
+                      ${!height ? "h-screen": height} `}>
         <BallTriangle
             height={100}
             width={100}

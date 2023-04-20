@@ -21,6 +21,8 @@ import { dataJugadorModalAtom, modalIsOpenAtom } from "../../store";
 
 import ColorThief from "colorthief";
 
+import Gozu from "../components/Gozu";
+
 const Nav = dynamic(() => import("../components/Nav"), {
   suspense: true,
 });
@@ -50,6 +52,9 @@ const Liga = () => {
 
   const [values, setValues] = useAtom(dataJugadorModalAtom);
   const [isOpen, setIsOpen] = useAtom(modalIsOpenAtom);
+
+  const [currentId, setCurrentId] = useState(null);
+  const [currentPlayer, setCurrentPlayer] = useState(null);
 
   const nombreMes = [
     "Enero",
@@ -713,42 +718,44 @@ const Liga = () => {
                           Puntos
                         </th>
 
-                        <th className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
+                        <th
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
                             inOrder.UPDATE ? "bg-yellow-800" : ""
-                          }`
-                        }
-                            onClick={() => {
-                              setAscendente(!ascendente);
-                              if (ascendente) {
-                                jugadores.sort((a, b) => {
-                                  return new Date(b.updated_at) - new Date(a.updated_at);
-                                });
-                              }
-                              if (!ascendente) {
-                                jugadores.sort((a, b) => {
-                                  return new Date(a.updated_at) - new Date(b.updated_at);
-                                });
-                              }
-                              setJugadores([...jugadores]);
-                              setInOrder({
-                                MMR_INICIAL: false,
-                                MMR_ACTUAL: false,
-                                PG: false,
-                                PP: false,
-                                PUNTOS: false,
-                                UPDATE: true,
+                          }`}
+                          onClick={() => {
+                            setAscendente(!ascendente);
+                            if (ascendente) {
+                              jugadores.sort((a, b) => {
+                                return (
+                                  new Date(b.updated_at) -
+                                  new Date(a.updated_at)
+                                );
                               });
-                              
-                            } }
+                            }
+                            if (!ascendente) {
+                              jugadores.sort((a, b) => {
+                                return (
+                                  new Date(a.updated_at) -
+                                  new Date(b.updated_at)
+                                );
+                              });
+                            }
+                            setJugadores([...jugadores]);
+                            setInOrder({
+                              MMR_INICIAL: false,
+                              MMR_ACTUAL: false,
+                              PG: false,
+                              PP: false,
+                              PUNTOS: false,
+                              UPDATE: true,
+                            });
+                          }}
                         >
                           Actualizado
-                        </th>
-
-                        {localStorage.getItem("username") ? (
+                        </th>                       
                           <th className="px-1 py-2 blanco border border-[#121212]">
                             Acciones
-                          </th>
-                        ) : null}
+                          </th>                        
                       </tr>
                     </thead>
 
@@ -884,11 +891,22 @@ const Liga = () => {
                                     >
                                       Editar
                                     </button>
+                                    
                                   ) : (
-                                    ""
+                                 
+                                        ''
                                   )
                                 }
                               </button>
+
+                              <label htmlFor="my-modal-5" className="btn"
+                                     onClick={() => {
+                                        setCurrentPlayer(jugador);
+                                        
+                                      }}
+                              >
+                                 <img src="../icons/chart.svg" alt="..." className="w-6 h-6" />
+                              </label>
                             </td>
                           </tr>
                         ))
@@ -955,6 +973,27 @@ const Liga = () => {
             </div>
           </>
         )}
+
+        
+
+        {/* Put this part before </body> tag */}
+        <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+        <div className="modal">
+          <div className="modal-box lg:w-11/12 lg:max-w-5xl bg-black">
+            {currentPlayer && (<Gozu props={currentPlayer} />)}
+
+            <div className="modal-action">
+              <label htmlFor="my-modal-5" className="btn text-sm"
+                     onClick={() => {                        
+                        setCurrentPlayer(null);
+                      }
+                     }
+              >
+                Cerrar
+              </label>
+            </div>
+          </div>
+        </div>
 
         <Footer />
       </div>
