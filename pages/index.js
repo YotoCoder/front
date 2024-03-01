@@ -10,6 +10,8 @@ import Impacto from "./components/sections/Impacto";
 import ObjetivosSM from "./components/sections/ObjetivosSM";
 import ObjetivosLG from "./components/sections/ObjetivosLG";
 
+import { ModalNotify } from "./components/modals/ModalNotify";
+
 const MainContent = dynamic(() => import("./components/MainContent"), {
   suspense: true,
 });
@@ -83,6 +85,7 @@ export default function Home() {
           <Nav />
         </div>
         <div>
+
           <MainContent /> <div className="z-[5000]"></div>
           <About />
           <div className="lg:pt-16">
