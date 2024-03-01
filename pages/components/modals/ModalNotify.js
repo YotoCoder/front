@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 
-export const ModalNotify = ({titulo, textoPrincipal, textoSecundario, textoBoton}) => {
+export default function ModalNotify({titulo, textoPrincipal, textoSecundario, textoBoton}) {
     
     useEffect(()=>{
         document.getElementById('my_modal_1').showModal()

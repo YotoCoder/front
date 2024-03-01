@@ -1,4 +1,4 @@
-import { ModalNotify } from "./components/modals/ModalNotify"
+import ModalNotify from "./components/modals/ModalNotify"
 
 
 export default function Test() {
@@ -8,6 +8,7 @@ export default function Test() {
             textoPrincipal={'Estamos trabajando en nuestra página web para habilitar el registro del próximo torneo, que comienza el 1ro de abril.'}
             textoSecundario={'Mantente alerta a las inscripciones para que puedas participar.'}
             textoBoton={'Cerrar'}
-        />
+        >
+        </ModalNotify>
     </>
 }
