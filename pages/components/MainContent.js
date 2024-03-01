@@ -82,7 +82,7 @@ const MainContent = () => {
 
           {/* boton */}
           <Link type='button' href='/torneo' value=''  >
-            <p className='flex flex-row relative registrarBtn mx-4 px-10 p-3 lg:p-6 lg:px-16 h-full'>
+            <p className='flex flex-row relative btn bg-[#FAF597] mx-4 px-10 p-3 lg:p-6 lg:px-16 h-full'>
               VER 
             </p>
           </Link>
