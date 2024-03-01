@@ -55,7 +55,7 @@ const MainContent = () => {
          {/* fecha */}
          
             <div className='fecha'>
-                <p className='text-3xl lg:text-5xl'>NOV 30 - DIC 13</p>
+                <p className='text-3xl lg:text-5xl'>(NOV 30 al DIC 13) - 2022</p>
             </div>
          
          {/* modalidad */}
