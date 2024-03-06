@@ -3,6 +3,8 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 import Select from "react-select";
+import axios from "axios";
+
 
 const Nav = dynamic(() => import("./components/Nav"), {
   suspense: true,
@@ -21,35 +23,50 @@ const Titulo = dynamic(() => import("./components/Titulo"), {
 });
 
 const RegistroTorneo = () => {
-  const [avatar, setAvatar] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [tag, setTag] = useState("");
-  const [jugadores, setJugadores] = useState([]);
+  const [avatar, setAvatar] = useState(null);
+  const [nombre, setNombre] = useState(null);
+  const [tag, setTag] = useState(null);
+  const [jugadores, setJugadores] = useState(null);
+	const [options, setOptions] = useState([]);
+
+	const host = process.env.APIhost;
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const data = new FormData();
-    data.append("avatar", avatar);
-    data.append("nombre", nombre);
-    data.append("tag", tag);
-    data.append("jugadores", jugadores);
-
-    fetch("http://localhost:3000/api/registro-torneo", {
-      method: "POST",
-      body: data,
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      })
-      .catch((err) => console.log(err));
+    const formData = new FormData();
+		formData.append("avatar", avatar);
+		formData.append("nombre", nombre);
+		formData.append("tag", tag);
+		formData.append("jugadores", 
+			jugadores.map((jugador) => jugador.value.toString())
+		);
+		
+		console.log(formData.get('jugadores'));
+	
+		axios
+			.post(host + "/torneo/equipo/", formData, {
+				headers: {
+					Authorization: "Bearer " + localStorage.getItem("token"),
+					// "Content-Type": "multipart/form-data",
+				},
+			})
+			.then((res) => {
+				console.log(res.response.data);
+			})
+			.catch((err) => {
+				console.log(err.response.data);
+			});
   };
 
-  const options = [
-    { value: "2", label: "Tacozor" },
-    { value: "44", label: "Yotico" },
-    { value: "55", label: "Gaa" },
-  ];
+  useEffect(() => {
+    axios.get(host + "/users/").then((res) => {
+      setOptions( res.data.map((user) => ({
+				value: user.id,
+				label: user.username,
+			})));
+    });
+  }, []);
+
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
