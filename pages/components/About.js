@@ -11,9 +11,9 @@ const About = () => {
     <main className="">
         <h1 className="nombreCard lg:mb-20 flex flex-col items-center justify-center text-3xl lg:text-6xl lg:p-10"
             style={{
-              background: "linear-gradient(90deg, #b27f1d, #e4b355, #ffc860, #f1e49a)",
+              background: "linear-gradient(90deg, #76C200, #76C200, #76C200, #76C200)",
               
-              color: '#FFFFFF',
+              color: '#EFEFEF',
               textShadow: '1px 0px 1px #000000',
               
           }}

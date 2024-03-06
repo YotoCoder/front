@@ -21,9 +21,9 @@ function Menudrop() {
       <Menu.Button
         className={`${
           (router.pathname == "/torneos") || (router.pathname == "/shuffle")
-            ? "border-b-[2px] border-select" 
+            ? "border-b-[2px] " 
             : ""
-        } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2`}
+        } hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2`}
       >
         Torneos <img src="https://vemastercup.com/icons/down.svg" className="w-4 h-4" />
       </Menu.Button>
@@ -34,20 +34,19 @@ function Menudrop() {
             style={{
               borderRadius: "6px",
             }}
-          >
+          > 
+            <MyLink
+                href="/registro-torneo-vmc-2024"
+                className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium"
+              >
+                Master CUP 2024 | VMCP
+            </MyLink>
             <MyLink
               href="/torneo"
-              className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium w-max"
+              className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium w-max"
             >
               Master CUP 2022 | Fin de año
             </MyLink>
-            <MyLink
-              href="#"
-              className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium"
-            >
-              Master CUP 2023 | Primavera
-            </MyLink>
-            
           </div>
         </Menu.Item>
       </Menu.Items>

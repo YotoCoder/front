@@ -9,7 +9,7 @@ const Cargador = ({height}) => {
             height={100}
             width={100}
             radius={5}
-            color="#ffc860"
+            color="#76C100"
             ariaLabel="ball-triangle-loading"
             wrapperClass={{}}
             wrapperStyle=""

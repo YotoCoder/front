@@ -22,7 +22,7 @@ const Usermenu = () => {
     <div className="relative z-[5000]">
         <button
           onClick={() => setUserMenuOpen(!userMenuOpen)}
-          className="inline-flex items-center justify-center m-2 lg:p-2 rounded-md text-gray-400 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-inset"
+          className="inline-flex items-center justify-center m-2 lg:p-2 rounded-md text-gray-400 hover:bg-lime-700 focus:outline-none focus:ring-2 focus:ring-inset"
           id="user-menu"
           aria-expanded="false"
           aria-haspopup="true"
@@ -51,7 +51,7 @@ const Usermenu = () => {
           
           <Link
             href={`/user/profile/${username}`}
-            className="block px-4 py-2 text-base text-white hover:bg-yellow-700"
+            className="block px-4 py-2 text-base text-white hover:bg-lime-700"
             role="menuitem"
           >
             Tu perfil
@@ -59,7 +59,7 @@ const Usermenu = () => {
 
           <Link
             href="/user/logout"
-            className="block px-4 py-2 text-base text-white hover:bg-yellow-700"
+            className="block px-4 py-2 text-base text-white hover:bg-lime-700"
             role="menuitem"
           >
             Sign out

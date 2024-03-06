@@ -7,12 +7,12 @@ const Titulo = (props) => {
   return (
     <>
       <h1
-        className="nombreCard lg:mb-2 flex flex-col items-center justify-center text-3xl lg:text-6xl lg:p-10"
+        className="nombreCard lg:mb-2 flex flex-col items-center justify-center text-3xl lg:text-4xl lg:p-2"
         style={{
           background:
-            "linear-gradient(90deg, #b27f1d, #e4b355, #ffc860, #f1e49a)",
+            "linear-gradient(90deg, #76C100, #76C200, #76C200, #76C200)",
 
-          color: "#FFFFFF",
+          color: "#EFEFEF",
           textShadow: "1px 0px 1px #000000",
         }}
       >

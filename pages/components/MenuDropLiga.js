@@ -21,9 +21,9 @@ function MenuDropLiga() {
       <Menu.Button
         className={`${
           (router.pathname == "/torneos") || (router.pathname == "/shuffle")
-            ? "border-b-[2px] border-select" 
+            ? "border-b-[2px] " 
             : ""
-        } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2`}
+        } hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium flex items-center  gap-2`}
       >
         Ligas <img src="https://vemastercup.com/icons/down.svg" className="w-4 h-4" />
       </Menu.Button>
@@ -37,13 +37,13 @@ function MenuDropLiga() {
           >
             <MyLink
               href="/mmrchampionship/1"
-              className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium w-56"
+              className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium w-56"
             >
               MMR Championship
             </MyLink>
             <MyLink
               href="/liga/4"
-              className="hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium"
+              className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium"
             >
               Coroticos Master League
             </MyLink>

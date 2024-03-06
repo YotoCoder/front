@@ -107,7 +107,7 @@ const Login = () => {
               </div>
 
               <div className="flex justify-start gap-2 mt-6">
-                <button type="submit" className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-yellow-700 rounded-2xl bg-black focus:outline-none focus:bg-gray-600"
+                <button type="submit" className="px-6 py-2 leading-5 text-white transition-colors duration-200 transform hover:bg-lime-700 rounded-2xl bg-black focus:outline-none focus:bg-gray-600"
                         onClick={handleSubmit}
                 >
                   Entrar
@@ -121,7 +121,7 @@ const Login = () => {
               </div>
               <div className="pt-4 flex gap-4">
                 <p className="text-white">No estás registrado?</p>
-                <Link href="/user/register" className="text-yellow-500">
+                <Link href="/user/register" className="text-lime-500">
                   Registrate
                 </Link>
               </div>

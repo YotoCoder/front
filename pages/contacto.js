@@ -79,7 +79,7 @@ const Contacto = () => {
           </p>
         </div>
       </div>
-      <div className="lg:fixed bottom-0 w-[100%]">
+      <div className="lg: bottom-0 w-[100%]">
         <Footer />
       </div>
     </Suspense>

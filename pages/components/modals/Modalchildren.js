@@ -84,7 +84,7 @@ export default function MyModal() {
       />
 
       {/* <button
-        className="border-2 border-yellow-400/60 text-white rounded-md px-2 py-1"
+        className="border-2 border-lime-400/60 text-white rounded-md px-2 py-1"
         onClick={() => {
           setIsOpen(true);
         }}

@@ -86,7 +86,7 @@ const Torneo = () => {
           </div>
         ) : (
           <>
-            <div className="bg-[#121212] my-4 lg:mt-4 lg:px-16">
+            <div className="bg-[#111111]my-4 lg:mt-4 lg:px-16">
               <div className="flex items-center py-4 justify-center text-xl lg:text-2xl lg:justify-start tituloTorneo">
                 {torneo.nombre}
               </div>
@@ -95,7 +95,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.VISION_GENERAL
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -114,7 +114,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.REGLAS
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -133,7 +133,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.EQUIPOS
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -152,7 +152,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.FASES
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -171,7 +171,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.TABLA
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -201,7 +201,7 @@ const Torneo = () => {
                         <div>
                           <a
                             type="buttom"
-                            className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#111111]items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
                             href="#"
                             target="_blank"
                           >
@@ -251,7 +251,7 @@ const Torneo = () => {
                         <div className="">
                           <button
                             type="buttom"
-                            className="bg-[#ffe500] items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#111111]items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
                             onClick={() => {
                               setPosicion({
                                 VISION_GENERAL: false,
@@ -276,7 +276,7 @@ const Torneo = () => {
                           <p className="text-white p-4 text-sm px-6 font-bold">
                             PREMIACION TOTAL
                           </p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
+                          <p className="text-[#76C100] text-2xl mx-6">
                             {torneo.premio_primer_lugar +
                               torneo.premio_segundo_lugar +
                               torneo.premio_tercer_lugar}
@@ -286,21 +286,21 @@ const Torneo = () => {
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">1° lugar</p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
+                          <p className="text-[#76C100] text-2xl mx-6">
                             {torneo.premio_primer_lugar}$
                           </p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">2° lugar</p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
+                          <p className="text-[#76C100] text-2xl mx-6">
                             {torneo.premio_segundo_lugar}$
                           </p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">3° lugar</p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
+                          <p className="text-[#76C100] text-2xl mx-6">
                             {torneo.premio_tercer_lugar}$
                           </p>
                         </div>
@@ -423,7 +423,7 @@ const Torneo = () => {
 
                           <div className=" w-full ">
                             {equipo.jugadores.map((jugador) => (
-                              <div className="flex items-center hover:bg-yellow-800 justify-between gap-4 py-2">
+                              <div className="flex items-center hover:bg-lime-800 justify-between gap-4 py-2">
                                 <div className="flex items-center gap-2">
                                   <img
                                     src={jugador.avatar}
@@ -475,7 +475,7 @@ const Torneo = () => {
                                       }
                                       ${
                                         equipo.estado == "ESPERA"
-                                          ? "border-yellow-400 text-yellow-400"
+                                          ? "border-lime-400 text-lime-400"
                                           : ""
                                       }`}
                             >

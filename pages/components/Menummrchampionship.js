@@ -39,10 +39,10 @@ function Menuligammr() {
       <Menu.Button
         className={`${
           router.pathname == "/torneos" || router.pathname == "/shuffle"
-            ? "border-b-[2px] border-select"
+            ? "border-b-[2px] "
             : ""
-        } hover:bg-yellow-700 text-white px-2 py-2  text-sm font-medium flex items-center  gap-2
-          bg-yellow-600 rounded-md
+        } hover:bg-lime-700 text-white px-2 py-2  text-sm font-medium flex items-center  gap-2
+          bg-lime-600 rounded-md
         `}
       >
         <p className="flex">
@@ -67,7 +67,7 @@ function Menuligammr() {
               <MyLink
                 key={id}
                 href={`/mmrchampionship/${liga.id}`}
-                className="hover:bg-yellow-700 text-white px-6 py-2  text-sm font-medium w-max"
+                className="hover:bg-lime-700 text-white px-6 py-2  text-sm font-medium w-max"
                 onClick={() => {
                   edicion[1](liga);
                 }}

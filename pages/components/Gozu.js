@@ -29,7 +29,7 @@ const randonColor = () => {
   const g = Math.floor(Math.random() * 255);
   const b = Math.floor(Math.random() * 255);
   // return `rgb(${r}, ${g}, ${b})`;
-  return `rgb( 239, 184, 16)`;
+  return `rgb( 118, 193, 0)`;
 };
 
 ////////////////////////////////////////////////////////////

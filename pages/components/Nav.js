@@ -38,11 +38,7 @@ function Nav() {
             <div className="flex items-center">
               <div className="flex-shrink-0">
                 <Link href="/">
-                  <img
-                    className="h-16 w-16"
-                    src="https://vemastercup.com/images/escudo.png"
-                    alt="logo"
-                  />
+                <img src="/images/escudo.png" alt="logo" className="w-20 h-20" />
                 </Link>
               </div>
               <div className="hidden md:block">
@@ -51,9 +47,9 @@ function Nav() {
                     href="/"
                     className={`${
                       router.pathname == "/"
-                        ? "border-b-[2px] border-select"
+                        ? "border-b-[2px] "
                         : ""
-                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    } hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Home
                   </Link>
@@ -70,9 +66,9 @@ function Nav() {
                     href="/sponsors"
                     className={`${
                       router.pathname == "/sponsors"
-                        ? "border-b-[2px] border-select"
+                        ? "border-b-[2px] "
                         : ""
-                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    } hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Sponsors
                   </Link>
@@ -81,9 +77,9 @@ function Nav() {
                     href="/contacto"
                     className={`${
                       router.pathname == "/contacto"
-                        ? "border-b-[2px] border-select"
+                        ? "border-b-[2px] "
                         : ""
-                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    } hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Contacto
                   </Link>
@@ -92,9 +88,9 @@ function Nav() {
                     href="/nosotros"
                     className={`${
                       router.pathname == "/nosotros"
-                        ? "border-b-[2px] border-select"
+                        ? "border-b-[2px] "
                         : ""
-                    } hover:bg-yellow-700 text-white px-3 py-2  text-sm font-medium`}
+                    } hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium`}
                   >
                     Nosotros
                   </Link>
@@ -109,7 +105,7 @@ function Nav() {
                   <div className="flex">
                     <Link
                       href="/user/register"
-                      className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
+                      className="text-white flex items-center justify-center hover:bg-lime-700 px-3 py-2  text-base font-medium gap-2"
                     >
                       Registrarte
                       
@@ -117,7 +113,7 @@ function Nav() {
 
                     <Link
                       href="/user/login"
-                      className="text-white flex items-center justify-center hover:bg-yellow-700 px-3 py-2  text-base font-medium gap-2"
+                      className="text-white flex items-center justify-center hover:bg-lime-700 px-3 py-2  text-base font-medium gap-2"
                     >
                       Login
                       <img src="https://vemastercup.com/icons/user.svg"
@@ -190,7 +186,7 @@ function Nav() {
                 <Link
                   href="/"
                   className={`${
-                    router.pathname == "/" ? "bg-yellow-700 w-full" : ""
+                    router.pathname == "/" ? "bg-lime-700 w-full" : ""
                   } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
                 >
                   Home
@@ -199,7 +195,7 @@ function Nav() {
                 <Link
                   href="/nosotros"
                   className={`${
-                    router.pathname == "/nosotros" ? "bg-yellow-700 w-full" : ""
+                    router.pathname == "/nosotros" ? "bg-lime-700 w-full" : ""
                   } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
                 >
                   Nosotros
@@ -216,7 +212,7 @@ function Nav() {
                 <Link
                   href="/sponsors"
                   className={`${
-                    router.pathname == "/sponsors" ? "bg-yellow-700 w-full" : ""
+                    router.pathname == "/sponsors" ? "bg-lime-700 w-full" : ""
                   } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
                 >
                   Sponsors
@@ -225,7 +221,7 @@ function Nav() {
                 <Link
                   href="/contacto"
                   className={`${
-                    router.pathname == "/contacto" ? "bg-yellow-700 w-full" : ""
+                    router.pathname == "/contacto" ? "bg-lime-700 w-full" : ""
                   } text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium`}
                 >
                   Contacto

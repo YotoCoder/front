@@ -213,7 +213,7 @@ const Liga = () => {
           </div>
         ) : (
           <>
-            <div className="bg-[#121212] lg:my-4 lg:mt-4 lg:px-16">
+            <div className="bg-[#111] lg:my-4 lg:mt-4 lg:px-16">
               <div className="flex items-center justify-center pb-2 lg:pb-4">
                 <img
                   src={host + liga.avatar}
@@ -267,7 +267,7 @@ const Liga = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.VISION_GENERAL
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#111111] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -285,7 +285,7 @@ const Liga = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.REGLAS
-                      ? "active border-b-4 top-[1px] border-[#FFC700] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#111111] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -303,7 +303,7 @@ const Liga = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.TABLA
-                      ? "active border-b-4 top-[1px] border-[#a08111] pb-4"
+                      ? "active border-b-4 top-[1px] border-[#76C200] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -335,7 +335,7 @@ const Liga = () => {
                         <div>
                           {localStorage.getItem("token") ? (
                             <button
-                              className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
+                              className="bg-[#111111]items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
                               onClick={() => {
                                 setPosicion({
                                   VISION_GENERAL: false,
@@ -349,7 +349,7 @@ const Liga = () => {
                             </button>
                           ) : (
                             <button
-                              className="bg-[#ffe500] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
+                              className="bg-[#111111]items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
                               onClick={() => {
                                 toast.error(
                                   "Debes iniciar sesión para registrarte en la liga"
@@ -412,7 +412,7 @@ const Liga = () => {
                         <div className="">
                           <button
                             type="buttom"
-                            className="bg-[#ffe500] items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#111111]items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
                             onClick={() => {
                               setPosicion({
                                 VISION_GENERAL: false,
@@ -437,7 +437,7 @@ const Liga = () => {
                           <p className="text-white p-4 text-sm px-6 font-bold">
                             PREMIACION TOTAL
                           </p>
-                          <p className="text-[#FFE600] text-2xl mx-6">
+                          <p className="text-[#76C100] text-2xl mx-6">
                             {liga.premios}
                           </p>
                         </div>
@@ -483,15 +483,15 @@ const Liga = () => {
                   >
                     <thead>
                       <tr className="bg-[#403f3f] ">
-                        <th className="px-1 py-2 blanco border border-[#121212] ">
+                        <th className="px-1 py-2 blanco border border-[#111111] ">
                           Pos
                         </th>
-                        <th className="px-1 py-2 blanco border border-[#121212]">
+                        <th className="px-1 py-2 blanco border border-[#111111]">
                           Jugador
                         </th>
                         <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
-                            inOrder.MMR ? "bg-yellow-800" : ""
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
+                            inOrder.MMR ? "bg-lime-800" : ""
                           }`}
                           onClick={() => {
                             setAscendente(!ascendente);
@@ -516,8 +516,8 @@ const Liga = () => {
                           MMR
                         </th>
                         <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
-                            inOrder.PG ? "bg-yellow-800" : ""
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
+                            inOrder.PG ? "bg-lime-800" : ""
                           }`}
                           onClick={() => {
                             setAscendente(!ascendente);
@@ -543,8 +543,8 @@ const Liga = () => {
                           PG
                         </th>
                         <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
-                            inOrder.PP ? "bg-yellow-800" : ""
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
+                            inOrder.PP ? "bg-lime-800" : ""
                           }`}
                           onClick={() => {
                             setAscendente(!ascendente);
@@ -570,8 +570,8 @@ const Liga = () => {
                           PP
                         </th>
                         <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#121212] ${
-                            inOrder.PJ ? "bg-yellow-800" : ""
+                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
+                            inOrder.PJ ? "bg-lime-800" : ""
                           }`}
                           onClick={() => {
                             setAscendente(!ascendente);
@@ -611,16 +611,16 @@ const Liga = () => {
                     <tbody>
                       {jugadores.map((jugador, i) => (
                         <tr
-                          className={` hover:bg-yellow-700 ${
+                          className={` hover:bg-lime-700 ${
                             i % 2 == 0 ? "bg-[#1d1d1d]" : "bg-[#242424]"
                           }`}
                         >
                           <td
-                            className={`px-1 py-2 text-white border font-serif border-[#121212]`}
+                            className={`px-1 py-2 text-white border font-serif border-[#111111]`}
                           >
                             {i + 1}
                           </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
+                          <td className="px-1 py-2 text-white border border-[#111111]">
                             <div className="flex gap-2 items-center justify-between">
                               <img
                                 src={
@@ -660,16 +660,16 @@ const Liga = () => {
                               </div>
                             </div>
                           </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
+                          <td className="px-1 py-2 text-white border border-[#111111]">
                             {jugador.mmr}
                           </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
+                          <td className="px-1 py-2 text-white border border-[#111111]">
                             {jugador.ganadas}
                           </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
+                          <td className="px-1 py-2 text-white border border-[#111111]">
                             {jugador.perdidas}
                           </td>
-                          <td className="px-1 py-2 text-white border border-[#121212]">
+                          <td className="px-1 py-2 text-white border border-[#111111]">
                             {jugador.perdidas + jugador.ganadas}
                           </td>
                         </tr>
@@ -703,7 +703,7 @@ const Liga = () => {
 
                       <div className="w-24 h-2 bg-[#ababab] rounded-full">
                         <div
-                          className="w-1/2 h-full bg-[#FFE600] rounded-full"
+                          className="w-1/2 h-full bg-[#111111]rounded-full"
                           style={{
                             width: `${
                               (jugadores.length / liga.ranuras) * 100
@@ -723,7 +723,7 @@ const Liga = () => {
                         onChange={(e) => setMMR(e.target.value)}
                       />
                       <button
-                        className="w-full py-2 mt-4 text-black bg-[#FFE600] rounded-md focus:outline-none"
+                        className="w-full py-2 mt-4 text-black bg-[#111111]rounded-md focus:outline-none"
                         onClick={handleRegistro}
                       >
                         Registrarme

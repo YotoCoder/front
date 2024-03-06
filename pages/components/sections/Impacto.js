@@ -37,10 +37,10 @@ const Impacto = () => {
                 <div>
                   <Link
                     href="https://discord.gg/fcR7VHVd"
-                    className="text-white hover:bg-yellow-900 text-[10px] lg:text-3xl font-bold px-4 py-[8px] lg:px-8 lg:pb-3 lg:py-[4px] tracking-wide"
+                    className="text-white hover:bg-lime-900 text-[10px] lg:text-3xl font-bold px-4 py-[8px] lg:px-8 lg:pb-3 lg:py-[4px] tracking-wide"
                     style={{
                       boxSizing: "border-box",
-                      border: "4px solid #FDEA82",
+                      border: "4px solid #77C100",
                       borderRadius: "20px",
                     }}
                     target="_blank"

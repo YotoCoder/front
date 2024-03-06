@@ -33,7 +33,7 @@ const Eventos = () => {
             <div className="space-x-2">
               <Link
                 href="/mmrchampionship/1"
-                className="text-white hover:bg-yellow-900 text-xs lg:text-3xl font-bold px-4 py-[2px] lg:px-8 lg:pb-3 lg:py-[4px] tracking-wide"
+                className="text-white hover:bg-lime-900 text-xs lg:text-3xl font-bold px-4 py-[2px] lg:px-8 lg:pb-3 lg:py-[4px] tracking-wide"
                 style={{
                   boxSizing: "border-box",
 
@@ -42,7 +42,7 @@ const Eventos = () => {
                   left: "19px",
                   top: "773px",
 
-                  border: "4px solid #FDEA82",
+                  border: "4px solid #76C100",
                   borderRadius: "20px",
                 }}
               >
@@ -51,7 +51,7 @@ const Eventos = () => {
 
               <Link
                 href="/torneo"
-                className="text-white hover:bg-yellow-900 text-xs lg:text-3xl font-bold px-4 py-[2px] lg:px-8 lg:pb-3 lg:py-[4px] tracking-wide"
+                className="text-white hover:bg-lime-900 text-xs lg:text-3xl font-bold px-4 py-[2px] lg:px-8 lg:pb-3 lg:py-[4px] tracking-wide"
                 style={{
                   boxSizing: "border-box",
 
@@ -60,7 +60,7 @@ const Eventos = () => {
                   left: "19px",
                   top: "773px",
 
-                  border: "4px solid #FDEA82",
+                  border: "4px solid #76C100",
                   borderRadius: "20px",
                 }}
               >

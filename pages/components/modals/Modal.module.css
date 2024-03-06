@@ -27,7 +27,7 @@
     border: none;
     padding: 0.5rem;
     cursor: pointer;
-    color: #FFFFFF;
+    color: #EFEFEF;
     
   }
 
@@ -48,7 +48,7 @@
     text-align: center;
     justify-content: center;
     padding-top: 10px;
-    color: #FFFFFF;
+    color: #EFEFEF;
   }
 
   .input {
@@ -59,10 +59,10 @@
 
       width: 66px;
       height: 56px;
-      color: #FFFFFF;
+      color: #EFEFEF;
 
       background: #242424;
-      border: 1px solid #FFFFFF;
+      border: 1px solid #EFEFEF;
       border-radius: 12px;
 
       position: flex;
@@ -81,10 +81,10 @@
 
     width: 115px;
     height: 56px;
-    color: #FFFFFF;
+    color: #EFEFEF;
 
     background: #242424;
-    border: 1px solid #FFFFFF;
+    border: 1px solid #EFEFEF;
     border-radius: 12px;
 
     position: flex;
