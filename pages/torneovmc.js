@@ -449,7 +449,7 @@ const Torneo = () => {
                                   </div>
                                 </div>
                                 <div className="text-gray-500 ">
-                                  <p>{jugador.roll}</p>
+                                  <p>{jugador.rol}</p>
                                 </div>
 
                                 <div className="flex items-center gap-2 ">

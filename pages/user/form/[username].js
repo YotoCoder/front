@@ -48,7 +48,7 @@ const Userform = () => {
     bodyContent.append("last_name", user.last_name);
     bodyContent.append("biografia", user.biografia);
 
-    bodyContent.append("roll", user.roll);
+    bodyContent.append("rol", user.rol);
     bodyContent.append("pais", user.pais);
     bodyContent.append("discord", user.discord);
     bodyContent.append("steam_id", user.steam_id);
@@ -173,18 +173,18 @@ const Userform = () => {
                 }}
               />
 
-              <label className="font-bold" htmlFor="roll">
-                Roll
+              <label className="font-bold" htmlFor="rol">
+                Rol
               </label>
-              {error && <div className="text-red-500">{error.roll}</div>}
+              {error && <div className="text-red-500">{error.rol}</div>}
               <input
                 type="text"
-                name="roll"
-                id="roll"
+                name="rol"
+                id="rol"
                 className="bg-[#40444b] p-2 rounded-md"
-                value={user.roll}
+                value={user.rol}
                 onChange={(e) => {
-                  setUser({ ...user, roll: e.target.value });
+                  setUser({ ...user, rol: e.target.value });
                 }}
               />
 

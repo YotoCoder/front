@@ -206,7 +206,7 @@ const Username = () => {
               <div className="flex flex-col items-start justify-center">
                 <div>
                   <p className="text-gray-400 text-base pt-4">
-                    Roll: {user.roll ? user.roll : "Sin rol"}
+                    Rol: {user.rol ? user.rol : "Sin rol"}
                   </p>
                   <p className="text-gray-400 text-base">
                     MMR avg: {mmr ? mmr : "Sin id amigo o steam privado"}

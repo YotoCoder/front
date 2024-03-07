@@ -14,8 +14,11 @@ const Register = () => {
 
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [password2, setPassword2] = useState("");
+  const [rol, setRol] = useState("");
+  
 
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({});
 
   const host = process.env.APIhost;
   const API_URL = host + "/users/register/";
@@ -24,7 +27,7 @@ const Register = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    toast.promise(axios.post(API_URL, { username, password }), {
+    toast.promise(axios.post(API_URL, { username, password, rol }), {
       loading: "Cargando...",
 
       success: (data) => {
@@ -37,14 +40,20 @@ const Register = () => {
         return <b>Bienvenido {username}!</b>;
       },
       error: (err) => {
-        
-        return <b>Ups! al parecer hubo un error, lo mas probable es que ya este registrado ese nick comunicate con el area de soporte para mas ayuda.</b>;
+        setError(err.response.data);
+        return <b>Hubo un problema verifica tus datos de registro! Si persiste el problema comunicate con alguien del staff VMC.</b>;
         },
     });
   };
 
   useEffect(() => {
-  }, []);
+    // verificar contraseñas iguales
+    if (password !== password2) {
+      setError({ password2: "Las contraseñas no coinciden" });
+    } else {
+      setError({ password2: "" });
+    }
+  }, [password, password2]);
 
   return (
     <>
@@ -82,6 +91,7 @@ const Register = () => {
             <form>
               <div className="grid grid-cols-1 gap-6 mt-4">
                 <div>
+                  <p className="text-red-500">{error.username}</p>
                   <label className="text-white" htmlFor="username">
                     Username
                   </label>
@@ -94,6 +104,26 @@ const Register = () => {
                 </div>
 
                 <div>
+                  <p className="text-red-500">{error.rol}</p>
+                  <label className="text-white" htmlFor="rol">
+                    Rol
+                  </label>
+                  <select
+                    id="rol"
+                    className="block w-full px-4 py-2 mt-2  border  rounded-md bg-[#403f3f] text-white border-gray-600 focus:border-gray-500 focus:outline-none focus:ring"
+                    onChange={(e) => setRol(e.target.value)}
+                  >
+                    <option value=""></option>
+                    <option value="Carry">Carry</option>
+                    <option value="Mid">Mid</option>
+                    <option value="Off Laner">Off Lane</option>
+                    <option value="Soft Support">Soft Support</option>
+                    <option value="Hard Support">Hard Support</option>
+                  </select>
+                </div>
+
+                <div>
+                  <p className="text-red-500">{error.password}</p>
                   <label className="text-white" htmlFor="password">
                     Contraseña
                   </label>
@@ -106,6 +136,7 @@ const Register = () => {
                 </div>
 
                 <div>
+                  <p className="text-red-500">{error.password2}</p>
                   <label className="text-white" htmlFor="passwordConfirmation">
                     Confirmar Contraseña
                   </label>
@@ -113,6 +144,7 @@ const Register = () => {
                   <input
                     id="password2"
                     type="password"
+                    onChange={(e) => setPassword2(e.target.value)}
                     className="block w-full px-4 py-2 mt-2  border  rounded-md bg-[#403f3f] text-white border-gray-600 focus:border-gray-500 focus:outline-none focus:ring"
                   />
                 </div>
