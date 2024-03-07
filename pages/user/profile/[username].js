@@ -228,7 +228,7 @@ const Username = () => {
                       <img
                         src={
                           hero_1.icon
-                            ? "https://api.opendota.com" + hero_1.icon
+                            ? "https://cdn.cloudflare.steamstatic.com" + hero_1.icon
                             : "../../icons/loader.svg"
                         }
                         alt="hero-1"
@@ -257,7 +257,7 @@ const Username = () => {
                       <img
                         src={
                           hero_2.icon
-                            ? "https://api.opendota.com" + hero_2.icon
+                            ? "https://cdn.cloudflare.steamstatic.com" + hero_2.icon
                             : "../../icons/loader.svg"
                         }
                         alt="hero-2"
@@ -285,7 +285,7 @@ const Username = () => {
                       <img
                         src={
                           hero_3.icon
-                            ? "https://api.opendota.com" + hero_3.icon
+                            ? "https://cdn.cloudflare.steamstatic.com" + hero_3.icon
                             : "../../icons/loader.svg"
                         }
                         alt="hero-3"
