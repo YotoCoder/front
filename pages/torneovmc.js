@@ -5,6 +5,7 @@ import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
+import { Toaster } from "react-hot-toast";
 
 import { useRouter } from "next/router";
 
@@ -124,6 +125,7 @@ const Torneo = () => {
       </Head>
 
       <div className="flex flex-col ">
+        <Toaster />
         <div className="sticky top-0 z-50 w-full">
           <Nav />
         </div>
