@@ -5,7 +5,8 @@ import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
-import Game from "./components/Master";
+
+import { useRouter } from "next/router";
 
 const Nav = dynamic(() => import("./components/Nav"), {
   suspense: true,
@@ -29,6 +30,46 @@ const Torneo = () => {
   const host = process.env.APIhost + "/torneo/torneo/";
   const [equipos, setEquipos] = useState([]);
 
+  // si se entra por la url con #regla se muestra la seccion de reglas y para el resto
+  const router = useRouter();
+  useEffect(() => {
+    if (router.asPath !== router.route) {
+      if (router.asPath.includes("#regla")) {
+        setPosicion({
+          VISION_GENERAL: false,
+          TABLA: false,
+          EQUIPOS: false,
+          REGLAS: true,
+        });
+      }
+      if (router.asPath.includes("#equipos")) {
+        setPosicion({
+          VISION_GENERAL: false,
+          TABLA: false,
+          EQUIPOS: true,
+          REGLAS: false,
+        });
+      }
+      if (router.asPath.includes("#fases")) {
+        setPosicion({
+          VISION_GENERAL: false,
+          TABLA: false,
+          EQUIPOS: false,
+          FASES: true,
+          REGLAS: false,
+        });
+      }
+      if (router.asPath.includes("#main")) {
+        setPosicion({
+          VISION_GENERAL: false,
+          TABLA: true,
+          EQUIPOS: false,
+          FASES: false,
+          REGLAS: false,
+        });
+        }
+    }
+  }, [router]);
 
   const [posicion, setPosicion] = useState({
     VISION_GENERAL: true,
@@ -57,7 +98,7 @@ const Torneo = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>Torneos | VMCP</title>
+        <title>Torneos | VMC</title>
         <meta lang="es" />
         <meta
           property="og:title"
@@ -209,7 +250,7 @@ const Torneo = () => {
                           <a
                             type="buttom"
                             className="bg-[#72C100] items-center justify-center text-white font-mono py-2 px-4 rounded-[5px] mt-4"
-                            href="#"
+                            href="/registro-torneo-vmc-2024"
                             target="_blank"
                           >
                             {torneo.estado == "E" && "Inscribirse"}
@@ -360,7 +401,12 @@ const Torneo = () => {
               )}
 
               {posicion.EQUIPOS && (
+                <>
+                <div className="flex gap-2 m-4 blanco items-center py-4 justify-start text-xl lg:text-2xl lg:justify-start tituloTorneo">
+                <p className="blanco">Equipos Registrados</p>
+              </div>
                 <div className="lg:grid lg:grid-cols-3 gap-4">
+                  
                   {equipos.map((equipo) => (
                     <>
                       <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4">
@@ -369,7 +415,7 @@ const Torneo = () => {
                             <img
                               src={equipo.avatar}
                               alt="..."
-                              className="circuloPerfil p-2 rounded-full w-40 h-auto "
+                              className="flex items-center justify-center w-24 h-24 rounded-full object-cover"
                               style={{
                                 background:
                                   "linear-gradient( #76C900, #111111 )",
@@ -382,18 +428,22 @@ const Torneo = () => {
                             <p className="subTitulo text-base">{equipo.tag}</p>
                           </div>
 
-                          <div className=" w-full ">
+                          <div className="w-full">
                             {equipo.jugadores.map((jugador) => (
                               <div className="flex items-center hover:bg-lime-800 justify-between gap-4 py-2">
                                 <div className="flex items-center gap-2">
                                   <img
-                                    src={jugador.avatar}
+                                    src={jugador.avatar
+                                    ? jugador.avatar
+                                    : "https://vemastercup.com/icons/user.svg"
+                                    }
                                     alt="..."
                                     className="rounded-full object-cover w-12 h-12"
                                   />
+                                  {console.log(jugador)}
 
                                   <div className="text-white">
-                                    {jugador.nick}
+                                    {jugador.username}
                                   </div>
                                 </div>
                                 <div className="text-gray-500 ">
@@ -452,6 +502,7 @@ const Torneo = () => {
                     </>
                   ))}
                 </div>
+                </>
               )}
 
               {posicion.REGLAS && (
@@ -465,9 +516,6 @@ const Torneo = () => {
                   </p>
                 </>
               )}
-
-              
-              
             </div>
           </>
         )}

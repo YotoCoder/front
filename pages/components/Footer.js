@@ -4,7 +4,7 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     
-    <footer className="p-4 sm:p-6 bg-[#202225] mt-20 ">
+    <footer className="p-4 sm:p-6 bg-[#111111] mt-20 ">
         <div className="md:flex md:justify-between">
             <div className="mb-6 md:mb-0">
                 <Link href="/" className="flex items-center gap-4">

@@ -22,7 +22,7 @@ const Torneos = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>VMCP | Torneos</title>
+        <title>VMC | Torneos</title>
         <meta lang="es" />
         <meta
           property="og:title"

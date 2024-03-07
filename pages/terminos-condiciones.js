@@ -31,7 +31,7 @@ const Terminos = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>VMCP | Terminos y Condiciones</title>
+        <title>VMC | Terminos y Condiciones</title>
         <meta lang="es" />
         <meta
           property="og:title"

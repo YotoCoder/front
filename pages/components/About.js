@@ -38,7 +38,7 @@ const About = () => {
           <h2 className='nombreCard text-4xl pb-4'>¿Quienes somos?</h2>
            
             <p className=" items-center justify-center mx-4 subTitulo text-xl lg:text-2xl">
-              <b>Venezuela Master CUP</b> o <b>VMCP</b> es un proyecto de <i>Esports</i> en rápido crecimiento.
+              <b>Venezuela Master CUP</b> o <b>VMC</b> es un proyecto de <i>Esports</i> en rápido crecimiento.
               Nuestra misión es popularizar los <i>Esports</i> profesionales y organizar torneos para apoyar a la comunidad <b>Venezolana</b> y <b>Latinoamericana</b>.
             </p>
 

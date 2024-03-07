@@ -64,7 +64,7 @@ const RegistroTorneo = () => {
 			{
 				loading: "Registrando equipo...",
 				success: (res) => {
-          router.push("/");
+          router.push("/torneovmc");
 					return "Equipo registrado con éxito.";
 				},
 				error: (err) => {
@@ -188,7 +188,7 @@ const RegistroTorneo = () => {
                 type="checkbox"
                 onChange={(e) => setRules(e.target.checked)}
               />
-              <p className="text-white">Acepto haber leido y aceptado todas las reglas.</p>
+              <p className="text-white">Acepto haber leido y aceptado todas las <a href={"/torneovmc#reglas"} target="_blank" className="text-[#76C043]">reglas</a> del torneo.</p>
               
             </div>
             <button className="btn border-[#76C043] bg-[#76C043] w-full text-white" onClick={onSubmit}>

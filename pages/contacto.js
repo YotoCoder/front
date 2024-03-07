@@ -23,7 +23,7 @@ const Contacto = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>VMCP | Contacto</title>
+        <title>VMC | Contacto</title>
         <meta lang="es" />
         <meta
           property="og:title"

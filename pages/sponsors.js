@@ -27,7 +27,7 @@ const Partnerts = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>VMCP | Sponsors</title>
+        <title>VMC | Sponsors</title>
         <meta lang="es" />
         <meta
           property="og:title"
@@ -53,7 +53,7 @@ const Partnerts = () => {
       <div className="pb-4">
         <Titulo
           primary={"Sponsors"}
-          secondary={"Empresas que apoyan el proyecto VMCP."}
+          secondary={"Empresas que apoyan el proyecto VMC."}
         />
       </div>
 

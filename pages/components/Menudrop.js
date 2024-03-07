@@ -36,10 +36,10 @@ function Menudrop() {
             }}
           > 
             <MyLink
-                href="/registro-torneo-vmc-2024"
+                href="/torneovmc"
                 className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium"
               >
-                Master CUP 2024 | VMCP
+                Master CUP 2024 | VMC
             </MyLink>
             <MyLink
               href="/torneo"

@@ -6,7 +6,7 @@ const Cards = () => {
     <div className="flex flex-col items-center  gap-3 mt-4">
           <h2 className="text-center text-[2rem] text-white flex items-center gap-2">
             <span>
-            El equipo detrás de VMCP
+            El equipo detrás de VMC
             </span>
             <span className="mt-2">
               <FaTeamspeak className="text-[2rem]" />

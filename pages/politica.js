@@ -24,7 +24,7 @@ const Politica = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>VMCP | Politica</title>
+        <title>VMC | Politica</title>
         <meta lang="es" />
         <meta
           property="og:title"

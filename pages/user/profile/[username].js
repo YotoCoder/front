@@ -117,7 +117,7 @@ const Username = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>{username} | VMCP</title>
+        <title>{username} | VMC</title>
         <meta lang="es" />
         <meta
           property="og:title"

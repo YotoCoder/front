@@ -107,7 +107,7 @@ export default function Home() {
           <div className="py-4">
             <Titulo
               primary={"Sponsors"}
-              secondary={"Empresas que apoyan el proyecto VMCP."}
+              secondary={"Empresas que apoyan el proyecto VMC."}
             />
             <Toaster
               toastOptions={{

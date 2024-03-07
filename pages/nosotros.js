@@ -27,7 +27,7 @@ const Nosotros = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>VMCP | Nosotros</title>
+        <title>VMC | Nosotros</title>
         <meta lang="es" />
         <meta
           property="og:title"

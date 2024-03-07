@@ -50,7 +50,7 @@ const Torneo = () => {
   return (
     <Suspense fallback={<Cargador />}>
       <Head>
-        <title>Torneos | VMCP</title>
+        <title>Torneos | VMC</title>
         <meta lang="es" />
         <meta
           property="og:title"
