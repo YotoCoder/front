@@ -127,10 +127,10 @@ const RegistroTorneo = () => {
           Ingresa los datos de tu equipo.
         </p>
 
-        <div className="flex items-center justify-center">
+        
           <form className="flex items-center justify-center pt-4 flex-col gap-2">
 					{error.avatar && <p className="text-red-500">{error.avatar}</p>}
-            <label className="input input-bordered flex items-center gap-2 w-full">
+            <label className="input input-bordered flex items-center gap-2 w-3/4">
               Avatar
               <input
                 type="file"
@@ -149,7 +149,7 @@ const RegistroTorneo = () => {
               className="w-20 h-20 rounded-full object-cover"
             />
 						{error.nombre && <p className="text-red-500">{error.nombre}</p>}
-            <label className="input input-bordered flex items-center gap-2 w-full ">
+            <label className="input input-bordered flex items-center gap-2 w-3/4 ">
               Nombre
               <input
                 type="text"
@@ -160,7 +160,7 @@ const RegistroTorneo = () => {
             </label>
 
 						{error.tag && <p className="text-red-500">{error.tag}</p>}
-            <label className="input input-bordered flex items-center gap-2 w-full">
+            <label className="input input-bordered flex items-center gap-2 w-3/4">
               Tag
 							
               <input
@@ -179,11 +179,11 @@ const RegistroTorneo = () => {
 							required
               options={options}
               isMulti
-              className="basic-multi-select w-full"
+              className="basic-multi-select w-3/4"
               classNamePrefix="select"
               onChange={(e) => setJugadores(e)}
             />
-            <div className="flex gap-2">
+            <div className="flex gap-2  w-3/4">
               <input
                 type="checkbox"
                 onChange={(e) => setRules(e.target.checked)}
@@ -191,11 +191,11 @@ const RegistroTorneo = () => {
               <p className="text-white">Acepto haber leido y aceptado todas las <a href={"/torneovmc#reglas"} target="_blank" className="text-[#76C043]">reglas</a> del torneo.</p>
               
             </div>
-            <button className="btn border-[#76C043] bg-[#76C043] w-full text-white" onClick={onSubmit}>
+            <button className="btn border-[#76C043] bg-[#76C043] w-3/4 text-white" onClick={onSubmit}>
               Inscribir Equipo
             </button>
           </form>
-        </div>
+        
       </div>
       <Footer />
     </Suspense>
