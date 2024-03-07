@@ -392,7 +392,7 @@ const Liga = () => {
                         <div>
                           {localStorage.getItem("token") ? (
                             <button
-                              className="bg-[#111111]items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
+                              className="bg-[#111111] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
                               onClick={() => {
                                 setPosicion({
                                   VISION_GENERAL: false,
@@ -406,7 +406,7 @@ const Liga = () => {
                             </button>
                           ) : (
                             <button
-                              className="bg-[#111111]items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
+                              className="bg-[#111111] items-center justify-center text-black font-mono py-2 px-4 rounded-[5px] mt-4"
                               onClick={() => {
                                 toast.error(
                                   "Debes iniciar sesión para registrarte en la liga"
@@ -479,7 +479,7 @@ const Liga = () => {
                         <div className="">
                           <button
                             type="buttom"
-                            className="bg-[#111111]items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#111111] items-center justify-center text-black font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
                             onClick={() => {
                               setPosicion({
                                 VISION_GENERAL: false,

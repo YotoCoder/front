@@ -4,7 +4,7 @@ import dynamic from "next/dynamic";
 import { Suspense } from "react";
 import Cargador from "./components/Cargador";
 import parse from "html-react-parser";
-import Flag from 'react-world-flags'
+import Flag from "react-world-flags";
 import Game from "./components/Master";
 
 const Nav = dynamic(() => import("./components/Nav"), {
@@ -26,18 +26,16 @@ const Titulo = dynamic(() => import("./components/Titulo"), {
 const Torneo = () => {
   const [torneo, setTorneo] = useState([]);
   const [cargando, setCargando] = useState(true);
+  const host = process.env.APIhost + "/torneo/torneo/";
+  const [equipos, setEquipos] = useState([]);
+
 
   const [posicion, setPosicion] = useState({
-    VISION_GENERAL: false,
+    VISION_GENERAL: true,
     TABLA: false,
-    EQUIPOS: true,
+    EQUIPOS: false,
     REGLAS: false,
   });
-
-
-  // const host = "http://localhost:8000/api/torneo/";
-
-  const host = "https://admin.vemastercup.com/api/torneo/";
 
   useEffect(() => {
     axios.get(host).then((res) => {
@@ -46,6 +44,15 @@ const Torneo = () => {
       setCargando(false);
     });
   }, []);
+
+  useEffect(() => {
+    axios.get(process.env.APIhost + "/torneo/equipo-list/").then((res) => {
+      console.log(res.data);
+      setEquipos(res.data);
+      setCargando(false);
+    });
+  }, []);
+ 
 
   return (
     <Suspense fallback={<Cargador />}>
@@ -341,66 +348,20 @@ const Torneo = () => {
                 // FASES
                 posicion.FASES && (
                   <>
-                  <div className="flex items-center justify-center">
-                    <img src='/images/fases/titulo_fase.png'
-                          alt="titulo de la fase del torneo"
-                          className=''
-                      />
-                  </div>
-                  <div className="lg:flex items-center justify-center">
-                    
-                    <img src='/images/fases/grupo_a.png'
-                         alt="grupo a del torneo"
-                         className='flex decoration-purple-300'
-                    />
-                    <img src='/images/fases/grupo_b.png'
-                         alt="grupo b del torneo"
-                         className='flex'
-                    />
-                  </div>
-
-                    <div className="flex items-center justify-center p-4 py-16">
-                      <img src='/images/fases/dia_1.png' alt="dia 1 del torneo"
-                           className='border p-4 rounded-2xl shadow-lg shadow-[#39C500]'
-                      />
-                    </div>
-                    <div className="flex items-center justify-center p-4 py-16">
-                      <img src='/images/fases/dia_2.png' alt="dia 2 del torneo"
-                           className='border p-4 rounded-2xl shadow-lg shadow-[#39C500]'
-                      />
-                    </div>
-                    <div className="flex items-center justify-center p-4 py-16">
-                      <img src='/images/fases/dia_3.png' alt="dia 3 del torneo"
-                           className='border p-4 rounded-2xl shadow-lg shadow-[#39C500]'
-                      />
-                    </div>
-                    <div className="flex items-center justify-center p-4 py-16">
-                      <img src='/images/fases/dia_4.png' alt="dia 4 del torneo"
-                           className='border p-4 rounded-2xl shadow-lg shadow-[#39C500]'
-                      />
-                    </div>
-
-                    <div className="flex items-center justify-center p-4 py-16">
-                      <img src='/images/fases/dia_5.png' alt="dia 5 del torneo"
-                           className='border p-4 rounded-2xl shadow-lg shadow-[#39C500]'
-                      />
-                    </div>
+                    <Titulo primary="Fases De Grupo" secondary="VMC" />
                   </>
                 )
               }
 
               {posicion.TABLA && (
                 <>
-                  <Titulo primary="Main Event" secondary="VeMasterCUP" />
-                  <div className="Game flex">
-                    <Game />
-                  </div>
+                  <Titulo primary="Main Event" secondary="VMC" />
                 </>
               )}
 
               {posicion.EQUIPOS && (
                 <div className="lg:grid lg:grid-cols-3 gap-4">
-                  {torneo.equipos.map((equipo) => (
+                  {equipos.map((equipo) => (
                     <>
                       <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4">
                         <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] ">
@@ -500,10 +461,13 @@ const Torneo = () => {
                   </div>
 
                   <p className="text-[#ababab] m-4">
-                    {parse(torneo.reglas.replaceAll(".", ".<br></br>"))}
+                    {parse(torneo.reglas.replaceAll('/media/', process.env.APIhost + "/media/"))}
                   </p>
                 </>
               )}
+
+              
+              
             </div>
           </>
         )}

@@ -108,25 +108,27 @@ const RegistroTorneo = () => {
           content="Registro de torneo online Dota 2 VMC Venezuela Master Cup."
           key="desc"
         />
-        <meta property="og:image" content="../images/escudo.png" />
+        <meta property="og:image" content="../images/flyer-vmc-2024.jpg" />
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <link rel="icon" href="../images/escudo.png" />
       </Head>
       <div>
+      <Toaster />
         <div className="sticky top-0 z-50 w-full">
           <Nav />
-					<Toaster />
+					
 					
         </div>
         <Titulo
-          primary={"Registrate en el torneo"}
-          secondary={"VMC edición 2024."}
+          primary={"Regístrate en el Torneo"}
+          secondary={"VMC Edición 2024"}
         />
-        <p className="text-center text-white">
+        <p className="text-center text-xl font-bold text-black bg-backgroundLayer bg-center bg-contain bg-no-repeat p-10 mt-2 mx-4">
           Ingresa los datos de tu equipo.
         </p>
+
         <div className="flex items-center justify-center">
-          <form className="flex items-center justify-center pt-4 flex-col gap-2 px-8">
+          <form className="flex items-center justify-center pt-4 flex-col gap-2">
 					{error.avatar && <p className="text-red-500">{error.avatar}</p>}
             <label className="input input-bordered flex items-center gap-2 w-full">
               Avatar
@@ -189,7 +191,7 @@ const RegistroTorneo = () => {
               <p className="text-white">Acepto haber leido y aceptado todas las reglas.</p>
               
             </div>
-            <button className="btn bg-[#111111]w-full" onClick={onSubmit}>
+            <button className="btn border-[#76C043] bg-[#76C043] w-full text-white" onClick={onSubmit}>
               Inscribir Equipo
             </button>
           </form>

@@ -72,7 +72,7 @@ const Login = () => {
           />
         </div>
         <div className="">
-          <section className="max-w-xl items-center justify-center p-6 mx-2 bg-[#242424] rounded-md shadow-2xl shadow-[#e7cd66]  mt-0 lg:mt-5">
+          <section className="max-w-xl items-center justify-center p-6 mx-2 bg-[#242424] rounded-md shadow-2xl shadow-[#39C500]  mt-0 lg:mt-5">
             <h1 className="text-xl font-bold capitalize text-white">
               Iniciar Sesion
             </h1>

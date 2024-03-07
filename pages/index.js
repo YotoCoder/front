@@ -10,7 +10,7 @@ import Impacto from "./components/sections/Impacto";
 import ObjetivosSM from "./components/sections/ObjetivosSM";
 import ObjetivosLG from "./components/sections/ObjetivosLG";
 
-import ModalNotify from "./components/modals/ModalNotify";
+import ModalFlyer from "./components/modals/ModalFlyer";
 
 const MainContent = dynamic(() => import("./components/MainContent"), {
   suspense: true,
@@ -87,12 +87,7 @@ export default function Home() {
         <div>
 
           {/* <MainContent /> <div className="z-[5000]"></div> */}
-          <ModalNotify
-            titulo={'Bienvenido a Venezuela Master CUP!'}
-            textoPrincipal={'Estamos trabajando en nuestra página web para habilitar el registro del próximo torneo, que comienza el 1ro de abril.'}
-            textoSecundario={'Mantente alerta a las inscripciones para que puedas participar.'}
-            textoBoton={'Cerrar'}
-          />
+          <ModalFlyer />
           <About />
           <div className="lg:pt-16">
             <Eventos />

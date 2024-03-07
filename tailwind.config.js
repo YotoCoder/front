@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        "select": "#76C100",
+        "select": "#FFE600",
         
       },
       backgroundImage: {
@@ -16,6 +16,8 @@ module.exports = {
         "backgroundObjetivosmall": "url('/images/sections/objetivos_sm.png')",
         "backgroundObjetivolgR": "url('/images/sections/objetivos_lg_r.png')",
         "backgroundObjetivolgL": "url('/images/sections/objetivos_lg_l.png')",
+        "backgroundLayer": "url('/images/layer.png')",
+        "backgroundFlyer2024": "url('/images/flyer-vmc-2024.jpg')",
       }
    
     }
