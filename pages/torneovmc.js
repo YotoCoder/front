@@ -6,7 +6,7 @@ import Cargador from "./components/Cargador";
 import parse from "html-react-parser";
 import Flag from "react-world-flags";
 import { Toaster } from "react-hot-toast";
-
+import Link from "next/link";
 import { useRouter } from "next/router";
 
 const Nav = dynamic(() => import("./components/Nav"), {
@@ -136,7 +136,7 @@ const Torneo = () => {
           </div>
         ) : (
           <>
-            <div className="bg-[#111111]my-4 lg:mt-4 lg:px-16">
+            <div className="bg-[#111111] my-4 lg:mt-4 lg:px-16">
               <div className="flex items-center py-4 justify-center text-xl lg:text-2xl lg:justify-start tituloTorneo">
                 {torneo.nombre}
               </div>
@@ -411,7 +411,7 @@ const Torneo = () => {
                   
                   {equipos.map((equipo) => (
                     <>
-                      <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4">
+                      <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4 hover:shadow-xl !shadow-emerald-700">
                         <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] ">
                           <div>
                             <img
@@ -419,8 +419,8 @@ const Torneo = () => {
                               alt="..."
                               className="flex items-center justify-center w-24 h-24 rounded-full object-cover"
                               style={{
-                                background:
-                                  "linear-gradient( #76C900, #111111 )",
+                                background: 0
+                                  // "linear-gradient( #76C900, #111111 )",
                               }}
                             />
                             <h2 className="nombreCard text-2xl pt-2">
@@ -432,9 +432,9 @@ const Torneo = () => {
 
                           <div className="w-full">
                             {equipo.jugadores.map((jugador) => (
-                              <div className="flex items-center hover:bg-lime-800 justify-between gap-4 py-2">
+                              <div className="flex items-center hover:bg-emerald-700 justify-between gap-4 py-2 px-4 rounded-xl">
                                 <div className="flex items-center gap-2">
-                                  <img
+                                  {/* <img
                                     src={jugador.avatar
                                     ? jugador.avatar
                                     : "https://vemastercup.com/icons/user.svg"
@@ -442,10 +442,12 @@ const Torneo = () => {
                                     alt="..."
                                     className="rounded-full object-cover w-12 h-12"
                                   />
-                                  {console.log(jugador)}
+                                  {console.log(jugador)} */}
 
                                   <div className="text-white">
-                                    {jugador.username}
+                                    <Link href={`/user/profile/${jugador.username}`} target="_blank">
+                                      {jugador.username}
+                                    </Link>
                                   </div>
                                 </div>
                                 <div className="text-gray-500 ">
@@ -475,7 +477,7 @@ const Torneo = () => {
                           <div className="flex gap-10  mt-6">
                             <div
                               className={`
-                                      flex items-center text-2xl drop-shadow-sm rounded-2xl border-4  p-4 justify-center w-60 text-white 
+                                      flex items-center text-sm drop-shadow-sm rounded border-4  p-0 justify-center w-60 text-white 
                                       ${
                                         equipo.estado == "ACTIVO"
                                           ? "border-green-400 "
@@ -493,9 +495,7 @@ const Torneo = () => {
                                       }`}
                             >
                               {
-                                equipo.nombre == 'Biz Gaming'
-                                  ? 'GANADOR'
-                                  : equipo.estado                                
+                                equipo.estado                                
                               }
                             </div>
                           </div>

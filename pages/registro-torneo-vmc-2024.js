@@ -131,7 +131,7 @@ const RegistroTorneo = () => {
           <form className="flex items-center justify-center pt-4 flex-col gap-2">
 					{error.avatar && <p className="text-red-500">{error.avatar}</p>}
             <label className="input input-bordered flex items-center gap-2 w-3/4">
-              Avatar
+              Logo del Equipo
               <input
                 type="file"
                 className="grow"
@@ -150,7 +150,7 @@ const RegistroTorneo = () => {
             />
 						{error.nombre && <p className="text-red-500">{error.nombre}</p>}
             <label className="input input-bordered flex items-center gap-2 w-3/4 ">
-              Nombre
+              Nombre del Equipo
               <input
                 type="text"
                 className="grow"
@@ -161,7 +161,7 @@ const RegistroTorneo = () => {
 
 						{error.tag && <p className="text-red-500">{error.tag}</p>}
             <label className="input input-bordered flex items-center gap-2 w-3/4">
-              Tag
+              Tag (Abreviación del Equipo)
 							
               <input
                 type="text"
