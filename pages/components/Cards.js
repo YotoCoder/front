@@ -31,7 +31,7 @@ const Cards = () => {
               alt="..."
               className="circuloPerfil p-2 rounded-full max-w-full h-auto "
               style={{
-                background: "linear-gradient( #c59b37, #f4e078 )",
+                background: "linear-gradient(#71C100, #65C900)",
               }}
             />
             <h2 className="nombreCard text-2xl pt-2">Grecia Mogollón</h2>
@@ -83,26 +83,26 @@ const Cards = () => {
         <div className="flex relative lg:w-96 mt-20 flex-col card items-center justify-center w-auto m-4">
           <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] w-52 ">
             <img
-              src="../images/team/spanohcirculo.jpeg"
+              src="../images/team/yoto.jpg"
               alt="..."
               className="circuloPerfil p-2 rounded-full max-w-full h-auto "
               style={{
-                background: "linear-gradient(#c59b37, #f4e078 )",
+                background: "linear-gradient(#71C100, #65C900)",
               }}
             />
-            <h2 className="nombreCard text-2xl pt-2">Mario Spano</h2>
+            <h2 className="nombreCard text-2xl pt-2">Yonathan Soto</h2>
 
-            <p className="subTitulo text-base">@span0h</p>
+            <p className="subTitulo text-base">@yoto</p>
 
             <h3 className="about pt-8 pb-4">Sobre Mi</h3>
 
             <p className="descripcion text-base w-60">
-              Fundador LVD, Amante del gaming.
+              Desarrollador web, amante de los videojuegos, la música y el cine.
             </p>
 
             <div className="flex gap-10 border- border-t border-[#32353B] mt-6">
               <a
-                href="https://www.instagram.com/span0h/"
+                href="https://www.instagram.com/__yoto/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -112,7 +112,7 @@ const Cards = () => {
                   className="w-12 mt-4"
                 />
               </a>
-              <a href="https://www.twitter.com/span0h/" rel="noreferrer"
+              <a href="https://www.instagram.com/__yoto/" rel="noreferrer"
                  target="_blank"
               >
                 <img
@@ -121,7 +121,7 @@ const Cards = () => {
                   className="w-12 mt-4"
                 />
               </a>
-              <a href="https://www.twitter.com/span0h/"
+              <a href="https://www.instagram.com/__yoto/"
                 target="_blank"
                 rel="noreferrer"
               >
@@ -144,7 +144,7 @@ const Cards = () => {
               alt="..."
               className="circuloPerfil p-2 rounded-full max-w-full h-auto "
               style={{
-                background: "linear-gradient( #c59b37, #f4e078 )",
+                background: "linear-gradient(#71C100, #65C900)",
               }}
             />
             <h2 className="nombreCard text-2xl pt-2">Anthony Cerezo</h2>
@@ -204,7 +204,7 @@ const Cards = () => {
             alt="..."
             className="circuloPerfil p-2 rounded-full max-w-full h-auto "
             style={{
-              background: "linear-gradient( #c59b37, #f4e078 )",
+              background: "linear-gradient(#71C100, #65C900)",
             }}
           />
           <h2 className="nombreCard text-2xl pt-2">Elizabeth Banegas</h2>
@@ -264,7 +264,7 @@ const Cards = () => {
             alt="..."
             className="circuloPerfil p-2 rounded-full max-w-full h-auto "
             style={{
-              background: "linear-gradient( #c59b37, #f4e078 )",
+              background: "linear-gradient(#71C100, #65C900)",
             }}
           />
           <h2 className="nombreCard text-2xl pt-2">Daniel Arevalo</h2>
