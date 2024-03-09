@@ -145,7 +145,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.VISION_GENERAL
-                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
+                      ? "activeiesf border-b-4 top-[1px] border-[#F6B52E] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -164,7 +164,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.REGLAS
-                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
+                      ? "activeiesf border-b-4 top-[1px] border-[#F6B52E] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -183,7 +183,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.EQUIPOS
-                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
+                      ? "activeiesf border-b-4 top-[1px] border-[#F6B52E] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -202,7 +202,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.FASES
-                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
+                      ? "activeiesf border-b-4 top-[1px] border-[#F6B52E] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -221,7 +221,7 @@ const Torneo = () => {
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.TABLA
-                      ? "active border-b-4 top-[1px] border-[#76C100] pb-4"
+                      ? "activeiesf border-b-4 top-[1px] border-[#F6B52E] pb-4"
                       : "inactive"
                   }`}
                   onClick={() => {
@@ -251,7 +251,7 @@ const Torneo = () => {
                         <div>
                           <a
                             type="buttom"
-                            className="bg-[#72C100] items-center justify-center text-white font-mono py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#F6B52E] items-center justify-center text-white font-mono py-2 px-4 rounded-[5px] mt-4"
                             href="/registro-torneo-vmc-2024"
                             target="_blank"
                           >
@@ -301,7 +301,7 @@ const Torneo = () => {
                         <div className="">
                           <button
                             type="buttom"
-                            className="bg-[#71C100] text-white items-center justify-cente font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
+                            className="bg-[#F6B52E] text-white items-center justify-cente font-serif font-bold py-2 px-4 rounded-[5px] mt-4"
                             onClick={() => {
                               setPosicion({
                                 VISION_GENERAL: false,
@@ -326,7 +326,7 @@ const Torneo = () => {
                           <p className="text-white p-4 text-sm px-6 font-bold">
                             PREMIACION TOTAL
                           </p>
-                          <p className="text-[#76C100] text-2xl mx-6">
+                          <p className="text-[#F6B52E] text-2xl mx-6">
                             {torneo.premio_primer_lugar +
                               torneo.premio_segundo_lugar +
                               torneo.premio_tercer_lugar}
@@ -336,21 +336,21 @@ const Torneo = () => {
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">1° lugar</p>
-                          <p className="text-[#76C100] text-2xl mx-6">
+                          <p className="text-[#F6B52E] text-2xl mx-6">
                             {torneo.premio_primer_lugar}$
                           </p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">2° lugar</p>
-                          <p className="text-[#76C100] text-2xl mx-6">
+                          <p className="text-[#F6B52E] text-2xl mx-6">
                             {torneo.premio_segundo_lugar}$
                           </p>
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
                           <p className="text-white p-4 px-6">3° lugar</p>
-                          <p className="text-[#76C100] text-2xl mx-6">
+                          <p className="text-[#F6B52E] text-2xl mx-6">
                             {torneo.premio_tercer_lugar}$
                           </p>
                         </div>
@@ -390,16 +390,16 @@ const Torneo = () => {
               {
                 // FASES
                 posicion.FASES && (
-                  <>
-                    <Titulo primary="Fases De Grupo" secondary="VMC" />
-                  </>
+                  <div className='text-white'>
+                    Por definir
+                  </div>
                 )
               }
 
               {posicion.TABLA && (
-                <>
-                  <Titulo primary="Main Event" secondary="VMC" />
-                </>
+                <div className="text-white">
+                  Por definir
+                </div>
               )}
 
               {posicion.EQUIPOS && (
@@ -411,7 +411,7 @@ const Torneo = () => {
                   
                   {equipos.map((equipo) => (
                     <>
-                      <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4 hover:shadow-xl !shadow-emerald-700">
+                      <div className="flex relative lg:w-full mt-20 flex-col card items-center justify-center m-4 hover:shadow-xl !shadow-amber-300">
                         <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] ">
                           <div>
                             <img
@@ -432,7 +432,7 @@ const Torneo = () => {
 
                           <div className="w-full">
                             {equipo.jugadores.map((jugador) => (
-                              <div className="flex items-center hover:bg-emerald-700 justify-between gap-4 py-2 px-4 rounded-xl">
+                              <div className="flex items-center hover:bg-amber-300 justify-between gap-4 py-2 px-4 rounded-xl">
                                 <div className="flex items-center gap-2">
                                   {/* <img
                                     src={jugador.avatar

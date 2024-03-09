@@ -119,11 +119,28 @@ const RegistroTorneo = () => {
 					
 					
         </div>
-        <Titulo
-          primary={"Regístrate en el Torneo"}
-          secondary={"VMC Edición 2024"}
-        />
-        <p className="text-center text-xl font-bold text-black bg-backgroundLayer bg-center bg-contain bg-no-repeat p-10 mt-2 mx-4">
+        <h1
+          className="nombreCard !font-extrabold lg:mb-2 flex flex-col items-center justify-center text-3xl lg:text-4xl lg:p-2"
+          style={{
+            background:
+              "linear-gradient(90deg, #F6B52E, #F6B52E, #F6B52E, #F6B52E)",
+
+            color: "#EFEFEF",
+            textShadow: "1px 0px 1px #000000",
+          }}
+        >
+          <b className="">Regístrate en el Torneo</b>
+          <i
+            className="text-black text-base !font-extrabold lg:text-3xl lg:p-2"
+            style={{
+              textShadow: "none",
+            }}
+          >
+            VMC Edición 2024
+          </i>
+        </h1>
+
+        <p className="text-center font-bold text-black bg-backgroundLayer bg-center bg-contain bg-no-repeat p-10 mt-2 mx-4">
           Ingresa los datos de tu equipo.
         </p>
 
@@ -150,7 +167,7 @@ const RegistroTorneo = () => {
             />
 						{error.nombre && <p className="text-red-500">{error.nombre}</p>}
             <label className="input input-bordered flex items-center gap-2 w-3/4 ">
-              Nombre del Equipo
+              Nombre del Team
               <input
                 type="text"
                 className="grow"
@@ -161,7 +178,7 @@ const RegistroTorneo = () => {
 
 						{error.tag && <p className="text-red-500">{error.tag}</p>}
             <label className="input input-bordered flex items-center gap-2 w-3/4">
-              Tag (Abreviación del Equipo)
+              Tag (Abreviación)
 							
               <input
                 type="text"
@@ -188,10 +205,10 @@ const RegistroTorneo = () => {
                 type="checkbox"
                 onChange={(e) => setRules(e.target.checked)}
               />
-              <p className="text-white">Acepto haber leido y aceptado todas las <a href={"/torneovmc#reglas"} target="_blank" className="text-[#76C043]">reglas</a> del torneo.</p>
+              <p className="text-white">Acepto haber leido y aceptado todas las <a href={"/torneovmc#reglas"} target="_blank" className="text-[#F6B52E]">reglas</a> del torneo.</p>
               
             </div>
-            <button className="btn border-[#76C043] bg-[#76C043] w-3/4 text-white" onClick={onSubmit}>
+            <button className="btn border-[#F6B52E] bg-[#F6B52E] w-3/4 text-white" onClick={onSubmit}>
               Inscribir Equipo
             </button>
           </form>

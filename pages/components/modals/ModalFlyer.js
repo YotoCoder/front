@@ -14,7 +14,7 @@ export default function ModalFlyer() {
     <div className="flex items-center justify-center flex-col modal-box bg-black text-white">
         <h3 className="font-bold text-lg">Ya Disponible El registro del Torneo VMC 2024</h3>
         <Image
-            className='flex items-center shadow-md shadow-green-400 justify-center bg-center bg-cover bg-no-repeat rounded-lg'
+            className='flex items-center shadow-md shadow-[#F6B52E] justify-center bg-center bg-cover bg-no-repeat rounded-lg'
             src="/images/flyer-vmc-2024.jpg"
             alt="Flyer del torneo VMC 2024"
             width={300} height={300}
@@ -23,7 +23,7 @@ export default function ModalFlyer() {
         <div className="modal-action">
         <form method="dialog">
             <div className="flex gap-2">
-                <Link className="btn bg-[#61C100]" href="/registro-torneo-vmc-2024">Registrarme</Link>
+                <Link className="btn bg-[#F6B52E] text-black" href="/registro-torneo-vmc-2024">Registrarme</Link>
                 <button className="btn">Cerrar</button>
             </div>
         </form>

@@ -233,6 +233,17 @@ h1 {
     text-shadow: 0px 0px 5px #76C100;
 }
 
+.activeiesf {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    line-height: 19px;
+    letter-spacing: 0.05em;
+    /* Color Primary */
+    color: #F6B52E;
+    text-shadow: 0px 0px 5px #F6B52E;
+}
+
 .inactive {
     font-family: 'Inter';
     font-style: normal;

@@ -19,8 +19,15 @@ module.exports = {
         "backgroundLayer": "url('/images/layer.png')",
         "backgroundFlyer2024": "url('/images/flyer-vmc-2024.jpg')",
       }
-   
-    }
+    },
+    // fuente logik semi bold
+    // fontFamily: {
+    //   sans: ["Logik", "sans-serif"],
+    //   serif: ["Logik", "serif"],
+    //   mono: ["Logik", "monospace"],
+    //   display: ["Logik", "system-ui"],
+    //   body: ["Logik", "system-ui"],
+    // }
     
   },
   plugins: [require("daisyui")],
