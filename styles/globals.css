@@ -279,3 +279,9 @@ h1 {
 
     color: #FCFCFC;
 }
+
+
+/* aplicar Open Sans a todos los elementos */
+* {
+    font-family: 'Open Sans', sans-serif !important;
+}

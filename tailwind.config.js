@@ -17,17 +17,14 @@ module.exports = {
         "backgroundObjetivolgR": "url('/images/sections/objetivos_lg_r.png')",
         "backgroundObjetivolgL": "url('/images/sections/objetivos_lg_l.png')",
         "backgroundLayer": "url('/images/layer.png')",
+        "backgroundLayer2": "url('/images/layer_1.png')",
         "backgroundFlyer2024": "url('/images/flyer-vmc-2024.jpg')",
       }
     },
-    // fuente logik semi bold
-    // fontFamily: {
-    //   sans: ["Logik", "sans-serif"],
-    //   serif: ["Logik", "serif"],
-    //   mono: ["Logik", "monospace"],
-    //   display: ["Logik", "system-ui"],
-    //   body: ["Logik", "system-ui"],
-    // }
+    // open sans fuente por defecto
+    fontFamily: {
+      
+    },
     
   },
   plugins: [require("daisyui")],
