@@ -39,7 +39,7 @@ function Menudrop() {
                 href="/torneovmc"
                 className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium"
               >
-                Master CUP 2024 | VMC
+                Clasificatorio IESF 2024
             </MyLink>
             <MyLink
               href="/torneo"

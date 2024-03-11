@@ -136,7 +136,7 @@ const RegistroTorneo = () => {
               textShadow: "none",
             }}
           >
-            VMC Edición 2024
+            Campeonato Nacional Clasificatorio, Eliminatorias Brasil 2024
           </i>
         </h1>
 
