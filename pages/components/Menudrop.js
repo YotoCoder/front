@@ -36,7 +36,7 @@ function Menudrop() {
             }}
           > 
             <MyLink
-                href="/torneovmc"
+                href="/torneo-clasificatorio-iesf-2024"
                 className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium"
               >
                 Clasificatorio IESF 2024

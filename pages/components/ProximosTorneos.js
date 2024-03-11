@@ -11,7 +11,7 @@ export const ProximosTorneos = () => {
             Lunes, 11 de Marzo a la 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
-            <Link href="/torneovmc">
+            <Link href="/torneo-clasificatorio-iesf-2024">
             Campeonato Nacional Clasificatorio
             </Link>
           </div>
@@ -37,7 +37,7 @@ export const ProximosTorneos = () => {
             Lunes, 11 de Marzo a la 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
-            <Link href="/torneovmc">
+            <Link href="/torneo-clasificatorio-iesf-2024">
             Campeonato Nacional Clasificatorio
             </Link>
           </div>

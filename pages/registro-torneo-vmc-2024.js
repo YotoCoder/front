@@ -64,7 +64,7 @@ const RegistroTorneo = () => {
 			{
 				loading: "Registrando equipo...",
 				success: (res) => {
-          router.push("/torneovmc");
+          router.push("/torneo-clasificatorio-iesf-2024");
 					return "Equipo registrado con éxito.";
 				},
 				error: (err) => {
@@ -205,7 +205,7 @@ const RegistroTorneo = () => {
                 type="checkbox"
                 onChange={(e) => setRules(e.target.checked)}
               />
-              <p className="text-white">Acepto haber leido y aceptado todas las <a href={"/torneovmc#reglas"} target="_blank" className="text-[#F6B52E]">reglas</a> del torneo.</p>
+              <p className="text-white">Acepto haber leido y aceptado todas las <a href={"/torneo-clasificatorio-iesf-2024#reglas"} target="_blank" className="text-[#F6B52E]">reglas</a> del torneo.</p>
               
             </div>
             <button className="btn border-[#F6B52E] bg-[#F6B52E] w-3/4 text-white" onClick={onSubmit}>

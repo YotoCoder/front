@@ -103,21 +103,21 @@ const Torneo = () => {
         <meta lang="es" />
         <meta
           property="og:title"
-          content="Venezuela Master CUP DOTA 2"
+          content="Torneo Clasificatorio IESF 2024"
           key="title"
         />
 
         <meta
           name="description"
-          content="Pagina de organización de Torneos de Dota 2 online en Venezuela y latinoamerica."
+          content="Torneo Clasificatorio IESF 2024 Rumbo Brasil."
           key="desc"
         />
         <meta
           name="og:description"
-          content="Pagina de organización de Torneos de Dota 2 online en Venezuela y latinoamerica."
+          content="Torneo Clasificatorio IESF 2024 Rumbo Brasil."
         />
 
-        <meta property="og:image" content="../images/escudo.png" />
+        <meta property="og:image" content="../images/flyer-vmc-2024.jpg" />
 
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
 
