@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const ProximosTorneos = () => {
+export default function ProximosTorneos() {
   return (
     <div className="lg:flex flex-col lg:flex-row gap-4 justify-center items-center">
       <div className="lg:flex gap-6 bg-[#7DCD00] mt-2 p-6 w-auto">

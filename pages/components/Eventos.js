@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-export const Eventos = () => {
+export default function Eventos() {
   return (
     <div className="lg:flex">
       <div className="bg-white -translate-y-36 p-4">

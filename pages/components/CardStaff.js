@@ -5,7 +5,7 @@ const Circle = () => {
   return <div className="w-6 h-6 bg-white rounded-full"></div>;
 };
 
-export const CardStaff = () => {
+export default function CardStaff () {
   return (
     <div className="bg-[#7DCD00] ml-20 mr-4 pt-5 mt-4 max-w-max pr-4">
       <div className="flex">

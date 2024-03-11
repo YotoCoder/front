@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
 
-export const Patrocinadores = () => {
+export default function Patrocinadores() {
   return (
     <div className="bg-white -translate-y-52">
       <div className="text-2xl mx-4">Nuestros sponsors</div>

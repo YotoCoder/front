@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 
-export const Nosotros = () => {
+export default function Nosotros() {
   return (
     <div className='flex flex-col lg:flex-row ml- bg-[#111111] -translate-y-28 items-start justify-between'>
         <div className='lg:w-3/4'>

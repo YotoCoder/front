@@ -4,11 +4,11 @@ import Cargador from "./components/Cargador";
 import ModalFlyer from "./components/modals/ModalFlyer";
 import Image from "next/image";
 import Link from "next/link";
-import { ProximosTorneos } from "./components/ProximosTorneos";
-import { Nosotros } from "./components/Nosotros";
-import { Eventos } from "./components/Eventos";
-import { Equipo } from "./components/Equipo";
-import { Patrocinadores } from "./components/Patrocinadores";
+import ProximosTorneos from "./components/ProximosTorneos";
+import Nosotros from "./components/Nosotros";
+import Eventos from "./components/Eventos";
+import Equipo from "./components/Equipo";
+import Patrocinadores from "./components/Patrocinadores";
 
 const Head = dynamic(() => import("next/head"), {
   suspense: true,
