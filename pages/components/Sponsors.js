@@ -4,7 +4,7 @@ const Sponsors = () => {
   return (
     <div className="">
       <div className="lg:flex items-center justify-center">
-        <div className="flex relative lg:w-96 mt-20 flex-col card items-center justify-center w-auto m-4">
+        {/* <div className="flex relative lg:w-96 mt-20 flex-col card items-center justify-center w-auto m-4">
           <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] w-52 ">
             <img
               src="../images/sponsors/gondwana.png"
@@ -62,7 +62,7 @@ const Sponsors = () => {
               </a>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <div className="flex relative lg:w-96 mt-20 flex-col card items-center justify-center w-auto m-4">
           <div className="flex flex-col items-center justify-center relative top-[-7vh] pt-[-7vh] w-52 ">
