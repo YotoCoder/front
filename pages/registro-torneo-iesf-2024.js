@@ -147,7 +147,7 @@ const RegistroTorneo = () => {
         
           <form className="flex items-center justify-center pt-4 flex-col gap-2">
 					{error.avatar && <p className="text-red-500">{error.avatar}</p>}
-            <label className="input input-bordered flex items-center gap-2 w-3/4">
+            <label className="input input-bordered py-12 lg:p-0 flex items-center gap-2 w-3/4">
               Logo del Equipo
               <input
                 type="file"
@@ -166,7 +166,7 @@ const RegistroTorneo = () => {
               className="w-20 h-20 rounded-full object-cover"
             />
 						{error.nombre && <p className="text-red-500">{error.nombre}</p>}
-            <label className="input input-bordered flex items-center gap-2 w-3/4 ">
+            <label className="input input-bordered flex py-12 lg:p-0 items-center gap-2 w-3/4 ">
               Nombre del Team
               <input
                 type="text"
@@ -177,7 +177,7 @@ const RegistroTorneo = () => {
             </label>
 
 						{error.tag && <p className="text-red-500">{error.tag}</p>}
-            <label className="input input-bordered flex items-center gap-2 w-3/4">
+            <label className="input input-bordered flex items-center gap-2 w-3/4 py-8 lg:p-0">
               Tag (Abreviación)
 							
               <input

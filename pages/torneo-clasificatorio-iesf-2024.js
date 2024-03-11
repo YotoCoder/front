@@ -252,7 +252,7 @@ const Torneo = () => {
                           <a
                             type="buttom"
                             className="bg-[#F6B52E] items-center justify-center text-white font-mono py-2 px-4 rounded-[5px] mt-4"
-                            href="/registro-torneo-vmc-2024"
+                            href="/registro-torneo-iesf-2024"
                             target="_blank"
                           >
                             {torneo.estado == "E" && "Inscribirse"}

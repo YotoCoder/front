@@ -23,7 +23,7 @@ export default function ModalFlyer() {
         <div className="modal-action">
         <form method="dialog">
             <div className="flex gap-2">
-                <Link className="btn bg-[#F6B52E] text-black" href="/registro-torneo-vmc-2024">Registrarme</Link>
+                <Link className="btn bg-[#F6B52E] text-black" href="/registro-torneo-iesf-2024">Registrarme</Link>
                 <button className="btn">Cerrar</button>
             </div>
         </form>

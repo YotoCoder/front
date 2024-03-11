@@ -79,7 +79,7 @@ export default function Home() {
           <div>
             <div className="relative text-center  hover:scale-110 z-10 font-bold text-black bg-backgroundLayer2 bg-center bg-contain bg-no-repeat p-10 mt-2 mx-4">
               <Link
-                href="/registro-torneo-vmc-2024"
+                href="/registro-torneo-iesf-2024"
                 className="text-2xl lg:text-2xl cursor-pointer"
               >
                 Click aquí para registrarte
