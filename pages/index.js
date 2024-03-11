@@ -60,7 +60,7 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-8">
           {/* <MainContent /> <div className="z-[5000]"></div> */}
-          <ModalFlyer />
+          {/* <ModalFlyer /> */}
 
           <div className="text-4xl lg:text-6xl font-extrabold text-center text-[#76C200] mt-10">
             Regístrate en el Torneo
