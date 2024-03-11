@@ -17,7 +17,7 @@ module.exports = {
         "backgroundObjetivolgR": "url('/images/sections/objetivos_lg_r.png')",
         "backgroundObjetivolgL": "url('/images/sections/objetivos_lg_l.png')",
         "backgroundLayer": "url('/images/layer.png')",
-        "backgroundLayer2": "url('/images/layer_1.png')",
+        "backgroundLayer2": "url('/images/layer_11.png')",
         "backgroundFlyer2024": "url('/images/flyer-vmc-2024.jpg')",
       }
     },
