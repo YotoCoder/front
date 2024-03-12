@@ -12,9 +12,9 @@ export default function ModalFlyer() {
     <div>
     <dialog id="my_modal_1" className="modal">
     <div className="flex items-center justify-center flex-col modal-box bg-black text-white">
-        <h3 className="font-bold text-lg">Ya Disponible!<br></br>Registro del Torneo Clasificatorio IESF 2024</h3>
+        <h3 className="font-bold text-lg">Ya Disponible!<br></br>Registro del Torneo Clasificatorio IESF WEC 2024</h3>
         <Image
-            className='flex items-center shadow-md shadow-[#F6B52E] justify-center bg-center bg-cover bg-no-repeat rounded-lg'
+            className='flex items-center my-4 shadow-md shadow-[#F6B52E] justify-center bg-center bg-cover bg-no-repeat rounded-lg'
             src="/images/flyer-vmc-2024.jpg"
             alt="Flyer del torneo VMC 2024"
             width={300} height={300}
@@ -23,7 +23,7 @@ export default function ModalFlyer() {
         <div className="modal-action">
         <form method="dialog">
             <div className="flex gap-2">
-                <Link className="btn bg-[#F6B52E] text-black" href="/registro-torneo-iesf-2024">Registrarme</Link>
+                <Link className="btn bg-[#F6B52E] text-black" href="/registro-torneo-iesf-wec-2024">Registrarme</Link>
                 <button className="btn">Cerrar</button>
             </div>
         </form>

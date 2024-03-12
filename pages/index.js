@@ -60,13 +60,13 @@ export default function Home() {
         </div>
         <div className="flex flex-col gap-8">
           {/* <MainContent /> <div className="z-[5000]"></div> */}
-          {/* <ModalFlyer /> */}
+          <ModalFlyer />
 
           <div className="text-4xl lg:text-6xl font-extrabold text-center text-[#76C200] mt-10">
             Regístrate en el Torneo
           </div>
           <div className="text-xl lg:text-4xl text-center text-[#76C200] mt-2">
-            Campeonato Nacional Clasificatorio, Eliminatorias Brasil 2024
+            Campeonato Nacional Clasificatorio, IESF WEC 2024
           </div>
           <Image
             // animar el icono que brinque arriba y abajo
@@ -79,7 +79,7 @@ export default function Home() {
           <div>
             <div className="relative text-center  hover:scale-110 z-10 font-bold text-black bg-backgroundLayer2 bg-center bg-contain bg-no-repeat p-10 mt-2 mx-4">
               <Link
-                href="/registro-torneo-iesf-2024"
+                href="/registro-torneo-iesf-wec-2024"
                 className="text-2xl lg:text-2xl cursor-pointer"
               >
                 Click aquí para registrarte
@@ -91,7 +91,7 @@ export default function Home() {
           <div className="bg-[#76C200] pb-24 pt-8 -translate-y-20" id="torneos">
             <div className="mt-10 mx-4 lg:mx-8">
               <h3 className="text-2xl lg:text-3xl !font-light text-left text-[#1A1A1A] ">
-                Próximos torneos
+                Próximos eventos
               </h3>
             </div>
             <ProximosTorneos />

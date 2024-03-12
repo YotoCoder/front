@@ -29,7 +29,7 @@ export default function Eventos() {
                 <Link href="/mmrchampionship/1">LIGAS</Link>
               </button>
               <button className="bg-white p-5 mt-2 lg:mt-4 text-gray-900 w-full">
-                <Link href="/torneo-clasificatorio-iesf-2024">TORNEOS</Link>
+                <Link href="/torneo-clasificatorio-iesf-wec-2024">TORNEOS</Link>
               </button>
             </div>
           </div>

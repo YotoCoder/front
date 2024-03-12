@@ -11,15 +11,15 @@ export default function ProximosTorneos() {
             Lunes, 11 de Marzo a la 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
-            <Link href="/torneo-clasificatorio-iesf-2024">
+            <Link href="/torneo-clasificatorio-iesf-wec-2024">
             Campeonato Nacional Clasificatorio
             </Link>
           </div>
           <div className="text-[#FFFFFF] text-base">
-            Eliminatorias Brasil rumbo al IESF WEC24 en Riyahd 2024
+            Eliminatorias rumbo al IESF WEC24 en Riyahd 2024
           </div>
           <div className="text-[#F1F1F1] text-base">
-            #DOTA2 #IESF #FVDE #VMC{" "}
+            #DOTA2 #WEC24 #IESF #FVDE #VMC{" "}
           </div>
         </div>
         <Image
@@ -37,7 +37,7 @@ export default function ProximosTorneos() {
             Lunes, 11 de Marzo a la 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
-            <Link href="/torneo-clasificatorio-iesf-2024">
+            <Link href="/torneo-clasificatorio-iesf-wec-2024">
             Campeonato Nacional Clasificatorio
             </Link>
           </div>
@@ -45,7 +45,7 @@ export default function ProximosTorneos() {
             Eliminatorias Brasil rumbo al IESF WEC24 en Riyahd 2024
           </div>
           <div className="text-[#F1F1F1] text-base">
-            #DOTA2 #IESF #FVDE #VMC{" "}
+            #DOTA2 #WEC24 #IESF #FVDE #VMC{" "}
           </div>
         </div>
         <Image
