@@ -39,7 +39,7 @@ function Menudrop() {
                 href="/torneo-clasificatorio-iesf-wec-2024"
                 className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium"
               >
-                Clasificatorio IESF 2024
+                Clasificatorio IESF WEC 2024
             </MyLink>
             <MyLink
               href="/torneo"

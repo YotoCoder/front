@@ -128,7 +128,7 @@ const RegistroTorneo = () => {
             textShadow: "1px 0px 1px #000000",
           }}
         >
-          <b className="ml-4 lg:ml-0">Regístrate en el Torneo</b>
+          <b className="lg:ml-0">Regístrate en el Torneo</b>
           <i
             className="text-black text-base !font-extrabold lg:text-3xl lg:p-2"
             style={{
@@ -185,7 +185,7 @@ const RegistroTorneo = () => {
             />
           </label>
 
-          <label className="text-white ml-4">
+          <label className="text-white pl-8 lg:pl-0">
             Jugadores del Equipo (Deben estar Registrados)
             {error.jugadores && (
               <p className="text-red-500">{error.jugadores}</p>
@@ -195,12 +195,12 @@ const RegistroTorneo = () => {
             required
             options={options}
             isMulti
-            className="basic-multi-select w-3/4 lg:w-96 lg:pl-4 "
+            className="basic-multi-select w-3/4 lg:w-96"
             classNamePrefix="select"
             onChange={(e) => setJugadores(e)}
           />
           <div className="flex gap-2  w-3/4"></div>
-          <div className="flex gap-2 ml-4">
+          <div className="flex gap-2 ml-12">
             <input
               type="checkbox"
               onChange={(e) => setRules(e.target.checked)}

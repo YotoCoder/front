@@ -119,6 +119,7 @@ const Register = () => {
                     <option value="Off Laner">Off Lane</option>
                     <option value="Soft Support">Soft Support</option>
                     <option value="Hard Support">Hard Support</option>
+                    <option value="Hard Support">Standing</option>
                   </select>
                 </div>
 

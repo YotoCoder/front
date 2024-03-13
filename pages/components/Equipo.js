@@ -1,11 +1,18 @@
 import React from "react";
-import CardStaff from "./CardStaff";
+import Carousel from "./Carousel";
 
 export default function Equipo() {
   return (
-    <div className="bg-white -translate-y-44 h-64">
-      <div className="text-2xl pl-4">Nuestro equipo</div>
-      <CardStaff />
+    <div className="bg-white -translate-y-44 ">
+      <div>
+        <div className="text-2xl pl-4">Nuestro equipo</div>
+      </div>
+      <div className="flex overflow-x-auto">
+
+        <Carousel />
+
+
+      </div>
     </div>
   );
-};
+}

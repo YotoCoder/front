@@ -103,18 +103,18 @@ const Torneo = () => {
         <meta lang="es" />
         <meta
           property="og:title"
-          content="Torneo Clasificatorio IESF 2024"
+          content="Torneo Clasificatorio IESF WEC 2024"
           key="title"
         />
 
         <meta
           name="description"
-          content="Torneo Clasificatorio IESF 2024 Rumbo Brasil."
+          content="Torneo Clasificatorio IESF WEC 2024 Rumbo Brasil."
           key="desc"
         />
         <meta
           name="og:description"
-          content="Torneo Clasificatorio IESF 2024 Rumbo Brasil."
+          content="Torneo Clasificatorio IESF WEC 2024 Rumbo Brasil."
         />
 
         <meta property="og:image" content="../images/flyer-vmc-2024.jpg" />
