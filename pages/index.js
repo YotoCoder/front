@@ -7,7 +7,7 @@ import Link from "next/link";
 import ProximosTorneos from "./components/ProximosTorneos";
 import Nosotros from "./components/Nosotros";
 import Eventos from "./components/Eventos";
-// import Equipo from "./components/Equipo";
+import Equipo from "./components/Equipo";
 import Patrocinadores from "./components/Patrocinadores";
 
 const Head = dynamic(() => import("next/head"), {
@@ -98,8 +98,8 @@ export default function Home() {
           </div>
           <Nosotros />
           <Eventos />
-{/* 
-          <Equipo /> */}
+
+          <Equipo />
 
           <Patrocinadores />
 
