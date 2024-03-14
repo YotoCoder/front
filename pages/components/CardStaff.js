@@ -10,7 +10,11 @@ export default function CardStaff ({imagen, rol, nombre, nick, descripcion}) {
     <div className="bg-[#7DCD00] ml-20 mr-4 pt-6 mt-4 max-w-max pr-4 pb-7">
       <div className="flex">
         <Image
-          src={imagen}
+          src={
+            imagen
+              ? imagen
+              : "/images/team/grechi.jpg"
+          }
           width={210}
           height={210}
           alt={nombre}
