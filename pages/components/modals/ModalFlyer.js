@@ -15,7 +15,7 @@ export default function ModalFlyer() {
         <h3 className="font-bold text-lg">Ya Disponible!<br></br>Registro del Torneo Clasificatorio IESF WEC 2024</h3>
         <Image
             className='flex items-center my-4 shadow-md shadow-[#F6B52E] justify-center bg-center bg-cover bg-no-repeat rounded-lg'
-            src="/images/flyer-vmc-2024.jpg"
+            src="/images/flyervmciesfwec24.png"
             alt="Flyer del torneo VMC 2024"
             width={300} height={300}
         />

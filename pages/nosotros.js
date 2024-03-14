@@ -53,7 +53,7 @@ const Nosotros = () => {
 
       <div className="lg:py-0">
         <About />
-        <Cards />
+        {/* <Cards /> */}
       </div>
 
       <Footer />
