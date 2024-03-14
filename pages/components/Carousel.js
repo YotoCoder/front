@@ -1,12 +1,12 @@
 import CardStaff from "./CardStaff";
 
 import { Swiper, SwiperSlide } from 'swiper/react';
-import SwiperCore, { Navigation, Pagination, Autoplay, Breakpoints } from 'swiper';
+import SwiperCore, { Navigation, Pagination, Autoplay } from 'swiper';
 import "swiper/css";
 import "swiper/css/pagination"
 import "swiper/css/navigation"
 
-SwiperCore.use([Navigation, Pagination, Autoplay, Breakpoints]);
+SwiperCore.use([Navigation, Pagination, Autoplay]);
 
 export default () => {
   return (
@@ -14,16 +14,16 @@ export default () => {
       spaceBetween={30}
       
       autoplay={{ delay: 2500, disableOnInteraction: false }}
-      breakpoints={{
-        // Cuando el ancho de la ventana es igual o mayor a 768px (tamaño de una tableta en horizontal)
-        768: {
-          slidesPerView: 2,
-        },
-        // Cuando el ancho de la ventana es menor a 768px (tamaño de dispositivos móviles)
-        0: {
-          slidesPerView: 1,
-        },
-      }}
+      // breakpoints={{
+      //   // Cuando el ancho de la ventana es igual o mayor a 768px (tamaño de una tableta en horizontal)
+      //   768: {
+      //     slidesPerView: 2,
+      //   },
+      //   // Cuando el ancho de la ventana es menor a 768px (tamaño de dispositivos móviles)
+      //   0: {
+      //     slidesPerView: 1,
+      //   },
+      // }}
     >
       <SwiperSlide>
         <CardStaff

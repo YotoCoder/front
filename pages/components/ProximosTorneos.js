@@ -8,11 +8,11 @@ export default function ProximosTorneos() {
       <div className="lg:flex gap-6 bg-[#7DCD00] mt-2 p-6 w-auto">
         <div className="flex flex-col gap-4">
           <div className="text-[#DBFFA3] text-sm">
-            Lunes, 1 de Abril a la 7 PM
+            Lunes, 15 de Marzo a las 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
             <Link href="/torneo-clasificatorio-iesf-wec-2024">
-            Campeonato Nacional Clasificatorio
+            Registro al Campeonato Nacional Clasificatorio IESF WEC 2024
             </Link>
           </div>
           <div className="text-[#FFFFFF] text-base">
@@ -24,7 +24,7 @@ export default function ProximosTorneos() {
         </div>
         <Image
           // animar el icono que brinque arriba y abajo
-          src="/images/escudo.png"
+          src="/images/flyervmciesfwec24.png"
           alt="Venezuela Master CUP"
           width={140}
           height={140}
@@ -34,15 +34,15 @@ export default function ProximosTorneos() {
       <div className="lg:flex gap-6 bg-[#7DCD00] mt-2 p-6 w-auto">
         <div className="flex flex-col gap-4">
           <div className="text-[#DBFFA3] text-sm">
-            Lunes, 1 de Abril a la 7 PM
+            Lunes, 1 de Abril a las 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
             <Link href="/torneo-clasificatorio-iesf-wec-2024">
-            Campeonato Nacional Clasificatorio
+            Comienzo del torneo de clasificatorio IESF WEC24 2024
             </Link>
           </div>
           <div className="text-[#FFFFFF] text-base">
-            Eliminatorias Brasil rumbo al IESF WEC24 en Riyahd 2024
+            Eliminatorias rumbo al IESF WEC24 en Riyahd 2024
           </div>
           <div className="text-[#F1F1F1] text-base">
             #DOTA2 #WEC24 #IESF #FVDE #VMC{" "}
@@ -50,7 +50,7 @@ export default function ProximosTorneos() {
         </div>
         <Image
           // animar el icono que brinque arriba y abajo
-          src="/images/escudo.png"
+          src="/images/flyervmciesfwec24.png"
           alt="Venezuela Master CUP"
           width={140}
           height={140}
