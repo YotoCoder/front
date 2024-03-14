@@ -8,7 +8,7 @@ export default function ProximosTorneos() {
       <div className="lg:flex gap-6 bg-[#7DCD00] mt-2 p-6 w-auto">
         <div className="flex flex-col gap-4">
           <div className="text-[#DBFFA3] text-sm">
-            Lunes, 11 de Marzo a la 7 PM
+            Lunes, 1 de Abril a la 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
             <Link href="/torneo-clasificatorio-iesf-wec-2024">
@@ -34,7 +34,7 @@ export default function ProximosTorneos() {
       <div className="lg:flex gap-6 bg-[#7DCD00] mt-2 p-6 w-auto">
         <div className="flex flex-col gap-4">
           <div className="text-[#DBFFA3] text-sm">
-            Lunes, 11 de Marzo a la 7 PM
+            Lunes, 1 de Abril a la 7 PM
           </div>
           <div className="text-white text-xl font-bold cursor-pointer">
             <Link href="/torneo-clasificatorio-iesf-wec-2024">
