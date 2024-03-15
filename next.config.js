@@ -11,4 +11,7 @@ module.exports = {
     // APIhost: 'http://localhost:8000',
     NEXT_PUBLIC_GA_MEASUREMENT_ID: 'G-W0C0MEQS4Z'
   },
+  images: {
+    domains: ['admin.vemastercup.com', 'localhost'],
+  },
 }

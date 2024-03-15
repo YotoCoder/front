@@ -8,6 +8,7 @@ import Flag from "react-world-flags";
 import { Toaster } from "react-hot-toast";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Nav = dynamic(() => import("./components/Nav"), {
   suspense: true,
@@ -395,15 +396,31 @@ const Torneo = () => {
               {
                 // FASES
                 posicion.FASES && (
-                  <div className='text-white'>
-                    Por definir
+                  <div className='text-white '>
+                    <Image
+                      src={
+                        torneo.fases ? torneo.fases : "/images/flyer-vmc-2024.jpg"
+                      }
+                      alt="Fases"
+                      width={1080}
+                      height={1080}
+                      className="m-auto shadow-lg w-[540px] shadow-amber-300 mb-4 rounded"
+                    />
                   </div>
                 )
               }
 
               {posicion.TABLA && (
                 <div className="text-white">
-                  Por definir
+                  <Image
+                      src={
+                        torneo.main_event ? torneo.main_event : "/images/flyer-vmc-2024.jpg"
+                      }
+                      alt="Main Event"
+                      width={1080}
+                      height={1080}
+                      className="m-auto shadow-lg w-[540px] shadow-amber-300 mb-4 rounded"
+                    />
                 </div>
               )}
 
