@@ -23,7 +23,7 @@ export default function ProximosTorneos() {
           </div>
         </div>
         <Image
-          // animar el icono que brinque arriba y abajo
+          
           src="/images/flyervmciesfwec24.png"
           alt="Venezuela Master CUP"
           width={140}

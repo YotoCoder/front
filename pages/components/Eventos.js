@@ -11,7 +11,7 @@ export default function Eventos() {
         </h3>
         <div className="flex flex-col bg-[#7DCD00] pb-8">
           <Image
-            src="/images/event0.png"
+            src="/images/event00.jpg"
             alt="Venezuela Master CUP"
             width={2000}
             height={0}
@@ -38,7 +38,7 @@ export default function Eventos() {
       <div className="bg-white -translate-y-36 p-4">
         <div className="flex flex-col bg-[#7DCD00] pb-8 lg:mt-8">
           <Image
-            src="/images/event00.png"
+            src="/images/event0.png"
             alt="Venezuela Master CUP"
             width={2000}
             height={0}
@@ -49,7 +49,7 @@ export default function Eventos() {
             <div className="text-gray-900">
               Organizamos eventos especiales y de caridad para la comunidad, lo
               que nos permite retribuir a la comunidad y hacer la diferencia.
-              Somos más de 42 jugadores activos.
+              Somos más de 120 jugadores activos.
             </div>
             <div className="lg:flex gap-2">
               <button className="bg-white p-5 mt-4 text-gray-900 w-full">

@@ -36,6 +36,12 @@ function MenuDropLiga() {
             }}
           >
             <MyLink
+              href="/liga/equality-league"
+              className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium w-56"
+            >
+              Equality League
+            </MyLink>
+            <MyLink
               href="/mmrchampionship/1"
               className="hover:bg-lime-700 text-white px-3 py-2  text-sm font-medium w-56"
             >

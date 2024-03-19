@@ -67,7 +67,7 @@ function Menuliga() {
                 href={`/liga/${liga.id}`}
                 className="hover:bg-lime-700 text-white px-6 py-2  text-sm font-medium w-max"
                 onClick={() => {
-                  edicion[1](liga);
+                  edicion[2](liga);
                 }}
               >
                 {liga.nombre}
