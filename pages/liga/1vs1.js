@@ -410,12 +410,7 @@ const Liga = () => {
                           RESTRICCIONES DE LA LIGA
                         </p>
                         <p className="text-[#6E6F73] lg:w-96">
-                          Al participar solo o en equipo en el liga, todos los
-                          jugadores reconocen que están totalmente de acuerdo
-                          con las reglas y los términos del liga.
-                          <br></br>
-                          Al no cumplir con los requisitos previos, los usuarios
-                          serán eliminados del liga y baneados.
+                          {parse(liga.descripcion.replaceAll(".", ".<br>"))}
                         </p>
                         <div className="">
                           <button
@@ -694,7 +689,7 @@ const Liga = () => {
                   </div>
 
                   <p className="text-[#ababab] m-4">
-                    {parse(liga.reglas.replaceAll(".", ".<br></br>"))}
+                    {parse(liga.reglas.replaceAll(".", ".<br>"))}
                   </p>
                 </>
               )}
