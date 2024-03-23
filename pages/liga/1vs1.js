@@ -407,7 +407,7 @@ const Liga = () => {
 
                       <div className="m-4">
                         <p className="blanco lg:text-2xl pb-4 lg:pb-8">
-                          RESTRICCIONES DE LA LIGA
+                          DESCRIPCION
                         </p>
                         <p className="text-[#6E6F73] lg:w-96">
                           {parse(liga.descripcion.replaceAll(".", ".<br>"))}
