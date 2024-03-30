@@ -123,7 +123,7 @@ const Liga = () => {
     }
 
     // si ya arranco la liga, no se puede registrar
-    if (new Date(liga.fecha_inicio) < new Date()) {
+    if (new Date(liga.fecha_inicio) <= new Date()) {
       toast.error("La liga ya ha comenzado, no se puede registrar.");
       return;
     }
