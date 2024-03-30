@@ -10,8 +10,7 @@ import Flag from "react-world-flags";
 import { toast, Toaster } from "react-hot-toast";
 import Menuliga from "../components/Menuliga";
 
-import ColorThief from 'colorthief';
-
+import ColorThief from "colorthief";
 
 const Nav = dynamic(() => import("../components/Nav"), {
   suspense: true,
@@ -63,10 +62,12 @@ const Liga = () => {
   const [MMR, setMMR] = useState(null);
 
   const [posicion, setPosicion] = useState({
-    VISION_GENERAL: true,
+    VISION_GENERAL: false,
     TABLA: false,
     REGISTRO: false,
     REGLAS: false,
+    FASES: true,
+    FINAL: false,
   });
 
   const API_URL = process.env.APIhost + "/ligas/";
@@ -103,17 +104,16 @@ const Liga = () => {
     });
   }, [id]);
 
-  useEffect(()=>{
-    
+  useEffect(() => {
     const colorThief = new ColorThief();
     const img = new Image();
     img.src = host + liga.avatar;
-    img.crossOrigin = 'Anonymous';
+    img.crossOrigin = "Anonymous";
     img.onload = () => {
       setDominantColor(colorThief.getColor(img));
       console.log(dominantColor);
     };
-  }, [liga])
+  }, [liga]);
 
   const handleRegistro = (e) => {
     // si la fecha final ya paso, no se puede registrar
@@ -135,7 +135,7 @@ const Liga = () => {
         return;
       }
     }
-    
+
     let headersList = {
       Authorization: "Bearer " + localStorage.getItem("token"),
       "Content-Type": "application/json",
@@ -231,7 +231,7 @@ const Liga = () => {
               <div className="flex items-center justify-center pb-2 lg:pb-4">
                 <img
                   src={host + liga.avatar}
-                  id='img'
+                  id="img"
                   className="w-[1200px] h-[80px] lg:h-[200px] "
                   style={{
                     objectFit: "cover",
@@ -245,7 +245,7 @@ const Liga = () => {
                   className="text-white absolute mt-[-40px] lg:mt-[-50px] text-xl lg:text-4xl black titulo-liga"
                   style={{ textShadow: "4px 2px 2px #000" }}
                 >
-                    {liga.nombre}
+                  {liga.nombre}
                 </div>
                 <p
                   className="text-white absolute lg:text-2xl lg:pt-20"
@@ -258,7 +258,7 @@ const Liga = () => {
                   className="absolute text-xs mr-60 mt-6 text-white items-center lg:mr-[800px] lg:mt-10 lg:text-2xl"
                   style={{ textShadow: "2px 2px 2px #000" }}
                 >
-                  <div>
+                  <div className="pt-4">
                     Inicio:{" "}
                     {fechaInicioFormateada.dia +
                       "-" +
@@ -290,6 +290,8 @@ const Liga = () => {
                       TABLA: false,
                       REGISTRO: false,
                       REGLAS: false,
+                      FASES: false,
+                      FINAL: false,
                     });
                   }}
                 >
@@ -308,6 +310,8 @@ const Liga = () => {
                       TABLA: false,
                       REGISTRO: false,
                       REGLAS: true,
+                      FASES: false,
+                      FINAL: false,
                     });
                   }}
                 >
@@ -326,14 +330,34 @@ const Liga = () => {
                       TABLA: true,
                       REGISTRO: false,
                       REGLAS: false,
+                      FASES: false,
+                      FINAL: false,
                     });
                   }}
                 >
                   <p>TABLA</p>
                 </li>
-                <li className="z-[10]">
-                  {/* <Menuliga /> */}
+                <li className="z-[10]">{/* <Menuliga /> */}</li>
+                <li
+                  className={`relative flex cursor-pointer items-center justify-center px-1 ${
+                    posicion.FASES
+                      ? "active border-b-4 top-[1px] border-[#76C200] pb-4"
+                      : "inactive"
+                  }`}
+                  onClick={() => {
+                    setPosicion({
+                      VISION_GENERAL: false,
+                      TABLA: false,
+                      REGISTRO: false,
+                      REGLAS: false,
+                      FASES: true,
+                      FINAL: false,
+                    });
+                  }}
+                >
+                  PARTIDOS
                 </li>
+                
               </ul>
 
               {posicion.VISION_GENERAL && (
@@ -356,6 +380,8 @@ const Liga = () => {
                                   TABLA: false,
                                   REGISTRO: true,
                                   REGLAS: false,
+                                  FASES: false,
+                                  FINAL: false,
                                 });
                               }}
                             >
@@ -428,6 +454,8 @@ const Liga = () => {
                                 TABLA: false,
                                 REGISTRO: false,
                                 REGLAS: true,
+                                FASES: false,
+                                FINAL: false,
                               });
                             }}
                           >
@@ -524,96 +552,6 @@ const Liga = () => {
                         >
                           MMR
                         </th>
-                        <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
-                            inOrder.PG ? "bg-lime-800" : ""
-                          }`}
-                          onClick={() => {
-                            setAscendente(!ascendente);
-                            if (ascendente) {
-                              jugadores.sort((a, b) => {
-                                return b.ganadas - a.ganadas;
-                              });
-                            }
-                            if (!ascendente) {
-                              jugadores.sort((a, b) => {
-                                return a.ganadas - b.ganadas;
-                              });
-                            }
-                            setJugadores([...jugadores]);
-                            setInOrder({
-                              MMR: false,
-                              PG: true,
-                              PP: false,
-                              PJ: false,
-                            });
-                          }}
-                        >
-                          PG
-                        </th>
-                        <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
-                            inOrder.PP ? "bg-lime-800" : ""
-                          }`}
-                          onClick={() => {
-                            setAscendente(!ascendente);
-                            if (ascendente) {
-                              jugadores.sort((a, b) => {
-                                return b.perdidas - a.perdidas;
-                              });
-                            }
-                            if (!ascendente) {
-                              jugadores.sort((a, b) => {
-                                return a.perdidas - b.perdidas;
-                              });
-                            }
-                            setJugadores([...jugadores]);
-                            setInOrder({
-                              MMR: false,
-                              PG: false,
-                              PP: true,
-                              PJ: false,
-                            });
-                          }}
-                        >
-                          PP
-                        </th>
-                        <th
-                          className={`px-1 py-2 cursor-pointer blanco border border-[#111111] ${
-                            inOrder.PJ ? "bg-lime-800" : ""
-                          }`}
-                          onClick={() => {
-                            setAscendente(!ascendente);
-                            if (ascendente) {
-                              jugadores.sort((a, b) => {
-                                return (
-                                  b.ganadas +
-                                  b.perdidas -
-                                  (a.ganadas + a.perdidas)
-                                );
-                              });
-                            }
-                            if (!ascendente) {
-                              jugadores.sort((a, b) => {
-                                return (
-                                  a.ganadas +
-                                  a.perdidas -
-                                  (b.ganadas + b.perdidas)
-                                );
-                              });
-                            }
-                            setJugadores([...jugadores]);
-
-                            setInOrder({
-                              MMR: false,
-                              PG: false,
-                              PP: false,
-                              PJ: true,
-                            });
-                          }}
-                        >
-                          PJ
-                        </th>
                       </tr>
                     </thead>
 
@@ -671,15 +609,6 @@ const Liga = () => {
                           </td>
                           <td className="px-1 py-2 text-white border border-[#111111]">
                             {jugador.mmr}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#111111]">
-                            {jugador.ganadas}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#111111]">
-                            {jugador.perdidas}
-                          </td>
-                          <td className="px-1 py-2 text-white border border-[#111111]">
-                            {jugador.perdidas + jugador.ganadas}
                           </td>
                         </tr>
                       ))}
@@ -741,6 +670,12 @@ const Liga = () => {
                   </div>
                 </>
               )}
+              {posicion.FASES && (
+                <div className="">
+                  <iframe src="https://challonge.com/es/VMC1VS1/module" width="100%" height="1500" frameborder="0" scrolling="auto" allowtransparency="true"></iframe>
+                </div>
+              )}
+              
             </div>
           </>
         )}
