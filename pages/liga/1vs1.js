@@ -122,6 +122,12 @@ const Liga = () => {
       return;
     }
 
+    // si ya arranco la liga, no se puede registrar
+    if (new Date(liga.fecha_inicio) < new Date()) {
+      toast.error("La liga ya ha comenzado, no se puede registrar.");
+      return;
+    }
+
     // si ya esta registrado, no se puede registrar cancelar y mostrar mensaje
     for (let i = 0; i < jugadores.length; i++) {
       if (jugadores[i].user.username == localStorage.getItem("username")) {
