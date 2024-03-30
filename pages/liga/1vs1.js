@@ -251,7 +251,7 @@ const Liga = () => {
                   className="text-white absolute lg:text-2xl lg:pt-20"
                   style={{ textShadow: "2px 2px 2px #000" }}
                 >
-                  Liga 1vs1 Mixta Mujeres y Hombres
+                  Liga 1vs1 Mixta
                 </p>
                 {/* colocar periodo de fechas */}
                 <li
