@@ -623,9 +623,9 @@ const Liga = () => {
                     <p className="blanco">Reglas Generales</p>
                   </div>
 
-                  <p className="text-[#ababab] m-4">
-                    {parse(liga.reglas.replaceAll(".", ".<br>"))}
-                  </p>
+                  <div className="text-[#ababab] ml-8 mb-16">
+                    {parse(liga.reglas)}
+                  </div>
                 </>
               )}
 
