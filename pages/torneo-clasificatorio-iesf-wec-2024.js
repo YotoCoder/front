@@ -200,7 +200,7 @@ const Torneo = () => {
                   EQUIPOS
                 </li>
 
-                <li
+                {/* '<li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
                     posicion.FASES
                       ? "activeiesf border-b-4 top-[1px] border-[#F6B52E] pb-4"
@@ -217,7 +217,7 @@ const Torneo = () => {
                   }}
                 >
                   FASES
-                </li>
+                </li>' */}
 
                 <li
                   className={`relative flex cursor-pointer items-center justify-center px-1 ${
@@ -355,7 +355,7 @@ const Torneo = () => {
                         </div>
 
                         <div className="flex my-[3px] bg-[#242424] justify-between items-center">
-                          <p className="text-white p-4 px-6">3° lugar</p>
+                          <p className="text-white p-4 px-6">3° y 4° lugar</p>
                           <p className="text-[#F6B52E] text-2xl mx-6">
                             {torneo.premio_tercer_lugar}$
                           </p>
@@ -419,7 +419,7 @@ const Torneo = () => {
                       alt="Main Event"
                       width={1080}
                       height={1080}
-                      className="m-auto shadow-lg w-[540px] shadow-amber-300 mb-4 rounded"
+                      className="m-auto shadow-lg w-[1080px] shadow-amber-300 mb-4 rounded"
                     />
                 </div>
               )}

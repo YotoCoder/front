@@ -219,7 +219,7 @@ const RegistroTorneo = () => {
           </div>
           <button
             className="btn border-[#F6B52E] bg-[#F6B52E] w-3/4 lg:w-96 lg:pl-4  text-white"
-            onClick={onSubmit}
+            onClick={()=>alert('Registro Cerrado!')}
           >
             Inscribir Equipo
           </button>
