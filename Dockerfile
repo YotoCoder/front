@@ -1,19 +1,35 @@
-FROM node:16-alpine
+# Etapa 1: Build
+FROM node:18-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
-# Copy only package.json (not lock files)
+# Copia dependencias primero para aprovechar la cache
 COPY package.json ./
-
-# Install dependencies with npm
 RUN npm install
 
-# Copy source code
+# Copia el resto del proyecto
 COPY . .
 
-# Expose the app on port 4000
-EXPOSE 4000
+# Compila la app Next.js
+RUN npm run build
 
-# Default command
-CMD ["npm", "start"]
+# Etapa 2: Producción
+FROM node:18-alpine AS runner
+
+# Establece la variable de entorno para producción
+ENV NODE_ENV=production
+
+WORKDIR /app
+
+# Solo copias necesarias para producción
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/.next ./.next
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/next.config.js ./next.config.js
+
+# Expone el puerto que usa Next.js
+EXPOSE 3000
+
+# Comando para arrancar el servidor Next.js
+CMD ["node_modules/.bin/next", "start"]
