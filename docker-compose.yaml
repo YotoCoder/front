@@ -12,10 +12,10 @@ services:
       sh -c "yarn build &&
              yarn start"
     ports:
-      - 3000:3000
+      - 4000:4000
     environment:
       - NODE_ENV=development
     env_file:
       - .env
     expose:
-      - 3000
+      - 4000
