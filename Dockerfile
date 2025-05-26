@@ -3,17 +3,17 @@ FROM node:16-alpine
 # Set working directory
 WORKDIR /app
 
-# Copy dependency files
-COPY package.json yarn.lock ./
+# Copy only package.json (not lock files)
+COPY package.json ./
 
-# Install dependencies
-RUN yarn install --frozen-lockfile
+# Install dependencies with npm
+RUN npm install
 
 # Copy source code
 COPY . .
 
-# Expose the application port
+# Expose the app on port 4000
 EXPOSE 4000
 
-# Default command (optional if handled by docker-compose)
-CMD ["yarn", "start"]
+# Default command
+CMD ["npm", "start"]
