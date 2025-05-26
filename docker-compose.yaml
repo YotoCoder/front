@@ -8,7 +8,7 @@ services:
     volumes:
       - .:/app
     command: >
-      sh -c "yarn build && yarn start"
+      sh -c "npm run build && npm start"
     ports:
       - "4000:4000"
     environment:
