@@ -3,33 +3,32 @@ FROM node:18-alpine AS builder
 
 WORKDIR /app
 
-# Copia dependencias primero para aprovechar la cache
-COPY package.json ./
-RUN npm install
+# Copiamos archivos de dependencias primero
+COPY package.json yarn.lock ./
+RUN yarn install --frozen-lockfile
 
-# Copia el resto del proyecto
+# Copiamos el resto del código
 COPY . .
 
-# Compila la app Next.js
-RUN npm run build
+# Compilamos la app Next.js
+RUN yarn build
 
 # Etapa 2: Producción
 FROM node:18-alpine AS runner
 
-# Establece la variable de entorno para producción
 ENV NODE_ENV=production
 
 WORKDIR /app
 
-# Solo copias necesarias para producción
+# Copiamos solo lo necesario
 COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/.next ./.next
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/node_modules ./node_modules
 COPY --from=builder /app/next.config.js ./next.config.js
 
-# Expone el puerto que usa Next.js
-EXPOSE 3000
+# Puerto en producción
+EXPOSE 4000
 
-# Comando para arrancar el servidor Next.js
-CMD ["node_modules/.bin/next", "start"]
+# Comando para iniciar el servidor Next.js en el puerto 4000
+CMD ["yarn", "start", "-p", "4000"]
