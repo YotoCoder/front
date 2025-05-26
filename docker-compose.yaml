@@ -1,17 +1,10 @@
-version: '3'
+version: '3.8'
+
 services:
-  next:
+  nextjs-app:
     build: .
-    container_name: next
-    working_dir: /app
-    restart: unless-stopped
-    volumes:
-      - .:/app
-    command: >
-      sh -c "npm run build && npm start"
     ports:
       - "4000:4000"
     environment:
-      - NODE_ENV=development
-    env_file:
-      - .env
+      - NODE_ENV=production
+    restart: unless-stopped
